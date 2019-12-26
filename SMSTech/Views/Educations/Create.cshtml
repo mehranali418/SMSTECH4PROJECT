@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+
+}
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Add Education</h4>
+
+
+    </div>
+    <div class="col-md-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index", "Educations")">Education</a></li>
+                <li class="breadcrumb-item active"><a href="@Url.Action("Create", "Educations")">Add Education</a></li>
+            </ol>
+            <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> <a href="@Url.Action("Create", "Educations")">Create New</a></button>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <!-- Nav tabs -->
+                <!-- Tab panes -->
+                <!--Student Tab Open-->
+                <div class="tab-pane active" id="home" role="tabpanel">
+                    <div class="p-20">
+                        <div class="card-header bg-info">
+                            <h4 class="m-b-0 text-white">Section</h4>
+                        </div>
+                        <div class="card-body">
+                            <form action="StudentInformation" method="post">
+                                <div class="form-body">
+                                    <h3 class="card-title">Add Sections</h3>
+                                    <hr>
+
+                                    <!--Rows 1-->
+                                    <div class="row p-t-20">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Name</label>
+                                                <input type="text" id="Name" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                       
+                                    </div>
+                                    <!--/row-->
+
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-primary" id="btn_Add"> <i class="fa fa-check"></i>Add</button>
+                                    <input type="button" value="Update" id="btn_Update" class="btn btn-success" />
+                                    <button type="button" class="btn btn-inverse">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--Student Tab Close-->
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+   
+    $(document).delegate('.edit', 'click', function () {
+        debugger
+        var rowValue = $(this).closest('tr');
+        var ID = rowValue.find("td:eq(0)").text();
+        var Name = rowValue.find("td:eq(1)").text();
+
+        $('#id').val(ID);
+        $('#Name').val(Name);
+    })
+    $('#btn_Add').click(function () {
+        debugger
+        var Name = $('#Name').val();      
+        $.ajax({
+            url: '/Educations/Insert',
+            Type: 'Get',
+            dataType: 'json',
+            data: { "Name": Name },
+            contentType: 'application/json;charset=utf-8',
+           
+            success: function () {
+                alert("Success");
+                GetData();
+            },
+            error: function () {
+                alert("Failed");
+            }
+        })
+    })
+</script>

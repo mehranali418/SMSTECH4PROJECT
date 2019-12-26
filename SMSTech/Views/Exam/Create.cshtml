@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+
+}
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Add Exam</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="@Url.Action("Index", "Exam")">Exam</a></li>
+                <li class="breadcrumb-item active"><a href="@Url.Action("Create", "Exam")">Add Exam</a></li>
+            </ol>
+            <button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i><a href="@Url.Action("Create", "Exam")"> Create New</a></button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <!-- Nav tabs -->
+                <!-- Tab panes -->
+                <!--Student Tab Open-->
+                <div class="tab-pane active" id="home" role="tabpanel">
+                    <div class="p-20">
+                        <div class="card-header bg-info">
+                            <h4 class="m-b-0 text-white">Section</h4>
+                        </div>
+                        <div class="card-body">
+                            <form action="StudentInformation" method="post">
+                                <div class="form-body">
+                                    <h3 class="card-title">Add Exams</h3>
+                                    <hr>
+
+                                   
+                                    
+                                    <!--Rows 1-->
+                                    <div class="row p-t-20">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">TestID</label>
+                                                <input type="text" id="TestID" class="form-control" />
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">ExamDate</label>
+                                                <input type="date" id="ExamDate" class="form-control" />
+
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+
+                                    
+                                    
+                                    <!--Rows 2-->
+                                    <div class="row p-t-20">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label ">IsActive</label>
+                                                <input type="text" id="IsActive" class="form-control " />
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label ">ShortName</label>
+                                                <input type="text" id="ShortName" class="form-control " />
+
+                                            </div>
+                                        </div>
+                                        <!--/span-->
+                                    </div>
+                                    <!--/row-->
+
+                                </div>
+
+                                <div class="form-actions">
+                                    <button type="button" class="btn btn-primary" id="btn_Add"> <i class="fa fa-check"></i>Add</button>
+                                    <input type="button" value="Update" id="btn_Update" class="btn btn-success" />
+                                    <button type="button" class="btn btn-inverse">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--Student Tab Close-->
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        debugger
+        GetData();
+    })
+    function GetData() {
+        $('#body').empty();
+        $.ajax({
+            url: '/Exam/GetData',
+            Type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json;charset=utf-8',
+            success: function (result) {
+                var rows = '';
+                $.each(result, function (key, value) {
+                    rows = '<tr>'
+                    + '<td>' + value.ID + '</td>'
+                    + '<td>' + value.TestID + '</td>'
+                    + '<td>' + value.ExamDate + '</td>'
+                    + '<td>' + value.IsActive + '</td>'
+                     + '<td>' + value.ShortName + '</td>'
+                    + '<td><input type="button" class="btn btn-primary edit" value="Edit" > <input type="button" class="btn btn-danger delete" value="Delete"></td>'
+                    '</tr>'
+                    $('#body').append(rows);
+                })
+            },
+            error: function (result) {
+            }
+        })
+    }
+    $(document).delegate('.edit','.click',function(){
+        debugger
+        var rowValue = $(this).closest('tr');
+        var ID = rowValue.find("td:eq(0)").text();
+        var TestID = rowValue.find("td:eq(1)").text();
+        var ExamDate = rowValue.find("td:eq(2)").text();
+        var IsActive = rowValue.find("td:eq(3)").text();
+        var ShortName = rowValue.find("td:eq(4)").text();
+
+        $('#id').val(ID);
+        $('#TestID').val(TestID);
+        $('#ExamDate').val(ExamDate);
+        $('#IsActive').val(IsActive);
+        $('#ShortName').val(ShortName);
+    })
+
+
+   $('#btn_Add').click(function () {
+        debugger
+        var TestID = $('#TestID').val();
+        var ExamDate = $('#ExamDate').val();
+        var IsActive = $('#IsActive').val();
+        var ShortName = $('#ShortName').val();
+        $.ajax({
+            url: '/Exam/Insert/',
+            Type: 'Get',
+            dataType: 'json',
+            contentType: 'application/json;charset=utf-8',
+            data: { "TestID": TestID, "ExamDate": ExamDate, "IsActive": IsActive, "ShortName": ShortName },
+            success: function () {
+                alert("Success");
+                GetData();
+            },
+            error: function () {
+                alert("Failed");
+            }
+        })
+    })
+</script>
+
