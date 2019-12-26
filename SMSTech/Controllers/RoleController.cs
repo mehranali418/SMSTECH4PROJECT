@@ -27,30 +27,23 @@ namespace SMSTech.Controllers
             return Json(Role,JsonRequestBehavior.AllowGet);
         }
 
-
-
         public ActionResult AddRoles()
         {
             return View();
         }
-
-
         [HttpPost]
-        public ActionResult AddRoles(Role Role)
+        public ActionResult Insert(Role data)
         {
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://192.168.0.119:3000/");
-            var response = client.PostAsJsonAsync("role/AddRoles", Role).Result;
-            if (response.IsSuccessStatusCode)
-            {
-                Console.Write("Success");
-            }
-            else
-            {
-                Console.Write("Error");
-            }
-            return View(Role);
+            Role role = new Role();
+
+            role.Name = data.Name;
+            role.Type = data.Type;
+            db.Roles.Add(role);
+            db.SaveChanges();
+            db.Entry(role).State = System.Data.Entity.EntityState.Modified;
+            return Json("Saved Successfully");
         }
+
 
     }
 }

@@ -63,7 +63,6 @@
         <EntityTypeShape EntityType="SMST4MModel.PersonalizedFee" Width="1.5" PointX="2.75" PointY="21.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.Rank" Width="1.5" PointX="16.75" PointY="21.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.Religion" Width="1.5" PointX="22.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.Role" Width="1.5" PointX="22.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.SalaryIncrement" Width="1.5" PointX="22.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.SalaryMonth" Width="1.5" PointX="22.75" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.SalaryReceiptDetail" Width="1.5" PointX="22.75" PointY="17.75" IsExpanded="true" />
@@ -99,6 +98,7 @@
         <EntityTypeShape EntityType="SMST4MModel.Academic_Subjects" Width="1.5" PointX="13.375" PointY="27.75" />
         <EntityTypeShape EntityType="SMST4MModel.AssessmentCategory" Width="1.5" PointX="27.375" PointY="21.75" />
         <EntityTypeShape EntityType="SMST4MModel.Academic_CourseStudents" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SMST4MModel.Role" Width="1.5" PointX="7.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

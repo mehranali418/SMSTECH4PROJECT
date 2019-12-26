@@ -6721,15 +6721,11 @@
     <Compile Include="Controllers\AssessmentCategoriesController.cs" />
     <Compile Include="Controllers\AssessmentColorsController.cs" />
     <Compile Include="Controllers\AssessmentFindingDetailController.cs" />
-    <Compile Include="Controllers\BillsController.cs" />
     <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\ClassLevelsController.cs" />
-    <Compile Include="Controllers\ClosingController.cs" />
     <Compile Include="Controllers\EducationsController.cs" />
-    <Compile Include="Controllers\ElectricityController.cs" />
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\ExamGradeController.cs" />
-    <Compile Include="Controllers\GasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RankController.cs" />
     <Compile Include="Controllers\ReligionController.cs" />
@@ -6742,11 +6738,7 @@
     <Compile Include="Controllers\StudentRelationsController.cs" />
     <Compile Include="Controllers\StudentsMetaController.cs" />
     <Compile Include="Controllers\TBRegisterStudentController.cs" />
-    <Compile Include="Controllers\TeacherController.cs" />
-    <Compile Include="Controllers\telechargesController.cs" />
-    <Compile Include="Controllers\TransportChargesController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\WaterchargesController.cs" />
     <Compile Include="dbMethods.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -9813,16 +9805,7 @@
     <Content Include="Views\Home\MailBox.cshtml" />
     <Content Include="Views\Home\MailBoxDetail.cshtml" />
     <Content Include="Views\Home\ComposeMail.cshtml" />
-    <Content Include="Views\Falto View\AdmissionForm.cshtml" />
-    <Content Include="Views\Falto View\StudentInformation.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
-    <Content Include="Views\Falto View\Edit.cshtml" />
-    <Content Include="Views\Teacher\AddEmployee.cshtml" />
-    <Content Include="Views\Teacher\EmployeeDetails.cshtml" />
-    <Content Include="Views\Gas\Gas.cshtml" />
-    <Content Include="Views\Electricity\Electricity.cshtml" />
-    <Content Include="Views\Watercharges\WaterCharges.cshtml" />
-    <Content Include="Views\telecharges\telecharges.cshtml" />
     <Content Include="Views\Section\Index.cshtml" />
     <Content Include="Views\Religion\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
@@ -9833,17 +9816,6 @@
     <Content Include="Views\StudentGuardiansRelations\Index.cshtml" />
     <Content Include="Views\ClassLevels\Index.cshtml" />
     <Content Include="Views\Rank\Index.cshtml" />
-    <Content Include="Views\Falto View\AddClasses.cshtml" />
-    <Content Include="Views\Electricity\create.cshtml" />
-    <Content Include="Views\Religion\AddReligions.cshtml" />
-    <Content Include="Views\Role\AddRoles.cshtml" />
-    <Content Include="Views\StudentGuardiansRelations\AddStudentGuardians.cshtml" />
-    <Content Include="Views\StudentRelations\AddRelations.cshtml" />
-    <Content Include="Views\TransportCharges\create.cshtml" />
-    <Content Include="Views\Watercharges\create.cshtml" />
-    <Content Include="Views\Falto View\AddStudent.cshtml" />
-    <Content Include="Views\Section\AddSection.cshtml" />
-    <Content Include="Views\User\AddUser.cshtml" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
     <Content Include="Scripts\umd\popper-utils.js.map" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -9866,7 +9838,7 @@
     <Content Include="Views\StudentGroups\Create.cshtml" />
     <Content Include="Views\StudentGuardiansRelations\Create.cshtml" />
     <Content Include="Views\StudentRelations\Create.cshtml" />
-    <Content Include="Views\TBRegisterStudent\Index.cshtml" />
+    <Content Include="Views\TBRegisterStudent\Create.cshtml" />
     <Content Include="Views\AcademicClassRoutine\Create.cshtml" />
     <Content Include="Views\AcademicClassRoutineDays\Create.cshtml" />
     <Content Include="Views\AcademicClassSubject\Create.cshtml" />
@@ -9874,8 +9846,17 @@
     <Content Include="Views\AcademicCourseStudent\Create.cshtml" />
     <Content Include="Views\AcademicDays\Create.cshtml" />
     <Content Include="Views\AcademicHolydays\Create.cshtml" />
-    <Content Include="Views\AcademicPeriods\Index.cshtml" />
-    <Content Include="Views\AcademicSubjects\Index.cshtml" />
+    <Content Include="Views\AcademicPeriods\Create.cshtml" />
+    <Content Include="Views\AcademicSubjects\Create.cshtml" />
+    <Content Include="Views\AllowanceAmounts\Create.cshtml" />
+    <Content Include="Views\AllowanceTypes\Create.cshtml" />
+    <Content Include="Views\AssessmentAreas\Create.cshtml" />
+    <Content Include="Views\AssessmentCategories\Create.cshtml" />
+    <Content Include="Views\AssessmentColors\Create.cshtml" />
+    <Content Include="Views\AssessmentFindingDetail\Create.cshtml" />
+    <Content Include="Views\Religion\Create.cshtml" />
+    <Content Include="Views\Rank\Create.cshtml" />
+    <Content Include="Views\Role\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

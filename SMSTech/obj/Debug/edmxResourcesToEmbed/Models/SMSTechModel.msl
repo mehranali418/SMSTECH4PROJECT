@@ -692,15 +692,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Roles">
-      <EntityTypeMapping TypeName="SMST4MModel.Role">
-        <MappingFragment StoreEntitySet="Roles">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="SalaryIncrements">
       <EntityTypeMapping TypeName="SMST4MModel.SalaryIncrement">
         <MappingFragment StoreEntitySet="SalaryIncrements">
@@ -1183,6 +1174,15 @@
           <ScalarProperty Name="DecidedFee" ColumnName="DecidedFee" />
           <ScalarProperty Name="Course_id" ColumnName="Course_id" />
           <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="SMST4MModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

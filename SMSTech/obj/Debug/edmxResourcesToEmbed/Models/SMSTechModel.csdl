@@ -634,14 +634,6 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="Role">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Type" Type="Boolean" />
-  </EntityType>
   <EntityType Name="SalaryIncrement">
     <Key>
       <PropertyRef Name="ID" />
@@ -1045,7 +1037,6 @@
     <EntitySet Name="PersonalizedFees" EntityType="Self.PersonalizedFee" />
     <EntitySet Name="Ranks" EntityType="Self.Rank" />
     <EntitySet Name="Religions" EntityType="Self.Religion" />
-    <EntitySet Name="Roles" EntityType="Self.Role" />
     <EntitySet Name="SalaryIncrements" EntityType="Self.SalaryIncrement" />
     <EntitySet Name="SalaryMonths" EntityType="Self.SalaryMonth" />
     <EntitySet Name="SalaryReceiptDetails" EntityType="Self.SalaryReceiptDetail" />
@@ -1084,6 +1075,7 @@
     <EntitySet Name="Academic_Subjects" EntityType="SMST4MModel.Academic_Subjects" />
     <EntitySet Name="AssessmentCategories" EntityType="SMST4MModel.AssessmentCategory" />
     <EntitySet Name="Academic_CourseStudents" EntityType="SMST4MModel.Academic_CourseStudents" />
+    <EntitySet Name="Roles" EntityType="SMST4MModel.Role" />
   </EntityContainer>
   <EntityType Name="TB_RegisterStudent">
     <Key>
@@ -1206,5 +1198,13 @@
     <Property Name="DecidedFee" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="StartDate" Type="DateTime" Precision="0" />
     <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

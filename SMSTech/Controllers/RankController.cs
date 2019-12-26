@@ -20,34 +20,24 @@ namespace SMSTech.Controllers
         // GET: /Rank/
         public ActionResult Index()
         {
-           return View();
+            return View();
         }
 
         public JsonResult GetRank()
         {
             var rank = db.Ranks.ToList();
-            return Json(rank,JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult AddRanks()
-        {
-            return View();
+            return Json(rank, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
-        public ActionResult AddRanks(Rank rank)
+        public ActionResult Insert(Rank data)
         {
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://192.168.0.119:3000/");
-            var response = client.PostAsJsonAsync("rank/AddRanks", rank).Result;
-            if (response.IsSuccessStatusCode)
-            {
-                Console.Write("Success");
-            }
-            else
-            {
-                Console.Write("Error");
-            }
-            return View(rank);
+            Rank rank = new Rank();
+
+            rank.Name = data.Name;
+            db.Ranks.Add(rank);
+            db.SaveChanges();
+            db.Entry(rank).State = System.Data.Entity.EntityState.Modified;
+            return Json("Saved Successfully");
         }
-	}
+    }
 }

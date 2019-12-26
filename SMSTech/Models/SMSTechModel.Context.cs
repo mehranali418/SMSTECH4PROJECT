@@ -83,7 +83,6 @@ namespace SMSTech.Models
         public virtual DbSet<PersonalizedFee> PersonalizedFees { get; set; }
         public virtual DbSet<Rank> Ranks { get; set; }
         public virtual DbSet<Religion> Religions { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<SalaryIncrement> SalaryIncrements { get; set; }
         public virtual DbSet<SalaryMonth> SalaryMonths { get; set; }
         public virtual DbSet<SalaryReceiptDetail> SalaryReceiptDetails { get; set; }
@@ -118,5 +117,6 @@ namespace SMSTech.Models
         public virtual DbSet<Academic_Subjects> Academic_Subjects { get; set; }
         public virtual DbSet<AssessmentCategory> AssessmentCategories { get; set; }
         public virtual DbSet<Academic_CourseStudents> Academic_CourseStudents { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
     }
 }

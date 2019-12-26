@@ -723,7 +723,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" />
-    <Property Name="Type" Type="bit" />
+    <Property Name="Type" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="SalaryIncrements">
     <Key>

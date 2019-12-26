@@ -728,7 +728,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Type" Type="bit" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="SalaryIncrements">
           <Key>
@@ -1866,14 +1866,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Role">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Type" Type="Boolean" />
-        </EntityType>
         <EntityType Name="SalaryIncrement">
           <Key>
             <PropertyRef Name="ID" />
@@ -2277,7 +2269,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <EntitySet Name="PersonalizedFees" EntityType="Self.PersonalizedFee" />
           <EntitySet Name="Ranks" EntityType="Self.Rank" />
           <EntitySet Name="Religions" EntityType="Self.Religion" />
-          <EntitySet Name="Roles" EntityType="Self.Role" />
           <EntitySet Name="SalaryIncrements" EntityType="Self.SalaryIncrement" />
           <EntitySet Name="SalaryMonths" EntityType="Self.SalaryMonth" />
           <EntitySet Name="SalaryReceiptDetails" EntityType="Self.SalaryReceiptDetail" />
@@ -2316,6 +2307,7 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <EntitySet Name="Academic_Subjects" EntityType="SMST4MModel.Academic_Subjects" />
           <EntitySet Name="AssessmentCategories" EntityType="SMST4MModel.AssessmentCategory" />
           <EntitySet Name="Academic_CourseStudents" EntityType="SMST4MModel.Academic_CourseStudents" />
+          <EntitySet Name="Roles" EntityType="SMST4MModel.Role" />
         </EntityContainer>
         <EntityType Name="TB_RegisterStudent">
           <Key>
@@ -2438,6 +2430,14 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="DecidedFee" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="StartDate" Type="DateTime" Precision="0" />
           <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3136,15 +3136,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="SMST4MModel.Role">
-              <MappingFragment StoreEntitySet="Roles">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SalaryIncrements">
             <EntityTypeMapping TypeName="SMST4MModel.SalaryIncrement">
               <MappingFragment StoreEntitySet="SalaryIncrements">
@@ -3627,6 +3618,15 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
                 <ScalarProperty Name="DecidedFee" ColumnName="DecidedFee" />
                 <ScalarProperty Name="Course_id" ColumnName="Course_id" />
                 <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="SMST4MModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -15,7 +15,7 @@ namespace SMSTech.Controllers
     {
         SMST4MEntities1 db = new SMST4MEntities1();
 
-        //
+      
         // GET: /Religions/
         public ActionResult Index()
         {
@@ -28,7 +28,18 @@ namespace SMSTech.Controllers
             var Religion = db.Religions.ToList();
             return Json(Religion, JsonRequestBehavior.AllowGet);
         }
+        [HttpPost]
+        public ActionResult Insert(Religion data)
+        {
+            Religion religion = new Religion();
 
-     
-	}
+            religion.Name = data.Name;     
+            db.Religions.Add(religion);
+            db.SaveChanges();
+            db.Entry(religion).State = System.Data.Entity.EntityState.Modified;
+            return Json("Saved Successfully");
+
+        }
+
+    }
 }
