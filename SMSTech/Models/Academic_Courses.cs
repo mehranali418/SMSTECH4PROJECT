@@ -16,9 +16,9 @@ namespace SMSTech.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public Nullable<byte> Duration { get; set; }
+        public string Duration { get; set; }
         public Nullable<decimal> StandardFee { get; set; }
         public Nullable<int> Operator_id { get; set; }
-        public Nullable<bool> Is_deleted { get; set; }
+        public string Is_deleted { get; set; }
     }
 }

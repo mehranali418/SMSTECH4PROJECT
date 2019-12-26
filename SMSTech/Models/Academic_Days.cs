@@ -16,7 +16,7 @@ namespace SMSTech.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public Nullable<bool> Holyday { get; set; }
+        public Nullable<int> Holyday { get; set; }
         public Nullable<byte> DayNumber { get; set; }
     }
 }

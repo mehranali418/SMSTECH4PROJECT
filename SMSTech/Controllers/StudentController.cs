@@ -25,6 +25,7 @@ namespace SMSTech.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            ViewBag.ClassList = new SelectList(db.Classes, "ID", "Name");
             ViewBag.ClassList = new SelectList(db.Classes, "Name", "Name");
             ViewBag.SectionList = new SelectList(db.Sections, "Name", "Name");
             ViewBag.ReligionList = new SelectList(db.Religions, "Name", "Name");

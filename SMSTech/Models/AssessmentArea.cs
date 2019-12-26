@@ -20,8 +20,8 @@ namespace SMSTech.Models
         public string Description { get; set; }
         public Nullable<int> ParentID { get; set; }
         public Nullable<int> Sequence { get; set; }
-        public Nullable<bool> Is_Active { get; set; }
-        public Nullable<bool> Is_SummaryField { get; set; }
+        public Nullable<byte> Is_Active { get; set; }
+        public Nullable<byte> Is_SummaryField { get; set; }
         public Nullable<int> Level { get; set; }
     }
 }

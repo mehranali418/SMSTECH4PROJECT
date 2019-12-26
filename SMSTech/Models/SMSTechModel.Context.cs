@@ -25,20 +25,12 @@ namespace SMSTech.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Academic_ClassRoutine> Academic_ClassRoutine { get; set; }
         public virtual DbSet<Academic_ClassRoutine_Days> Academic_ClassRoutine_Days { get; set; }
         public virtual DbSet<Academic_ClassSubjects> Academic_ClassSubjects { get; set; }
-        public virtual DbSet<Academic_Courses> Academic_Courses { get; set; }
-        public virtual DbSet<Academic_CourseStudents> Academic_CourseStudents { get; set; }
-        public virtual DbSet<Academic_Days> Academic_Days { get; set; }
         public virtual DbSet<Academic_Holydays> Academic_Holydays { get; set; }
         public virtual DbSet<Academic_Periods> Academic_Periods { get; set; }
-        public virtual DbSet<Academic_Subjects> Academic_Subjects { get; set; }
         public virtual DbSet<AllowanceAmount> AllowanceAmounts { get; set; }
         public virtual DbSet<AllowanceType> AllowanceTypes { get; set; }
-        public virtual DbSet<AssessmentArea> AssessmentAreas { get; set; }
-        public virtual DbSet<AssessmentCategory> AssessmentCategories { get; set; }
-        public virtual DbSet<AssessmentColor> AssessmentColors { get; set; }
         public virtual DbSet<AssessmentFindingDetail> AssessmentFindingDetails { get; set; }
         public virtual DbSet<AssessmentFindingMaster> AssessmentFindingMasters { get; set; }
         public virtual DbSet<Capability> Capabilities { get; set; }
@@ -113,10 +105,18 @@ namespace SMSTech.Models
         public virtual DbSet<StudentPayment> StudentPayments { get; set; }
         public virtual DbSet<StudentPayments_History> StudentPayments_History { get; set; }
         public virtual DbSet<StudentPaymentsMeta> StudentPaymentsMetas { get; set; }
-        public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<StudentsMeta> StudentsMetas { get; set; }
-        public virtual DbSet<TB_RegisterStudent> TB_RegisterStudent { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Students_temp> Students_temp { get; set; }
+        public virtual DbSet<TB_RegisterStudent> TB_RegisterStudent { get; set; }
+        public virtual DbSet<Academic_ClassRoutine> Academic_ClassRoutine { get; set; }
+        public virtual DbSet<Academic_Courses> Academic_Courses { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
+        public virtual DbSet<Academic_Days> Academic_Days { get; set; }
+        public virtual DbSet<AssessmentArea> AssessmentAreas { get; set; }
+        public virtual DbSet<AssessmentColor> AssessmentColors { get; set; }
+        public virtual DbSet<Academic_Subjects> Academic_Subjects { get; set; }
+        public virtual DbSet<AssessmentCategory> AssessmentCategories { get; set; }
+        public virtual DbSet<Academic_CourseStudents> Academic_CourseStudents { get; set; }
     }
 }

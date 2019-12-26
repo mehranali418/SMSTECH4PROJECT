@@ -19,6 +19,6 @@ namespace SMSTech.Models
         public Nullable<int> UserID { get; set; }
         public Nullable<int> SectionID { get; set; }
         public Nullable<int> PeriodID { get; set; }
-        public Nullable<bool> Status { get; set; }
+        public Nullable<byte> Status { get; set; }
     }
 }

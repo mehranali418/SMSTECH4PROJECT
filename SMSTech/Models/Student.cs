@@ -25,7 +25,7 @@ namespace SMSTech.Models
         public Nullable<System.DateTime> BirthDate { get; set; }
         public string StuCNIC { get; set; }
         public Nullable<int> FamilyID { get; set; }
-        public Nullable<byte> Gender { get; set; }
+        public string Gender { get; set; }
         public Nullable<int> JoiningClassID { get; set; }
         public Nullable<System.DateTime> LeavingDate { get; set; }
         public string registration_no { get; set; }

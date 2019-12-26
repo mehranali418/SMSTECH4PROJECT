@@ -17,11 +17,11 @@ namespace SMSTech.Models
         public int RollNo { get; set; }
         public string Name { get; set; }
         public string DOB { get; set; }
-        public string Image { get; set; }
         public string Gender { get; set; }
         public string Class { get; set; }
         public string Section { get; set; }
-        public string Status { get; set; }
         public string DateOfAdmission { get; set; }
+        public byte[] Image { get; set; }
+        public Nullable<byte> Status { get; set; }
     }
 }

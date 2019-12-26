@@ -1,18 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="SMST4MModelStoreContainer" CdmEntityContainer="SMST4MEntities1">
-    <EntitySetMapping Name="Academic_ClassRoutine">
-      <EntityTypeMapping TypeName="SMST4MModel.Academic_ClassRoutine">
-        <MappingFragment StoreEntitySet="Academic_ClassRoutine">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
-          <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Academic_ClassRoutine_Days">
       <EntityTypeMapping TypeName="SMST4MModel.Academic_ClassRoutine_Days">
         <MappingFragment StoreEntitySet="Academic_ClassRoutine_Days">
@@ -31,40 +19,6 @@
           <ScalarProperty Name="SubjectNumber" ColumnName="SubjectNumber" />
           <ScalarProperty Name="TotalMarks" ColumnName="TotalMarks" />
           <ScalarProperty Name="PassingMarks" ColumnName="PassingMarks" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Academic_Courses">
-      <EntityTypeMapping TypeName="SMST4MModel.Academic_Courses">
-        <MappingFragment StoreEntitySet="Academic_Courses">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Duration" ColumnName="Duration" />
-          <ScalarProperty Name="StandardFee" ColumnName="StandardFee" />
-          <ScalarProperty Name="Operator_id" ColumnName="Operator_id" />
-          <ScalarProperty Name="Is_deleted" ColumnName="Is_deleted" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Academic_CourseStudents">
-      <EntityTypeMapping TypeName="SMST4MModel.Academic_CourseStudents">
-        <MappingFragment StoreEntitySet="Academic_CourseStudents">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Student_id" ColumnName="Student_id" />
-          <ScalarProperty Name="Course_id" ColumnName="Course_id" />
-          <ScalarProperty Name="DecidedFee" ColumnName="DecidedFee" />
-          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-          <ScalarProperty Name="Duration" ColumnName="Duration" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Academic_Days">
-      <EntityTypeMapping TypeName="SMST4MModel.Academic_Days">
-        <MappingFragment StoreEntitySet="Academic_Days">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Holyday" ColumnName="Holyday" />
-          <ScalarProperty Name="DayNumber" ColumnName="DayNumber" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -88,16 +42,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Academic_Subjects">
-      <EntityTypeMapping TypeName="SMST4MModel.Academic_Subjects">
-        <MappingFragment StoreEntitySet="Academic_Subjects">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="AllowanceAmounts">
       <EntityTypeMapping TypeName="SMST4MModel.AllowanceAmount">
         <MappingFragment StoreEntitySet="AllowanceAmounts">
@@ -118,42 +62,6 @@
           <ScalarProperty Name="Recurring" ColumnName="Recurring" />
           <ScalarProperty Name="AllowanceType1" ColumnName="AllowanceType" />
           <ScalarProperty Name="SequenceNumber" ColumnName="SequenceNumber" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AssessmentAreas">
-      <EntityTypeMapping TypeName="SMST4MModel.AssessmentArea">
-        <MappingFragment StoreEntitySet="AssessmentAreas">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="AssessmentCategoryID" ColumnName="AssessmentCategoryID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
-          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
-          <ScalarProperty Name="Is_SummaryField" ColumnName="Is_SummaryField" />
-          <ScalarProperty Name="Level" ColumnName="Level" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AssessmentCategories">
-      <EntityTypeMapping TypeName="SMST4MModel.AssessmentCategory">
-        <MappingFragment StoreEntitySet="AssessmentCategories">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Detail" ColumnName="Detail" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="AssessmentColors">
-      <EntityTypeMapping TypeName="SMST4MModel.AssessmentColor">
-        <MappingFragment StoreEntitySet="AssessmentColors">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
-          <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
-          <ScalarProperty Name="ColorMeaning" ColumnName="ColorMeaning" />
-          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1093,31 +1001,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Students">
-      <EntityTypeMapping TypeName="SMST4MModel.Student">
-        <MappingFragment StoreEntitySet="Students">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="RollNo" ColumnName="RollNo" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="sDate" ColumnName="sDate" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="image" ColumnName="image" />
-          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
-          <ScalarProperty Name="StuCNIC" ColumnName="StuCNIC" />
-          <ScalarProperty Name="FamilyID" ColumnName="FamilyID" />
-          <ScalarProperty Name="Gender" ColumnName="Gender" />
-          <ScalarProperty Name="JoiningClassID" ColumnName="JoiningClassID" />
-          <ScalarProperty Name="LeavingDate" ColumnName="LeavingDate" />
-          <ScalarProperty Name="registration_no" ColumnName="registration_no" />
-          <ScalarProperty Name="NationalityID" ColumnName="NationalityID" />
-          <ScalarProperty Name="ReligionID" ColumnName="ReligionID" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="StuGroupID" ColumnName="StuGroupID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="StudentsMetas">
       <EntityTypeMapping TypeName="SMST4MModel.StudentsMeta">
         <MappingFragment StoreEntitySet="StudentsMeta">
@@ -1125,21 +1008,6 @@
           <ScalarProperty Name="StudentID" ColumnName="StudentID" />
           <ScalarProperty Name="KeyName" ColumnName="KeyName" />
           <ScalarProperty Name="KeyValue" ColumnName="KeyValue" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TB_RegisterStudent">
-      <EntityTypeMapping TypeName="SMST4MModel.TB_RegisterStudent">
-        <MappingFragment StoreEntitySet="TB_RegisterStudent">
-          <ScalarProperty Name="RollNo" ColumnName="RollNo" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="DOB" ColumnName="DOB" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
-          <ScalarProperty Name="Gender" ColumnName="Gender" />
-          <ScalarProperty Name="Class" ColumnName="Class" />
-          <ScalarProperty Name="Section" ColumnName="Section" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="DateOfAdmission" ColumnName="DateOfAdmission" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1184,6 +1052,138 @@
           <ScalarProperty Name="sDate" ColumnName="sDate" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TB_RegisterStudent">
+      <EntityTypeMapping TypeName="SMST4MModel.TB_RegisterStudent">
+        <MappingFragment StoreEntitySet="TB_RegisterStudent">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="DateOfAdmission" ColumnName="DateOfAdmission" />
+          <ScalarProperty Name="Section" ColumnName="Section" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RollNo" ColumnName="RollNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Academic_ClassRoutine">
+      <EntityTypeMapping TypeName="SMST4MModel.Academic_ClassRoutine">
+        <MappingFragment StoreEntitySet="Academic_ClassRoutine">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Academic_Courses">
+      <EntityTypeMapping TypeName="SMST4MModel.Academic_Courses">
+        <MappingFragment StoreEntitySet="Academic_Courses">
+          <ScalarProperty Name="Is_deleted" ColumnName="Is_deleted" />
+          <ScalarProperty Name="Operator_id" ColumnName="Operator_id" />
+          <ScalarProperty Name="StandardFee" ColumnName="StandardFee" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="SMST4MModel.Student">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="StuGroupID" ColumnName="StuGroupID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ReligionID" ColumnName="ReligionID" />
+          <ScalarProperty Name="NationalityID" ColumnName="NationalityID" />
+          <ScalarProperty Name="registration_no" ColumnName="registration_no" />
+          <ScalarProperty Name="LeavingDate" ColumnName="LeavingDate" />
+          <ScalarProperty Name="JoiningClassID" ColumnName="JoiningClassID" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="FamilyID" ColumnName="FamilyID" />
+          <ScalarProperty Name="StuCNIC" ColumnName="StuCNIC" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="sDate" ColumnName="sDate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RollNo" ColumnName="RollNo" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Academic_Days">
+      <EntityTypeMapping TypeName="SMST4MModel.Academic_Days">
+        <MappingFragment StoreEntitySet="Academic_Days">
+          <ScalarProperty Name="DayNumber" ColumnName="DayNumber" />
+          <ScalarProperty Name="Holyday" ColumnName="Holyday" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentAreas">
+      <EntityTypeMapping TypeName="SMST4MModel.AssessmentArea">
+        <MappingFragment StoreEntitySet="AssessmentAreas">
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Is_SummaryField" ColumnName="Is_SummaryField" />
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AssessmentCategoryID" ColumnName="AssessmentCategoryID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentColors">
+      <EntityTypeMapping TypeName="SMST4MModel.AssessmentColor">
+        <MappingFragment StoreEntitySet="AssessmentColors">
+          <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+          <ScalarProperty Name="ColorMeaning" ColumnName="ColorMeaning" />
+          <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Academic_Subjects">
+      <EntityTypeMapping TypeName="SMST4MModel.Academic_Subjects">
+        <MappingFragment StoreEntitySet="Academic_Subjects">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AssessmentCategories">
+      <EntityTypeMapping TypeName="SMST4MModel.AssessmentCategory">
+        <MappingFragment StoreEntitySet="AssessmentCategories">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Academic_CourseStudents">
+      <EntityTypeMapping TypeName="SMST4MModel.Academic_CourseStudents">
+        <MappingFragment StoreEntitySet="Academic_CourseStudents">
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="DecidedFee" ColumnName="DecidedFee" />
+          <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+          <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

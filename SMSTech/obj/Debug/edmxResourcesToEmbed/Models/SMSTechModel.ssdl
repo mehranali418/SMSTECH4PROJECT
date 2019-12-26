@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SMST4MModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="SMST4MModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Academic_ClassRoutine">
     <Key>
       <PropertyRef Name="ID" />
@@ -9,7 +9,7 @@
     <Property Name="UserID" Type="int" />
     <Property Name="SectionID" Type="int" />
     <Property Name="PeriodID" Type="int" />
-    <Property Name="Status" Type="bit" />
+    <Property Name="Status" Type="tinyint" />
   </EntityType>
   <EntityType Name="Academic_ClassRoutine_Days">
     <Key>
@@ -36,10 +36,10 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
-    <Property Name="Duration" Type="tinyint" />
+    <Property Name="Duration" Type="nvarchar" MaxLength="50" />
     <Property Name="StandardFee" Type="decimal" Precision="18" Scale="2" />
     <Property Name="Operator_id" Type="int" />
-    <Property Name="Is_deleted" Type="bit" />
+    <Property Name="Is_deleted" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Academic_CourseStudents">
     <Key>
@@ -50,7 +50,7 @@
     <Property Name="Course_id" Type="int" />
     <Property Name="DecidedFee" Type="decimal" Precision="18" Scale="2" />
     <Property Name="StartDate" Type="smalldatetime" />
-    <Property Name="Duration" Type="tinyint" />
+    <Property Name="Duration" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Academic_Days">
     <Key>
@@ -58,7 +58,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="100" />
-    <Property Name="Holyday" Type="bit" />
+    <Property Name="Holyday" Type="int" />
     <Property Name="DayNumber" Type="tinyint" />
   </EntityType>
   <EntityType Name="Academic_Holydays">
@@ -86,7 +86,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="300" />
     <Property Name="ShortName" Type="nvarchar" MaxLength="50" />
-    <Property Name="Status" Type="bit" />
+    <Property Name="Status" Type="tinyint" />
   </EntityType>
   <EntityType Name="AllowanceAmounts">
     <Key>
@@ -119,8 +119,8 @@
     <Property Name="Description" Type="varchar" MaxLength="300" />
     <Property Name="ParentID" Type="int" />
     <Property Name="Sequence" Type="int" />
-    <Property Name="Is_Active" Type="bit" />
-    <Property Name="Is_SummaryField" Type="bit" />
+    <Property Name="Is_Active" Type="tinyint" />
+    <Property Name="Is_SummaryField" Type="tinyint" />
     <Property Name="Level" Type="int" />
   </EntityType>
   <EntityType Name="AssessmentCategories">
@@ -129,8 +129,8 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="200" />
-    <Property Name="Detail" Type="text" />
-    <Property Name="Status" Type="bit" />
+    <Property Name="Detail" Type="nvarchar(max)" />
+    <Property Name="Status" Type="tinyint" />
   </EntityType>
   <EntityType Name="AssessmentColors">
     <Key>
@@ -140,7 +140,7 @@
     <Property Name="ColorName" Type="varchar" MaxLength="50" />
     <Property Name="ColorCode" Type="varchar" MaxLength="50" />
     <Property Name="ColorMeaning" Type="varchar" MaxLength="200" />
-    <Property Name="Is_Active" Type="bit" />
+    <Property Name="Is_Active" Type="tinyint" />
   </EntityType>
   <EntityType Name="AssessmentFindingDetail">
     <Key>
@@ -149,7 +149,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="AssessmentFindingMasterID" Type="int" />
     <Property Name="AssessmentAreaID" Type="int" />
-    <Property Name="Finding" Type="text" />
+    <Property Name="Finding" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="AssessmentFindingMaster">
     <Key>
@@ -184,14 +184,6 @@
     <Property Name="RoleID" Type="int" />
     <Property Name="Status" Type="bit" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'SMST4M.dbo.CapabilitiesDefault' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="CapabilitiesDefault">
-          <Property Name="Name" Type="varchar" MaxLength="100" />
-          <Property Name="isRoot" Type="bit" />
-          <Property Name="SysNames" Type="varchar" MaxLength="200" />
-          <Property Name="ItemText" Type="varchar" MaxLength="100" />
-        </EntityType>-->
   <EntityType Name="Classes">
     <Key>
       <PropertyRef Name="ID" />
@@ -219,14 +211,6 @@ warning 6013: The table/view 'SMST4M.dbo.CapabilitiesDefault' does not have a pr
     <Property Name="sDate" Type="smalldatetime" />
     <Property Name="Details" Type="text" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'SMST4M.dbo.Countries_list' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Countries_list">
-          <Property Name="CountryID" Type="int" />
-          <Property Name="CountryName" Type="varchar" MaxLength="50" />
-          <Property Name="TwoCharCountryCode" Type="char" MaxLength="2" />
-          <Property Name="ThreeCharCountryCode" Type="char" MaxLength="3" />
-        </EntityType>-->
   <EntityType Name="Document_files">
     <Key>
       <PropertyRef Name="ID" />
@@ -1035,7 +1019,7 @@ warning 6013: The table/view 'SMST4M.dbo.Countries_list' does not have a primary
     <Property Name="BirthDate" Type="smalldatetime" />
     <Property Name="StuCNIC" Type="varchar" MaxLength="200" />
     <Property Name="FamilyID" Type="int" />
-    <Property Name="Gender" Type="tinyint" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" />
     <Property Name="JoiningClassID" Type="int" />
     <Property Name="LeavingDate" Type="smalldatetime" />
     <Property Name="registration_no" Type="varchar" MaxLength="50" />
@@ -1081,12 +1065,12 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
     <Property Name="RollNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="DOB" Type="nvarchar" MaxLength="50" />
-    <Property Name="Image" Type="nvarchar" MaxLength="50" />
     <Property Name="Gender" Type="nvarchar" MaxLength="50" />
     <Property Name="Class" Type="nvarchar" MaxLength="50" />
     <Property Name="Section" Type="nvarchar" MaxLength="50" />
-    <Property Name="Status" Type="nvarchar" MaxLength="50" />
     <Property Name="DateOfAdmission" Type="nvarchar" MaxLength="50" />
+    <Property Name="Image" Type="varbinary(max)" />
+    <Property Name="Status" Type="tinyint" />
   </EntityType>
   <EntityType Name="Users">
     <Key>

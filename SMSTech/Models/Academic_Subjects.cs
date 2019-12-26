@@ -17,6 +17,6 @@ namespace SMSTech.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
-        public Nullable<bool> Status { get; set; }
+        public Nullable<byte> Status { get; set; }
     }
 }

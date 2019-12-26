@@ -57,3 +57,39 @@ F:\SMSTECHFrontEnd\SMSTech\bin\System.Web.WebPages.Razor.xml
 F:\SMSTECHFrontEnd\SMSTech\obj\Debug\SMSTech.csprojResolveAssemblyReference.cache
 F:\SMSTECHFrontEnd\SMSTech\obj\Debug\SMSTech.dll
 F:\SMSTECHFrontEnd\SMSTech\obj\Debug\SMSTech.pdb
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\SMSTech.dll.config
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\SMSTech.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\SMSTech.pdb
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\EntityFramework.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\EntityFramework.SqlServer.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\Newtonsoft.Json.Bson.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\Newtonsoft.Json.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Net.Http.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Net.Http.Extensions.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Net.Http.Formatting.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Net.Http.Primitives.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Security.Cryptography.Algorithms.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Security.Cryptography.Encoding.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Security.Cryptography.Primitives.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Security.Cryptography.X509Certificates.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Web.Helpers.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Web.Mvc.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Web.Razor.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Web.WebPages.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Web.WebPages.Razor.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\EntityFramework.xml
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\EntityFramework.SqlServer.xml
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\Newtonsoft.Json.xml
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\Newtonsoft.Json.Bson.pdb
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\Newtonsoft.Json.Bson.xml
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Web.Helpers.xml
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Web.Mvc.xml
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Web.Razor.xml
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Web.WebPages.xml
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\bin\System.Web.WebPages.Razor.xml
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\obj\Debug\SMSTech.csprojResolveAssemblyReference.cache
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\obj\Debug\SMSTech.dll
+C:\Users\Mehran Ali\Desktop\SMSTECH\SMSTech\obj\Debug\SMSTech.pdb

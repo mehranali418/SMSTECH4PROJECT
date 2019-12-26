@@ -4,21 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b7e4afef4e794a3f8f9d10b1d978cc11" Name="Diagram1" ZoomLevel="80">
-        <EntityTypeShape EntityType="SMST4MModel.Academic_ClassRoutine" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="b7e4afef4e794a3f8f9d10b1d978cc11" Name="Diagram1" ZoomLevel="75">
         <EntityTypeShape EntityType="SMST4MModel.Academic_ClassRoutine_Days" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.Academic_ClassSubjects" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.Academic_Courses" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.Academic_CourseStudents" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.Academic_Days" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.Academic_Holydays" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.Academic_Periods" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.Academic_Subjects" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.AllowanceAmount" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.AllowanceType" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.AssessmentArea" Width="1.5" PointX="4.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.AssessmentCategory" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.AssessmentColor" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.AssessmentFindingDetail" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.AssessmentFindingMaster" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.Capability" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
@@ -93,12 +85,20 @@
         <EntityTypeShape EntityType="SMST4MModel.StudentPayment" Width="1.5" PointX="24.75" PointY="22.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.StudentPayments_History" Width="1.5" PointX="20.75" PointY="25.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.StudentPaymentsMeta" Width="1.5" PointX="25.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.Student" Width="1.5" PointX="26.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.StudentsMeta" Width="1.5" PointX="26.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.TB_RegisterStudent" Width="1.5" PointX="26.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.User" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.Students_temp" Width="1.5" PointX="26.75" PointY="16.75" IsExpanded="true" />
         <AssociationConnector Association="SMST4MModel.FK_ExpenseAmounts_ExpenseNames_userid" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SMST4MModel.TB_RegisterStudent" Width="1.5" PointX="17.375" PointY="26.75" />
+        <EntityTypeShape EntityType="SMST4MModel.Academic_ClassRoutine" Width="1.5" PointX="3.375" PointY="27.75" />
+        <EntityTypeShape EntityType="SMST4MModel.Academic_Courses" Width="1.5" PointX="5.375" PointY="27.75" />
+        <EntityTypeShape EntityType="SMST4MModel.Student" Width="1.5" PointX="27.375" PointY="3.75" />
+        <EntityTypeShape EntityType="SMST4MModel.Academic_Days" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="SMST4MModel.AssessmentArea" Width="1.5" PointX="27.375" PointY="12.75" />
+        <EntityTypeShape EntityType="SMST4MModel.AssessmentColor" Width="1.5" PointX="5.375" PointY="9.75" />
+        <EntityTypeShape EntityType="SMST4MModel.Academic_Subjects" Width="1.5" PointX="13.375" PointY="27.75" />
+        <EntityTypeShape EntityType="SMST4MModel.AssessmentCategory" Width="1.5" PointX="27.375" PointY="21.75" />
+        <EntityTypeShape EntityType="SMST4MModel.Academic_CourseStudents" Width="1.5" PointX="5.375" PointY="6.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -18,6 +18,6 @@ namespace SMSTech.Models
         public string ColorName { get; set; }
         public string ColorCode { get; set; }
         public string ColorMeaning { get; set; }
-        public Nullable<bool> Is_Active { get; set; }
+        public Nullable<byte> Is_Active { get; set; }
     }
 }

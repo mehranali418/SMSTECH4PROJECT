@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SMST4MModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SMST4MModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Academic_ClassRoutine">
           <Key>
             <PropertyRef Name="ID" />
@@ -14,7 +14,7 @@
           <Property Name="UserID" Type="int" />
           <Property Name="SectionID" Type="int" />
           <Property Name="PeriodID" Type="int" />
-          <Property Name="Status" Type="bit" />
+          <Property Name="Status" Type="tinyint" />
         </EntityType>
         <EntityType Name="Academic_ClassRoutine_Days">
           <Key>
@@ -41,10 +41,10 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Duration" Type="tinyint" />
+          <Property Name="Duration" Type="nvarchar" MaxLength="50" />
           <Property Name="StandardFee" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Operator_id" Type="int" />
-          <Property Name="Is_deleted" Type="bit" />
+          <Property Name="Is_deleted" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Academic_CourseStudents">
           <Key>
@@ -55,7 +55,7 @@
           <Property Name="Course_id" Type="int" />
           <Property Name="DecidedFee" Type="decimal" Precision="18" Scale="2" />
           <Property Name="StartDate" Type="smalldatetime" />
-          <Property Name="Duration" Type="tinyint" />
+          <Property Name="Duration" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Academic_Days">
           <Key>
@@ -63,7 +63,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="100" />
-          <Property Name="Holyday" Type="bit" />
+          <Property Name="Holyday" Type="int" />
           <Property Name="DayNumber" Type="tinyint" />
         </EntityType>
         <EntityType Name="Academic_Holydays">
@@ -91,7 +91,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="300" />
           <Property Name="ShortName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Status" Type="bit" />
+          <Property Name="Status" Type="tinyint" />
         </EntityType>
         <EntityType Name="AllowanceAmounts">
           <Key>
@@ -124,8 +124,8 @@
           <Property Name="Description" Type="varchar" MaxLength="300" />
           <Property Name="ParentID" Type="int" />
           <Property Name="Sequence" Type="int" />
-          <Property Name="Is_Active" Type="bit" />
-          <Property Name="Is_SummaryField" Type="bit" />
+          <Property Name="Is_Active" Type="tinyint" />
+          <Property Name="Is_SummaryField" Type="tinyint" />
           <Property Name="Level" Type="int" />
         </EntityType>
         <EntityType Name="AssessmentCategories">
@@ -134,8 +134,8 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="200" />
-          <Property Name="Detail" Type="text" />
-          <Property Name="Status" Type="bit" />
+          <Property Name="Detail" Type="nvarchar(max)" />
+          <Property Name="Status" Type="tinyint" />
         </EntityType>
         <EntityType Name="AssessmentColors">
           <Key>
@@ -145,7 +145,7 @@
           <Property Name="ColorName" Type="varchar" MaxLength="50" />
           <Property Name="ColorCode" Type="varchar" MaxLength="50" />
           <Property Name="ColorMeaning" Type="varchar" MaxLength="200" />
-          <Property Name="Is_Active" Type="bit" />
+          <Property Name="Is_Active" Type="tinyint" />
         </EntityType>
         <EntityType Name="AssessmentFindingDetail">
           <Key>
@@ -154,7 +154,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AssessmentFindingMasterID" Type="int" />
           <Property Name="AssessmentAreaID" Type="int" />
-          <Property Name="Finding" Type="text" />
+          <Property Name="Finding" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="AssessmentFindingMaster">
           <Key>
@@ -189,14 +189,6 @@
           <Property Name="RoleID" Type="int" />
           <Property Name="Status" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'SMST4M.dbo.CapabilitiesDefault' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="CapabilitiesDefault">
-          <Property Name="Name" Type="varchar" MaxLength="100" />
-          <Property Name="isRoot" Type="bit" />
-          <Property Name="SysNames" Type="varchar" MaxLength="200" />
-          <Property Name="ItemText" Type="varchar" MaxLength="100" />
-        </EntityType>-->
         <EntityType Name="Classes">
           <Key>
             <PropertyRef Name="ID" />
@@ -224,14 +216,6 @@ warning 6013: The table/view 'SMST4M.dbo.CapabilitiesDefault' does not have a pr
           <Property Name="sDate" Type="smalldatetime" />
           <Property Name="Details" Type="text" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'SMST4M.dbo.Countries_list' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="Countries_list">
-          <Property Name="CountryID" Type="int" />
-          <Property Name="CountryName" Type="varchar" MaxLength="50" />
-          <Property Name="TwoCharCountryCode" Type="char" MaxLength="2" />
-          <Property Name="ThreeCharCountryCode" Type="char" MaxLength="3" />
-        </EntityType>-->
         <EntityType Name="Document_files">
           <Key>
             <PropertyRef Name="ID" />
@@ -1040,7 +1024,7 @@ warning 6013: The table/view 'SMST4M.dbo.Countries_list' does not have a primary
           <Property Name="BirthDate" Type="smalldatetime" />
           <Property Name="StuCNIC" Type="varchar" MaxLength="200" />
           <Property Name="FamilyID" Type="int" />
-          <Property Name="Gender" Type="tinyint" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
           <Property Name="JoiningClassID" Type="int" />
           <Property Name="LeavingDate" Type="smalldatetime" />
           <Property Name="registration_no" Type="varchar" MaxLength="50" />
@@ -1086,12 +1070,12 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="RollNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="DOB" Type="nvarchar" MaxLength="50" />
-          <Property Name="Image" Type="nvarchar" MaxLength="50" />
           <Property Name="Gender" Type="nvarchar" MaxLength="50" />
           <Property Name="Class" Type="nvarchar" MaxLength="50" />
           <Property Name="Section" Type="nvarchar" MaxLength="50" />
-          <Property Name="Status" Type="nvarchar" MaxLength="50" />
           <Property Name="DateOfAdmission" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="Status" Type="tinyint" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -1244,22 +1228,10 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
             <End Role="ExpenseAmounts" EntitySet="ExpenseAmounts" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SMST4MModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Academic_ClassRoutine">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SubjectID" Type="Int32" />
-          <Property Name="UserID" Type="Int32" />
-          <Property Name="SectionID" Type="Int32" />
-          <Property Name="PeriodID" Type="Int32" />
-          <Property Name="Status" Type="Boolean" />
-        </EntityType>
         <EntityType Name="Academic_ClassRoutine_Days">
           <Key>
             <PropertyRef Name="ID" />
@@ -1279,37 +1251,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="TotalMarks" Type="Decimal" Precision="18" Scale="1" />
           <Property Name="PassingMarks" Type="Decimal" Precision="18" Scale="1" />
         </EntityType>
-        <EntityType Name="Academic_Courses">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Duration" Type="Byte" />
-          <Property Name="StandardFee" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Operator_id" Type="Int32" />
-          <Property Name="Is_deleted" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="Academic_CourseStudents">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Student_id" Type="Int32" />
-          <Property Name="Course_id" Type="Int32" />
-          <Property Name="DecidedFee" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="StartDate" Type="DateTime" Precision="0" />
-          <Property Name="Duration" Type="Byte" />
-        </EntityType>
-        <EntityType Name="Academic_Days">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Holyday" Type="Boolean" />
-          <Property Name="DayNumber" Type="Byte" />
-        </EntityType>
         <EntityType Name="Academic_Holydays">
           <Key>
             <PropertyRef Name="ID" />
@@ -1327,15 +1268,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="TimeStart" Type="Time" Precision="7" />
           <Property Name="TimeEnd" Type="Time" Precision="7" />
           <Property Name="PeriodNumber" Type="Int32" />
-        </EntityType>
-        <EntityType Name="Academic_Subjects">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Boolean" />
         </EntityType>
         <EntityType Name="AllowanceAmount">
           <Key>
@@ -1358,39 +1290,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="AllowanceType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SequenceNumber" Type="Int32" />
         </EntityType>
-        <EntityType Name="AssessmentArea">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AssessmentCategoryID" Type="Int32" />
-          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="ParentID" Type="Int32" />
-          <Property Name="Sequence" Type="Int32" />
-          <Property Name="Is_Active" Type="Boolean" />
-          <Property Name="Is_SummaryField" Type="Boolean" />
-          <Property Name="Level" Type="Int32" />
-        </EntityType>
-        <EntityType Name="AssessmentCategory">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="AssessmentColor">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ColorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ColorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ColorMeaning" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Is_Active" Type="Boolean" />
-        </EntityType>
         <EntityType Name="AssessmentFindingDetail">
           <Key>
             <PropertyRef Name="ID" />
@@ -1398,7 +1297,7 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AssessmentFindingMasterID" Type="Int32" />
           <Property Name="AssessmentAreaID" Type="Int32" />
-          <Property Name="Finding" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Finding" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="AssessmentFindingMaster">
           <Key>
@@ -2254,30 +2153,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="KeyName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="KeyValue" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Student">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SectionID" Type="Int32" />
-          <Property Name="UserID" Type="Int32" />
-          <Property Name="RollNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="sDate" Type="DateTime" Precision="0" />
-          <Property Name="Status" Type="Byte" />
-          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="BirthDate" Type="DateTime" Precision="0" />
-          <Property Name="StuCNIC" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="FamilyID" Type="Int32" />
-          <Property Name="Gender" Type="Byte" />
-          <Property Name="JoiningClassID" Type="Int32" />
-          <Property Name="LeavingDate" Type="DateTime" Precision="0" />
-          <Property Name="registration_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="NationalityID" Type="Int32" />
-          <Property Name="ReligionID" Type="Int32" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="StuGroupID" Type="Int32" />
-        </EntityType>
         <EntityType Name="StudentsMeta">
           <Key>
             <PropertyRef Name="ID" />
@@ -2286,20 +2161,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="StudentID" Type="Int32" />
           <Property Name="KeyName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="KeyValue" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="TB_RegisterStudent">
-          <Key>
-            <PropertyRef Name="RollNo" />
-          </Key>
-          <Property Name="RollNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DOB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Section" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DateOfAdmission" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -2358,20 +2219,12 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="SMST4MEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Academic_ClassRoutine" EntityType="Self.Academic_ClassRoutine" />
           <EntitySet Name="Academic_ClassRoutine_Days" EntityType="Self.Academic_ClassRoutine_Days" />
           <EntitySet Name="Academic_ClassSubjects" EntityType="Self.Academic_ClassSubjects" />
-          <EntitySet Name="Academic_Courses" EntityType="Self.Academic_Courses" />
-          <EntitySet Name="Academic_CourseStudents" EntityType="Self.Academic_CourseStudents" />
-          <EntitySet Name="Academic_Days" EntityType="Self.Academic_Days" />
           <EntitySet Name="Academic_Holydays" EntityType="Self.Academic_Holydays" />
           <EntitySet Name="Academic_Periods" EntityType="Self.Academic_Periods" />
-          <EntitySet Name="Academic_Subjects" EntityType="Self.Academic_Subjects" />
           <EntitySet Name="AllowanceAmounts" EntityType="Self.AllowanceAmount" />
           <EntitySet Name="AllowanceTypes" EntityType="Self.AllowanceType" />
-          <EntitySet Name="AssessmentAreas" EntityType="Self.AssessmentArea" />
-          <EntitySet Name="AssessmentCategories" EntityType="Self.AssessmentCategory" />
-          <EntitySet Name="AssessmentColors" EntityType="Self.AssessmentColor" />
           <EntitySet Name="AssessmentFindingDetails" EntityType="Self.AssessmentFindingDetail" />
           <EntitySet Name="AssessmentFindingMasters" EntityType="Self.AssessmentFindingMaster" />
           <EntitySet Name="Capabilities" EntityType="Self.Capability" />
@@ -2446,34 +2299,152 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <EntitySet Name="StudentPayments" EntityType="Self.StudentPayment" />
           <EntitySet Name="StudentPayments_History" EntityType="Self.StudentPayments_History" />
           <EntitySet Name="StudentPaymentsMetas" EntityType="Self.StudentPaymentsMeta" />
-          <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="StudentsMetas" EntityType="Self.StudentsMeta" />
-          <EntitySet Name="TB_RegisterStudent" EntityType="Self.TB_RegisterStudent" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="Students_temp" EntityType="Self.Students_temp" />
           <AssociationSet Name="FK_ExpenseAmounts_ExpenseNames_userid" Association="Self.FK_ExpenseAmounts_ExpenseNames_userid">
             <End Role="Users" EntitySet="Users" />
             <End Role="ExpenseAmounts" EntitySet="ExpenseAmounts" />
           </AssociationSet>
+          <EntitySet Name="TB_RegisterStudent" EntityType="SMST4MModel.TB_RegisterStudent" />
+          <EntitySet Name="Academic_ClassRoutine" EntityType="SMST4MModel.Academic_ClassRoutine" />
+          <EntitySet Name="Academic_Courses" EntityType="SMST4MModel.Academic_Courses" />
+          <EntitySet Name="Students" EntityType="SMST4MModel.Student" />
+          <EntitySet Name="Academic_Days" EntityType="SMST4MModel.Academic_Days" />
+          <EntitySet Name="AssessmentAreas" EntityType="SMST4MModel.AssessmentArea" />
+          <EntitySet Name="AssessmentColors" EntityType="SMST4MModel.AssessmentColor" />
+          <EntitySet Name="Academic_Subjects" EntityType="SMST4MModel.Academic_Subjects" />
+          <EntitySet Name="AssessmentCategories" EntityType="SMST4MModel.AssessmentCategory" />
+          <EntitySet Name="Academic_CourseStudents" EntityType="SMST4MModel.Academic_CourseStudents" />
         </EntityContainer>
+        <EntityType Name="TB_RegisterStudent">
+          <Key>
+            <PropertyRef Name="RollNo" />
+          </Key>
+          <Property Name="RollNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DOB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Section" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfAdmission" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Status" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Academic_ClassRoutine">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubjectID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="SectionID" Type="Int32" />
+          <Property Name="PeriodID" Type="Int32" />
+          <Property Name="Status" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Academic_Courses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StandardFee" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Operator_id" Type="Int32" />
+          <Property Name="Is_deleted" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SectionID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="RollNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="sDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="Byte" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="StuCNIC" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FamilyID" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JoiningClassID" Type="Int32" />
+          <Property Name="LeavingDate" Type="DateTime" Precision="0" />
+          <Property Name="registration_no" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NationalityID" Type="Int32" />
+          <Property Name="ReligionID" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StuGroupID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Academic_Days">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Holyday" Type="Int32" />
+          <Property Name="DayNumber" Type="Byte" />
+        </EntityType>
+        <EntityType Name="AssessmentArea">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AssessmentCategoryID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="Sequence" Type="Int32" />
+          <Property Name="Is_Active" Type="Byte" />
+          <Property Name="Is_SummaryField" Type="Byte" />
+          <Property Name="Level" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AssessmentColor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ColorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ColorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ColorMeaning" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Is_Active" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Academic_Subjects">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Byte" />
+        </EntityType>
+        <EntityType Name="AssessmentCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Academic_CourseStudents">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Student_id" Type="Int32" />
+          <Property Name="Course_id" Type="Int32" />
+          <Property Name="DecidedFee" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SMST4MModelStoreContainer" CdmEntityContainer="SMST4MEntities1">
-          <EntitySetMapping Name="Academic_ClassRoutine">
-            <EntityTypeMapping TypeName="SMST4MModel.Academic_ClassRoutine">
-              <MappingFragment StoreEntitySet="Academic_ClassRoutine">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
-                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Academic_ClassRoutine_Days">
             <EntityTypeMapping TypeName="SMST4MModel.Academic_ClassRoutine_Days">
               <MappingFragment StoreEntitySet="Academic_ClassRoutine_Days">
@@ -2492,40 +2463,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
                 <ScalarProperty Name="SubjectNumber" ColumnName="SubjectNumber" />
                 <ScalarProperty Name="TotalMarks" ColumnName="TotalMarks" />
                 <ScalarProperty Name="PassingMarks" ColumnName="PassingMarks" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Academic_Courses">
-            <EntityTypeMapping TypeName="SMST4MModel.Academic_Courses">
-              <MappingFragment StoreEntitySet="Academic_Courses">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
-                <ScalarProperty Name="StandardFee" ColumnName="StandardFee" />
-                <ScalarProperty Name="Operator_id" ColumnName="Operator_id" />
-                <ScalarProperty Name="Is_deleted" ColumnName="Is_deleted" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Academic_CourseStudents">
-            <EntityTypeMapping TypeName="SMST4MModel.Academic_CourseStudents">
-              <MappingFragment StoreEntitySet="Academic_CourseStudents">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Student_id" ColumnName="Student_id" />
-                <ScalarProperty Name="Course_id" ColumnName="Course_id" />
-                <ScalarProperty Name="DecidedFee" ColumnName="DecidedFee" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="Duration" ColumnName="Duration" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Academic_Days">
-            <EntityTypeMapping TypeName="SMST4MModel.Academic_Days">
-              <MappingFragment StoreEntitySet="Academic_Days">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Holyday" ColumnName="Holyday" />
-                <ScalarProperty Name="DayNumber" ColumnName="DayNumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2549,16 +2486,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Academic_Subjects">
-            <EntityTypeMapping TypeName="SMST4MModel.Academic_Subjects">
-              <MappingFragment StoreEntitySet="Academic_Subjects">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AllowanceAmounts">
             <EntityTypeMapping TypeName="SMST4MModel.AllowanceAmount">
               <MappingFragment StoreEntitySet="AllowanceAmounts">
@@ -2579,42 +2506,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
                 <ScalarProperty Name="Recurring" ColumnName="Recurring" />
                 <ScalarProperty Name="AllowanceType1" ColumnName="AllowanceType" />
                 <ScalarProperty Name="SequenceNumber" ColumnName="SequenceNumber" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AssessmentAreas">
-            <EntityTypeMapping TypeName="SMST4MModel.AssessmentArea">
-              <MappingFragment StoreEntitySet="AssessmentAreas">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="AssessmentCategoryID" ColumnName="AssessmentCategoryID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
-                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
-                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
-                <ScalarProperty Name="Is_SummaryField" ColumnName="Is_SummaryField" />
-                <ScalarProperty Name="Level" ColumnName="Level" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AssessmentCategories">
-            <EntityTypeMapping TypeName="SMST4MModel.AssessmentCategory">
-              <MappingFragment StoreEntitySet="AssessmentCategories">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Detail" ColumnName="Detail" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AssessmentColors">
-            <EntityTypeMapping TypeName="SMST4MModel.AssessmentColor">
-              <MappingFragment StoreEntitySet="AssessmentColors">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ColorName" ColumnName="ColorName" />
-                <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
-                <ScalarProperty Name="ColorMeaning" ColumnName="ColorMeaning" />
-                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3554,31 +3445,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="SMST4MModel.Student">
-              <MappingFragment StoreEntitySet="Students">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="RollNo" ColumnName="RollNo" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="sDate" ColumnName="sDate" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="image" ColumnName="image" />
-                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
-                <ScalarProperty Name="StuCNIC" ColumnName="StuCNIC" />
-                <ScalarProperty Name="FamilyID" ColumnName="FamilyID" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="JoiningClassID" ColumnName="JoiningClassID" />
-                <ScalarProperty Name="LeavingDate" ColumnName="LeavingDate" />
-                <ScalarProperty Name="registration_no" ColumnName="registration_no" />
-                <ScalarProperty Name="NationalityID" ColumnName="NationalityID" />
-                <ScalarProperty Name="ReligionID" ColumnName="ReligionID" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="StuGroupID" ColumnName="StuGroupID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="StudentsMetas">
             <EntityTypeMapping TypeName="SMST4MModel.StudentsMeta">
               <MappingFragment StoreEntitySet="StudentsMeta">
@@ -3586,21 +3452,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
                 <ScalarProperty Name="StudentID" ColumnName="StudentID" />
                 <ScalarProperty Name="KeyName" ColumnName="KeyName" />
                 <ScalarProperty Name="KeyValue" ColumnName="KeyValue" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TB_RegisterStudent">
-            <EntityTypeMapping TypeName="SMST4MModel.TB_RegisterStudent">
-              <MappingFragment StoreEntitySet="TB_RegisterStudent">
-                <ScalarProperty Name="RollNo" ColumnName="RollNo" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="DOB" ColumnName="DOB" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="Class" ColumnName="Class" />
-                <ScalarProperty Name="Section" ColumnName="Section" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="DateOfAdmission" ColumnName="DateOfAdmission" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3645,6 +3496,138 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
                 <ScalarProperty Name="sDate" ColumnName="sDate" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_RegisterStudent">
+            <EntityTypeMapping TypeName="SMST4MModel.TB_RegisterStudent">
+              <MappingFragment StoreEntitySet="TB_RegisterStudent">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="DateOfAdmission" ColumnName="DateOfAdmission" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RollNo" ColumnName="RollNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Academic_ClassRoutine">
+            <EntityTypeMapping TypeName="SMST4MModel.Academic_ClassRoutine">
+              <MappingFragment StoreEntitySet="Academic_ClassRoutine">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PeriodID" ColumnName="PeriodID" />
+                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Academic_Courses">
+            <EntityTypeMapping TypeName="SMST4MModel.Academic_Courses">
+              <MappingFragment StoreEntitySet="Academic_Courses">
+                <ScalarProperty Name="Is_deleted" ColumnName="Is_deleted" />
+                <ScalarProperty Name="Operator_id" ColumnName="Operator_id" />
+                <ScalarProperty Name="StandardFee" ColumnName="StandardFee" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="SMST4MModel.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="StuGroupID" ColumnName="StuGroupID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ReligionID" ColumnName="ReligionID" />
+                <ScalarProperty Name="NationalityID" ColumnName="NationalityID" />
+                <ScalarProperty Name="registration_no" ColumnName="registration_no" />
+                <ScalarProperty Name="LeavingDate" ColumnName="LeavingDate" />
+                <ScalarProperty Name="JoiningClassID" ColumnName="JoiningClassID" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="FamilyID" ColumnName="FamilyID" />
+                <ScalarProperty Name="StuCNIC" ColumnName="StuCNIC" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="sDate" ColumnName="sDate" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RollNo" ColumnName="RollNo" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Academic_Days">
+            <EntityTypeMapping TypeName="SMST4MModel.Academic_Days">
+              <MappingFragment StoreEntitySet="Academic_Days">
+                <ScalarProperty Name="DayNumber" ColumnName="DayNumber" />
+                <ScalarProperty Name="Holyday" ColumnName="Holyday" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssessmentAreas">
+            <EntityTypeMapping TypeName="SMST4MModel.AssessmentArea">
+              <MappingFragment StoreEntitySet="AssessmentAreas">
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Is_SummaryField" ColumnName="Is_SummaryField" />
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AssessmentCategoryID" ColumnName="AssessmentCategoryID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssessmentColors">
+            <EntityTypeMapping TypeName="SMST4MModel.AssessmentColor">
+              <MappingFragment StoreEntitySet="AssessmentColors">
+                <ScalarProperty Name="Is_Active" ColumnName="Is_Active" />
+                <ScalarProperty Name="ColorMeaning" ColumnName="ColorMeaning" />
+                <ScalarProperty Name="ColorCode" ColumnName="ColorCode" />
+                <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Academic_Subjects">
+            <EntityTypeMapping TypeName="SMST4MModel.Academic_Subjects">
+              <MappingFragment StoreEntitySet="Academic_Subjects">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssessmentCategories">
+            <EntityTypeMapping TypeName="SMST4MModel.AssessmentCategory">
+              <MappingFragment StoreEntitySet="AssessmentCategories">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Detail" ColumnName="Detail" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Academic_CourseStudents">
+            <EntityTypeMapping TypeName="SMST4MModel.Academic_CourseStudents">
+              <MappingFragment StoreEntitySet="Academic_CourseStudents">
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="DecidedFee" ColumnName="DecidedFee" />
+                <ScalarProperty Name="Course_id" ColumnName="Course_id" />
+                <ScalarProperty Name="Student_id" ColumnName="Student_id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

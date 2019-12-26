@@ -127,11 +127,11 @@
                                                 <div class="form-group">
                                                     <label class="control-label">StuCNIC</label>
                                                     <input type="text" id="StuCNIC" name="nic" placeholder="" onkeyup="var nic = this.value;
-    if (nic.match(/^\d{5}$/) !== null) {
-        this.value = nic + '-';
-    } else if (nic.match(/^\d{5}\-\d{7}$/) !== null) {
-        this.value = nic + '-';
-                }" maxlength="15">
+                                                 if (nic.match(/^\d{5}$/) !== null) {
+                                                    this.value = nic + '-';
+                                                      } else if (nic.match(/^\d{5}\-\d{7}$/) !== null) {
+                                                          this.value = nic + '-';
+                                                              }" maxlength="15">
                                                 </div>
                                             </div>
                                             <!--/span-->
@@ -228,12 +228,10 @@
                                                 <div class="form-group">
                                                     <label class="control-label  ">StuGroupID</label>
                                                     @Html.DropDownList("StuGroupID", (IEnumerable<SelectListItem>)ViewBag.StuGroupID, "Select StuGroupID ", new { @class = "form-control  " })
-  </div>
+                                            </div>
                                             </div>
                                             <!--/span-->
-                                        </div>
-                                       
-                                     
+                                        </div>                                                                    
                                     </div>
 
                                     <div class="form-actions">
@@ -245,9 +243,7 @@
                             </div>
                         </div>
                     </div>
-                    <!--Student Tab Close-->
-                    
-
+                    <!--Student Tab Close-->                 
                 </div>
             </div>
         </div>
@@ -336,56 +332,49 @@
     //    }
     //    })
     //}
-    //$(document).delegate('.edit','.click',function(){
-    //    debugger
-    //    var rowValue = $(this).closest('tr');
-    //    var ID = rowValue.find("td:eq(0)").text();
-    //    var SectionID = rowValue.find("td:eq(1)").text();
-    //    var UserID = rowValue.find("td:eq(2)").text();
-    //    var RollNo = rowValue.find("td:eq(3)").text();
-    //    var Name = rowValue.find("td:eq(4)").text();
-    //    var sDate= rowValue.find("td:eq(5)").text();
-    //    var Status = rowValue.find("td:eq(6)").text();
-    //    var BirthDate = rowValue.find("td:eq(7)").text();
-    //    var StuCNIC = rowValue.find("td:eq(8)").text();
-    //    var Gender = rowValue.find("td:eq(9)").text();
-    //    var JoiningClassID = rowValue.find("td:eq(10)").text();
-    //    var LeavingDate = rowValue.find("td:eq(11)").text();
-    //    var registration_no = rowValue.find("td:eq(12)").text();
-    //    var Email = rowValue.find("td:eq(13)").text();
-    //    var StuGroupID = rowValue.find("td:eq(14)").text();
-    //    var FamilyID = rowValue.find("td:eq(15)").text();
-    //    var NationalityID = rowValue.find("td:eq(16)").text();
-    //    var ReligionID = rowValue.find("td:eq(17)").text();
+    $(document).delegate('.edit','.click',function(){
+        debugger
+        var rowValue = $(this).closest('tr');
+        var ID = rowValue.find("td:eq(0)").text();
+        var SectionID = rowValue.find("td:eq(1)").text();
+        var UserID = rowValue.find("td:eq(2)").text();
+        var RollNo = rowValue.find("td:eq(3)").text();
+        var Name = rowValue.find("td:eq(4)").text();
+        var sDate= rowValue.find("td:eq(5)").text();
+        var Status = rowValue.find("td:eq(6)").text();
+        var BirthDate = rowValue.find("td:eq(7)").text();
+        var StuCNIC = rowValue.find("td:eq(8)").text();
+        var Gender = rowValue.find("td:eq(9)").text();
+        var JoiningClassID = rowValue.find("td:eq(10)").text();
+        var LeavingDate = rowValue.find("td:eq(11)").text();
+        var registration_no = rowValue.find("td:eq(12)").text();
+        var Email = rowValue.find("td:eq(13)").text();
+        var StuGroupID = rowValue.find("td:eq(14)").text();
+        var FamilyID = rowValue.find("td:eq(15)").text();
+        var NationalityID = rowValue.find("td:eq(16)").text();
+        var ReligionID = rowValue.find("td:eq(17)").text();
 
-    //    $('#ID').val(ID);
-    //    $('#SectionID').val(SectionID);
-    //    $('#UserID').val(UserID);
-    //    $('#RollNo').val(RollNo);
-    //    $('#Name').val(Name);
-    //    $('#sDate').val(sDate);
-    //    $('#Status').val(Status);
-    //    $('#BirthDate').val(BirthDate);
-    //    $('#StuCNIC').val(StuCNIC);
-    //    $('#Gender').val(Gender);
-    //    $('#JoiningClassID').val(JoiningClassID);
-    //    $('#FamilyID').val(FamilyID);
-    //    $('#LeavingDate').val(LeavingDate);
-    //    $('#registration_no').val(registration_no);
-    //    $('#Email').val(Email);
-    //    $('#StuGroupID').val(StuGroupID);
-    //    $('#NationalityID').val(NationalityID);
-    //    $('#ReligionID').val(ReligionID);
+        $('#ID').val(ID);
+        $('#SectionID').val(SectionID);
+        $('#UserID').val(UserID);
+        $('#RollNo').val(RollNo);
+        $('#Name').val(Name);
+        $('#sDate').val(sDate);
+        $('#Status').val(Status);
+        $('#BirthDate').val(BirthDate);
+        $('#StuCNIC').val(StuCNIC);
+        $('#Gender').val(Gender);
+        $('#JoiningClassID').val(JoiningClassID);
+        $('#FamilyID').val(FamilyID);
+        $('#LeavingDate').val(LeavingDate);
+        $('#registration_no').val(registration_no);
+        $('#Email').val(Email);
+        $('#StuGroupID').val(StuGroupID);
+        $('#NationalityID').val(NationalityID);
+        $('#ReligionID').val(ReligionID);
 
-    //})
-    $("#imageUploadForm").change(function () {
-        formData = new FormData();
-        var totalFiles = document.getElementById("imageUploadForm").files.length;
-        for (var i = 0; i < totalFiles; i++) {
-            var file = document.getElementById("imageUploadForm").files[i];
-            formData.append("imageUploadForm", file);
-        }
-    });
+    })
+   
     $('#btn_Add').click(function () {
         Add(formData);
 
@@ -403,7 +392,6 @@
         data.BirthDate = $('#BirthDate').val();
         data.StuCNIC = $('#StuCNIC').val();
         data.Gender = $('input[name=Gender]:checked').val();
-        debugger
         data.JoiningClassID = $('#JoiningClassID').val();
         data.LeavingDate = $('#LeavingDate').val();
         data.registration_no = $('#registration_no').val();

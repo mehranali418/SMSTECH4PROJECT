@@ -19,6 +19,6 @@ namespace SMSTech.Models
         public Nullable<int> Course_id { get; set; }
         public Nullable<decimal> DecidedFee { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
-        public Nullable<byte> Duration { get; set; }
+        public string Duration { get; set; }
     }
 }
