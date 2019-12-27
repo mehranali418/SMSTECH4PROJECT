@@ -67,39 +67,6 @@
     <Property Name="AssessmentAreaID" Type="Int32" />
     <Property Name="Finding" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="AssessmentFindingMaster">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="StudentID" Type="Int32" />
-    <Property Name="AssessmentCategoryID" Type="Int32" />
-    <Property Name="AssessmentColorID" Type="Int32" />
-    <Property Name="OperatorID" Type="Int32" />
-    <Property Name="CreationDate" Type="DateTime" Precision="0" />
-    <Property Name="LastUpdatedOn" Type="DateTime" Precision="0" />
-    <Property Name="LastUpdatedBy" Type="Int32" />
-    <Property Name="Editable" Type="Boolean" />
-  </EntityType>
-  <EntityType Name="Capability">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="RoleID" Type="Int32" />
-    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Allowed" Type="Boolean" />
-    <Property Name="isRoot" Type="Boolean" />
-  </EntityType>
-  <EntityType Name="Capabilities_Advance">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="AdvanceCapabilityID" Type="Int32" />
-    <Property Name="RoleID" Type="Int32" />
-    <Property Name="Status" Type="Boolean" />
-  </EntityType>
   <EntityType Name="Class">
     <Key>
       <PropertyRef Name="ID" />
@@ -117,16 +84,6 @@
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="LevelNumber" Type="Int32" />
   </EntityType>
-  <EntityType Name="Commitment">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="StudentID" Type="Int32" />
-    <Property Name="UserID" Type="Int32" />
-    <Property Name="sDate" Type="DateTime" Precision="0" />
-    <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-  </EntityType>
   <EntityType Name="Document_files">
     <Key>
       <PropertyRef Name="ID" />
@@ -137,77 +94,12 @@
     <Property Name="StudentID" Type="Int32" />
     <Property Name="UserID" Type="Int32" />
   </EntityType>
-  <EntityType Name="Document_names">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="DocType" Type="Byte" />
-  </EntityType>
   <EntityType Name="Education">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="EmployeeAttendance">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserID" Type="Int32" />
-    <Property Name="sDate" Type="DateTime" Precision="0" />
-    <Property Name="Type" Type="Byte" />
-    <Property Name="OperatorID" Type="Int32" />
-    <Property Name="UpdateDate" Type="DateTime" Precision="0" />
-    <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="Status" Type="Byte" />
-    <Property Name="Present" Type="Boolean" />
-    <Property Name="Absent" Type="Boolean" />
-    <Property Name="Leave" Type="Boolean" />
-    <Property Name="Offday" Type="Boolean" />
-  </EntityType>
-  <EntityType Name="EmployeeLoan">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="EmployeeID" Type="Int32" />
-    <Property Name="OperatorID" Type="Int32" />
-    <Property Name="AllowanceName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="ReceivedLoan" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="ReturnedLoan" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="T_Date" Type="DateTime" Precision="0" />
-    <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-    <Property Name="SalaryMonthID" Type="Int32" />
-    <Property Name="ChequeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Processesd" Type="Boolean" />
-    <Property Name="PaymentMethod" Type="Byte" />
-  </EntityType>
-  <EntityType Name="EmployeeLoans_History">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ActionDate" Type="DateTime" Precision="0" />
-    <Property Name="ActionUserID" Type="Int32" />
-    <Property Name="EmployeeID" Type="Int32" />
-    <Property Name="OperatorID" Type="Int32" />
-    <Property Name="EmployeeLoansID" Type="Int32" />
-    <Property Name="AllowanceName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="ReceivedLoanFrom" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="ReceivedLoanTo" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="ReturnedLoanFrom" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="ReturnedLoanTo" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="T_Date" Type="DateTime" Precision="0" />
-    <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-    <Property Name="SalaryMonthID" Type="Int32" />
-    <Property Name="ChequeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Processesd" Type="Boolean" />
-    <Property Name="PaymentMethod" Type="Byte" />
   </EntityType>
   <EntityType Name="EmployeePayment">
     <Key>
@@ -986,18 +878,10 @@
     <EntitySet Name="AllowanceAmounts" EntityType="Self.AllowanceAmount" />
     <EntitySet Name="AllowanceTypes" EntityType="Self.AllowanceType" />
     <EntitySet Name="AssessmentFindingDetails" EntityType="Self.AssessmentFindingDetail" />
-    <EntitySet Name="AssessmentFindingMasters" EntityType="Self.AssessmentFindingMaster" />
-    <EntitySet Name="Capabilities" EntityType="Self.Capability" />
-    <EntitySet Name="Capabilities_Advance" EntityType="Self.Capabilities_Advance" />
     <EntitySet Name="Classes" EntityType="Self.Class" />
     <EntitySet Name="ClassLevels" EntityType="Self.ClassLevel" />
-    <EntitySet Name="Commitments" EntityType="Self.Commitment" />
     <EntitySet Name="Document_files" EntityType="Self.Document_files" />
-    <EntitySet Name="Document_names" EntityType="Self.Document_names" />
     <EntitySet Name="Educations" EntityType="Self.Education" />
-    <EntitySet Name="EmployeeAttendances" EntityType="Self.EmployeeAttendance" />
-    <EntitySet Name="EmployeeLoans" EntityType="Self.EmployeeLoan" />
-    <EntitySet Name="EmployeeLoans_History" EntityType="Self.EmployeeLoans_History" />
     <EntitySet Name="EmployeePayments" EntityType="Self.EmployeePayment" />
     <EntitySet Name="EmployeePayments_History" EntityType="Self.EmployeePayments_History" />
     <EntitySet Name="EmployeePenalties" EntityType="Self.EmployeePenalty" />
@@ -1076,6 +960,14 @@
     <EntitySet Name="AssessmentCategories" EntityType="SMST4MModel.AssessmentCategory" />
     <EntitySet Name="Academic_CourseStudents" EntityType="SMST4MModel.Academic_CourseStudents" />
     <EntitySet Name="Roles" EntityType="SMST4MModel.Role" />
+    <EntitySet Name="AssessmentFindingMasters" EntityType="SMST4MModel.AssessmentFindingMaster" />
+    <EntitySet Name="Capabilities" EntityType="SMST4MModel.Capability" />
+    <EntitySet Name="Capabilities_Advance" EntityType="SMST4MModel.Capabilities_Advance" />
+    <EntitySet Name="Commitments" EntityType="SMST4MModel.Commitment" />
+    <EntitySet Name="Document_names" EntityType="SMST4MModel.Document_names" />
+    <EntitySet Name="EmployeeAttendances" EntityType="SMST4MModel.EmployeeAttendance" />
+    <EntitySet Name="EmployeeLoans_History" EntityType="SMST4MModel.EmployeeLoans_History" />
+    <EntitySet Name="EmployeeLoans" EntityType="SMST4MModel.EmployeeLoan" />
   </EntityContainer>
   <EntityType Name="TB_RegisterStudent">
     <Key>
@@ -1206,5 +1098,113 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AssessmentFindingMaster">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentID" Type="Int32" />
+    <Property Name="AssessmentCategoryID" Type="Int32" />
+    <Property Name="AssessmentColorID" Type="Int32" />
+    <Property Name="OperatorID" Type="Int32" />
+    <Property Name="CreationDate" Type="DateTime" Precision="0" />
+    <Property Name="LastUpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="LastUpdatedBy" Type="Int32" />
+    <Property Name="Editable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Capability">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="isRoot" Type="Byte" />
+    <Property Name="Allowed" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Capabilities_Advance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdvanceCapabilityID" Type="Int32" />
+    <Property Name="RoleID" Type="Int32" />
+    <Property Name="Status" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Commitment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentID" Type="Int32" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="sDate" Type="DateTime" Precision="0" />
+    <Property Name="Details" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Document_names">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DocType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EmployeeAttendance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="sDate" Type="DateTime" Precision="0" />
+    <Property Name="OperatorID" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+    <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Present" Type="Byte" />
+    <Property Name="Absent" Type="Byte" />
+    <Property Name="Leave" Type="Byte" />
+    <Property Name="Offday" Type="Byte" />
+  </EntityType>
+  <EntityType Name="EmployeeLoans_History">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ActionDate" Type="DateTime" Precision="0" />
+    <Property Name="ActionUserID" Type="Int32" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="OperatorID" Type="Int32" />
+    <Property Name="EmployeeLoansID" Type="Int32" />
+    <Property Name="AllowanceName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReceivedLoanFrom" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ReceivedLoanTo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ReturnedLoanFrom" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ReturnedLoanTo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="T_Date" Type="DateTime" Precision="0" />
+    <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="SalaryMonthID" Type="Int32" />
+    <Property Name="ChequeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Processesd" Type="Boolean" />
+    <Property Name="PaymentMethod" Type="Byte" />
+  </EntityType>
+  <EntityType Name="EmployeeLoan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="OperatorID" Type="Int32" />
+    <Property Name="AllowanceName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReceivedLoan" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ReturnedLoan" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="T_Date" Type="DateTime" Precision="0" />
+    <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="SalaryMonthID" Type="Int32" />
+    <Property Name="ChequeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentMethod" Type="Byte" />
+    <Property Name="Processesd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

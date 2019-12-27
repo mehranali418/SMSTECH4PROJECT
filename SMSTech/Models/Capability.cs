@@ -17,7 +17,7 @@ namespace SMSTech.Models
         public int ID { get; set; }
         public Nullable<int> RoleID { get; set; }
         public string Name { get; set; }
-        public Nullable<bool> Allowed { get; set; }
-        public Nullable<bool> isRoot { get; set; }
+        public Nullable<byte> isRoot { get; set; }
+        public Nullable<byte> Allowed { get; set; }
     }
 }

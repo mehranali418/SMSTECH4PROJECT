@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<br />
+<div class="container">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="row">
+
+                <input type="text" id="ID" style="display:none" />
+                <label class="control-label col-lg-2">DocNameID</label>
+                <input type="text" id="DocNameID" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">FileName</label>
+                <input type="text" id="FileName" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">StudentID</label>
+                @Html.DropDownList("StudentID", (IEnumerable<SelectListItem>)ViewBag.StudentID, "Select StudentID ", new { @class = "form-control col-lg-2" })
+                <label class="control-label col-lg-2">UserID</label>
+                @Html.DropDownList("UserID", (IEnumerable<SelectListItem>)ViewBag.UserID, "Select UserID ", new { @class = "form-control col-lg-2" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <input type="button" value="Add" id="btn_Add" class="btn btn-primary" />
+                <input type="button" value="Update" id="btn_Update" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>DocNameID</th>
+        <th>FileName</th>
+        <th>StudentID</th>
+        <th>UserID</th>     
+        <th>Actions</th>
+    </tr>
+    <tbody id="body"></tbody>
+</table>
+
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+
+<script>
+    var formData;
+    function GetData() {
+        $('#body').empty();
+        $.ajax({
+            url: '/Documentfiles/GetData',
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json;charset=utf-8',
+            success: function (result) {
+                var rows = '';
+                $.each(result, function (key, value) {
+                    rows = '<tr>'
+                         + '<td>' + value.ID + '</td>'
+                         + '<td>' + value.DocNameID + '</td>'
+                         + '<td>' + value.FileName + '</td>'
+                         + '<td>' + value.StudentID + '</td>'
+                         + '<td>' + value.UserID + '</td>'
+                         
+                        + '<td><input type="button" class="btn btn-primary edit" value="Edit"> <input type="button" class="btn btn-danger delete" value="Delete"></td>'
+                    '</tr>'
+                    $('#body').append(rows);
+                })
+            },
+            error: function (result) {
+            }
+        })
+    }
+    $(document).delegate('.edit', '.click', function () {
+        debugger
+        var rowValue = $(this).closest('tr');
+        var ID = rowValue.find("td:eq(0)").text();
+        var DocNameID = rowValue.find("td:eq(1)").text();
+        var FileName = rowValue.find("td:eq(2)").text();
+        var StudentID = rowValue.find("td:eq(3)").text();
+        var UserID = rowValue.find("td:eq(4)").text();       
+
+        $('#ID').val(ID);
+        $('#DocNameID').val(DocNameID);
+        $('#FileName').val(FileName);
+        $('#StudentID').val(StudentID);
+        $('#UserID').val(UserID);
+       
+    })
+    $('#btn_Add').click(function () {
+        Add(formData);
+    })
+    function Add() {
+        debugger
+        var data = {};
+        data.DocNameID = $('#DocNameID').val();
+        data.FileName = $('#FileName').val();
+        data.StudentID = $('#StudentID').val();
+        data.UserID = $('#UserID').val();    
+
+        $.ajax({
+            url: "/Documentfiles/Insert",
+            data: JSON.stringify(data),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function () {
+                alert(" Success");
+                GetData();
+            },
+            error: function () {
+                alert("Failed");
+            }
+        })
+    }
+</script>
+
+
+

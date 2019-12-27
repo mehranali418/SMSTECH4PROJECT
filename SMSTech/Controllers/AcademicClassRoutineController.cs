@@ -14,7 +14,7 @@ namespace SMSTech.Controllers
         public ActionResult Index()
         {
             ViewBag.SectionID = new SelectList(db.Students, "ID", "Name");
-            ViewBag.UserID = new SelectList(db.Students, "ID", "Name");
+            ViewBag.UserID = new SelectList(db.Users, "ID", "Name");
             
             return View();
         }

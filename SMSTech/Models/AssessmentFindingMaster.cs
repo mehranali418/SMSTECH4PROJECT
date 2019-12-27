@@ -22,6 +22,6 @@ namespace SMSTech.Models
         public Nullable<System.DateTime> CreationDate { get; set; }
         public Nullable<System.DateTime> LastUpdatedOn { get; set; }
         public Nullable<int> LastUpdatedBy { get; set; }
-        public Nullable<bool> Editable { get; set; }
+        public string Editable { get; set; }
     }
 }

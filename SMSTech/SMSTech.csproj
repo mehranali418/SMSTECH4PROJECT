@@ -6721,9 +6721,17 @@
     <Compile Include="Controllers\AssessmentCategoriesController.cs" />
     <Compile Include="Controllers\AssessmentColorsController.cs" />
     <Compile Include="Controllers\AssessmentFindingDetailController.cs" />
+    <Compile Include="Controllers\AssessmentFindingMasterController.cs" />
+    <Compile Include="Controllers\CapabilitieController.cs" />
+    <Compile Include="Controllers\CapabilitiesAdvanceController.cs" />
     <Compile Include="Controllers\ClassesController.cs" />
     <Compile Include="Controllers\ClassLevelsController.cs" />
+    <Compile Include="Controllers\CommitmentsController.cs" />
+    <Compile Include="Controllers\DocumentfilesController.cs" />
+    <Compile Include="Controllers\DocumentnamesController.cs" />
     <Compile Include="Controllers\EducationsController.cs" />
+    <Compile Include="Controllers\EmployeeAttendanceController.cs" />
+    <Compile Include="Controllers\EmployeeLoansController.cs" />
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\ExamGradeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -9857,6 +9865,14 @@
     <Content Include="Views\Religion\Create.cshtml" />
     <Content Include="Views\Rank\Create.cshtml" />
     <Content Include="Views\Role\Create.cshtml" />
+    <Content Include="Views\AssessmentFindingMaster\Index.cshtml" />
+    <Content Include="Views\Capabilitie\Create.cshtml" />
+    <Content Include="Views\CapabilitiesAdvance\Create.cshtml" />
+    <Content Include="Views\Commitments\Create.cshtml" />
+    <Content Include="Views\Documentfiles\Create.cshtml" />
+    <Content Include="Views\Documentnames\Create.cshtml" />
+    <Content Include="Views\EmployeeAttendance\Create.cshtml" />
+    <Content Include="Views\EmployeeLoans\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

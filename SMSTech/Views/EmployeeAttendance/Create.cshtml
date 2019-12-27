@@ -1,0 +1,184 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<br />
+<div class="container">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="row">
+                <input type="text" id="ID" style="display:none" />
+                <label class="control-label col-lg-2">UserID</label>
+                @Html.DropDownList("UserID", (IEnumerable<SelectListItem>)ViewBag.UserID, "Select UserID ", new { @class = "form-control col-lg-2" })
+                <label class="control-label col-lg-2">sDate</label>
+                <input type="date" id="sDate" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">OperatorID</label>
+                <input type="text" id="OperatorID" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">UpdateDate</label>
+                <input type="date" id="UpdateDate" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">Remarks</label>
+                <input type="text" id="Remarks" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">Status</label>
+                <input type="text" id="Status" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">Type</label>
+                <input type="text" id="Type" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">Present</label>
+                <input type="text" id="Present" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">Absent</label>
+                <input type="text" id="Absent" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">Leave</label>
+                <input type="text" id="Leave" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">Offday</label>
+                <input type="text" id="Offday" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <input type="button" value="Add" id="btn_Add" class="btn btn-primary" />
+                <input type="button" value="Update" id="btn_Update" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+        </div>
+
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>UserID</th>
+                <th>sDate</th>
+                <th>OperatorID</th>
+                <th>UpdateDate</th>
+                <th>Remarks</th>
+                <th>Status</th>
+                <th>Type</th>
+                <th>Present</th>
+                <th>Absent</th>
+                <th>Leave</th>
+                <th>Offday</th>
+                <th>Actions</th>
+            </tr>
+            <tbody id="body"></tbody>
+        </table>
+
+        <script src="~/scripts/jquery-1.10.2.min.js"></script>
+
+        <script>
+            var formData;
+            function GetData() {
+                $('#body').empty();
+                $.ajax({
+                    url: '/EmployeeAttendance/GetData',
+                    type: 'GET',
+                    dataType: 'json',
+                    contentType: 'application/json;charset=utf-8',
+                    success: function (result) {
+                        var rows = '';
+                        $.each(result, function (key, value) {
+                            rows = '<tr>'
+                                + '<td>' + value.ID + '</td>'
+                                + '<td>' + value.UserID + '</td>'
+                                + '<td>' + value.sDate + '</td>'
+                                + '<td>' + value.OperatorID + '</td>'
+                                + '<td>' + value.UpdateDate + '</td>'
+                                + '<td>' + value.Remarks + '</td>'
+                                + '<td>' + value.Status + '</td>'
+                                + '<td>' + value.Type + '</td>'
+                                + '<td>' + value.Present + '</td>'
+                                + '<td>' + value.Absent + '</td>'
+                                + '<td>' + value.Leave + '</td>'
+                                + '<td>' + value.Offday + '</td>'
+                                + '<td><input type="button" class="btn btn-primary edit" value="Edit"> <input type="button" class="btn btn-danger delete" value="Delete"></td>'
+                            '</tr>'
+                            $('#body').append(rows);
+                        })
+                    },
+                    error: function (result) {
+                    }
+                })
+            }
+            $(document).delegate('.edit', '.click', function () {
+                debugger
+                var rowValue = $(this).closest('tr');
+                var ID = rowValue.find("td:eq(0)").text();
+                var UserID = rowValue.find("td:eq(1)").text();
+                var sDate = rowValue.find("td:eq(2)").text();
+                var OperatorID = rowValue.find("td:eq(3)").text();
+                var UpdateDate = rowValue.find("td:eq(4)").text();
+                var Remarks = rowValue.find("td:eq(5)").text();
+                var Status = rowValue.find("td:eq(6)").text();
+                var Type = rowValue.find("td:eq(7)").text();
+                var Present = rowValue.find("td:eq(8)").text();
+                var Absent = rowValue.find("td:eq(9)").text();
+                var Leave = rowValue.find("td:eq(10)").text();
+                var Offday = rowValue.find("td:eq(11)").text();
+
+                $('#ID').val(ID);
+                $('#UserID').val(UserID);
+                $('#sDate').val(sDate);
+                $('#OperatorID').val(OperatorID);
+                $('#UpdateDate').val(UpdateDate);
+                $('#Remarks').val(Remarks);
+                $('#Status').val(Status);
+                $('#Type').val(Type);
+                $('#Present').val(Present);
+                $('#Absent').val(Absent);
+                $('#Leave').val(Leave);
+                $('#Offday').val(Offday);
+            })
+            $('#btn_Add').click(function () {
+                Add(formData);
+            })
+            function Add() {
+                debugger
+                var data = {};
+                data.UserID = $('#UserID').val();
+                data.sDate = $('#sDate').val();
+                data.OperatorID = $('#OperatorID').val();
+                data.UpdateDate = $('#UpdateDate').val();
+                data.Remarks = $('#Remarks').val();
+                data.Status = $('#Status').val();
+                data.Type = $('#Type').val();
+                data.Present = $('#Present').val();
+                data.Absent = $('#Absent').val();
+                data.Leave = $('#Leave').val();
+                data.Offday = $('#Offday').val();
+                $.ajax({
+                    url: "/EmployeeAttendance/Insert",
+                    data: JSON.stringify(data),
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function () {
+                        alert(" Success");
+                        GetData();
+                    },
+                    error: function () {
+                        alert("Failed");
+                    }
+                })
+            }
+        </script>
+
+

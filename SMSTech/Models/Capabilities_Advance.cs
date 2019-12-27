@@ -17,6 +17,6 @@ namespace SMSTech.Models
         public int ID { get; set; }
         public Nullable<int> AdvanceCapabilityID { get; set; }
         public Nullable<int> RoleID { get; set; }
-        public Nullable<bool> Status { get; set; }
+        public Nullable<byte> Status { get; set; }
     }
 }

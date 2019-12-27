@@ -24,7 +24,7 @@ namespace SMSTech.Models
         public string Remarks { get; set; }
         public Nullable<int> SalaryMonthID { get; set; }
         public string ChequeNo { get; set; }
-        public Nullable<bool> Processesd { get; set; }
         public Nullable<byte> PaymentMethod { get; set; }
+        public string Processesd { get; set; }
     }
 }

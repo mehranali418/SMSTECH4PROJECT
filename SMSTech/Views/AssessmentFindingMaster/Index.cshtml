@@ -1,0 +1,164 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<br />
+<div class="container">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="row">
+                <input type="text" id="ID" style="display:none" />
+
+                <label class="control-label col-lg-2">StudentID</label>
+                @Html.DropDownList("StudentID", (IEnumerable<SelectListItem>)ViewBag.StudentID, "Select StudentID ", new { @class = "form-control col-lg-2" })
+                <label class="control-label col-lg-2">AssessmentCategoryID</label>
+                @Html.DropDownList("AssessmentCategoryID", (IEnumerable<SelectListItem>)ViewBag.AssessmentCategoryID, "Select AssessmentCategoryID ", new { @class = "form-control col-lg-2" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">AssessmentColorID</label>
+                @Html.DropDownList("AssessmentColorID", (IEnumerable<SelectListItem>)ViewBag.AssessmentColorID, "Select AssessmentColorID ", new { @class = "form-control col-lg-2" })
+                <label class="control-label col-lg-2">OperatorID</label>
+                <input type="text" id="OperatorID" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">CreationDate</label>
+                <input type="date" id="CreationDate" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">LastUpdatedOn</label>
+                <input type="date" id="LastUpdatedOn" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">LastUpdatedBy</label>
+                <input type="text" id="LastUpdatedBy" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">Editable</label>
+                <input type="text" id="Editable" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <input type="button" value="Add" id="btn_Add" class="btn btn-primary" />
+                <input type="button" value="Update" id="btn_Update" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>StudentID</th>
+        <th>AssessmentCategoryID</th>
+        <th>AssessmentColorID</th>
+        <th>OperatorID</th>
+        <th>CreationDate</th>
+        <th>LastUpdatedOn</th>
+        <th>LastUpdatedBy</th>
+        <th>Editable</th>
+        <th>Actions</th>
+    </tr>
+    <tbody id="body"></tbody>
+</table>
+
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+
+<script>
+    var formData;
+    function GetData() {
+        $('#body').empty();
+        $.ajax({
+            url: '/AssessmentFindingMaster/GetData',
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json;charset=utf-8',
+            success: function (result) {
+                var rows = '';
+                $.each(result, function (key, value) {
+                    rows = '<tr>'
+                         + '<td>' + value.ID + '</td>'
+                          + '<td>' + value.StudentID + '</td>'
+                        + '<td>' + value.AssessmentCategoryID + '</td>'
+                        + '<td>' + value.AssessmentColorID + '</td>'
+                        + '<td>' + value.OperatorID + '</td>'
+                        + '<td>' + value.CreationDate + '</td>'
+                        + '<td>' + value.LastUpdatedOn + '</td>'
+                        + '<td>' + value.LastUpdatedBy + '</td>'
+                        + '<td>' + value.Editable + '</td>'
+                        
+                        + '<td><input type="button" class="btn btn-primary edit" value="Edit"> <input type="button" class="btn btn-danger delete" value="Delete"></td>'
+                    '</tr>'
+                    $('#body').append(rows);
+                })
+            },
+            error: function (result) {
+            }
+        })
+    }
+    $(document).delegate('.edit', '.click', function () {
+        debugger
+        var rowValue = $(this).closest('tr');
+        var ID = rowValue.find("td:eq(0)").text();
+        var StudentID = rowValue.find("td:eq(1)").text();
+        var AssessmentCategoryID = rowValue.find("td:eq(2)").text();
+        var AssessmentColorID = rowValue.find("td:eq(3)").text();
+        var OperatorID = rowValue.find("td:eq(4)").text();
+        var CreationDate = rowValue.find("td:eq(5)").text();
+        var LastUpdatedOn = rowValue.find("td:eq(6)").text();
+        var LastUpdatedBy = rowValue.find("td:eq(7)").text();
+        var Editable = rowValue.find("td:eq(8)").text();
+       
+
+        $('#ID').val(ID);
+        $('#StudentID').val(StudentID);
+        $('#AssessmentCategoryID').val(AssessmentCategoryID);
+        $('#AssessmentColorID').val(AssessmentColorID);
+        $('#OperatorID').val(OperatorID);
+        ('#CreationDate').val(CreationDate);
+        $('#LastUpdatedOn').val(LastUpdatedOn);
+        $('#LastUpdatedBy').val(LastUpdatedBy);
+        $('#Editable').val(Editable);
+        
+    })
+    $('#btn_Add').click(function () {
+        Add(formData);
+    })
+    function Add() {
+        debugger
+        var data = {};
+        data.StudentID = $('#StudentID').val();
+        data.AssessmentCategoryID = $('#AssessmentCategoryID').val();
+        data.AssessmentColorID = $('#AssessmentColorID').val();
+        data.OperatorID = $('#OperatorID').val();
+        data.CreationDate = $('#CreationDate').val();
+        data.LastUpdatedOn = $('#LastUpdatedOn').val();
+        data.LastUpdatedBy = $('#LastUpdatedBy').val();
+        data.Editable = $('#Editable').val();
+        $.ajax({
+            url: "/AssessmentFindingMaster/Insert",
+            data: JSON.stringify(data),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function () {
+                alert(" Success");
+                GetData();
+            },
+            error: function () {
+                alert("Failed");
+            }
+        })
+    }
+</script>
+

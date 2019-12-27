@@ -1,0 +1,190 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<br />
+<div class="container">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="row">
+                <input type="text" id="ID" style="display:none" />
+                <label class="control-label col-lg-2">EmployeeID</label>
+                <input type="text" id="EmployeeID" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">OperatorID</label>
+                <input type="text" id="OperatorID" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">AllowanceName</label>
+                <input type="text" id="AllowanceName" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">ReceivedLoan</label>
+                <input type="text" id="ReceivedLoan" class="form-control col-lg-2" />
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">ReturnedLoan</label>
+                <input type="text" id="ReturnedLoan" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">T_Date</label>
+                <input type="date" id="T_Date" class="form-control col-lg-2" />
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">Remarks</label>
+                <input type="text" id="Remarks" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">SalaryMonthID</label>
+                <input type="text" id="SalaryMonthID" class="form-control col-lg-2" />
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">ChequeNo</label>
+                <input type="text" id="ChequeNo" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">PaymentMethod</label>
+                <input type="text" id="PaymentMethod" class="form-control col-lg-2" />
+           
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">Processesd</label>
+                <input type="text" id="Processesd" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <input type="button" value="Add" id="btn_Add" class="btn btn-primary" />
+                <input type="button" value="Update" id="btn_Update" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>EmployeeID</th>
+        <th>OperatorID</th>
+        <th>AllowanceName</th>
+        <th>ReceivedLoan</th>
+        <th>ReturnedLoan</th>
+        <th>T_Date</th>
+        <th>Remarks</th>
+        <th>SalaryMonthID</th>
+        <th>ChequeNo</th>
+        <th>PaymentMethod</th>
+        <th>Processesd</th>
+        <th>Actions</th>
+    </tr>
+    <tbody id="body"></tbody>
+</table>
+
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+
+<script>
+            var formData;
+            function GetData() {
+                $('#body').empty();
+                $.ajax({
+                    url: '/EmployeeLoans/GetData',
+                    type: 'GET',
+                    dataType: 'json',
+                    contentType: 'application/json;charset=utf-8',
+                    success: function (result) {
+                        var rows = '';
+                        $.each(result, function (key, value) {
+                            rows = '<tr>'
+                                + '<td>' + value.ID + '</td>'
+                                + '<td>' + value.EmployeeID + '</td>'
+                                + '<td>' + value.OperatorID + '</td>'
+                                + '<td>' + value.AllowanceName + '</td>'
+                                + '<td>' + value.ReceivedLoan + '</td>'
+                                + '<td>' + value.ReturnedLoan + '</td>'
+                                + '<td>' + value.T_Date + '</td>'
+                                + '<td>' + value.Remarks + '</td>'
+                                + '<td>' + value.SalaryMonthID + '</td>'
+                                + '<td>' + value.ChequeNo + '</td>'
+                                + '<td>' + value.PaymentMethod + '</td>'
+                                + '<td>' + value.Processesd + '</td>'
+                                + '<td><input type="button" class="btn btn-primary edit" value="Edit"> <input type="button" class="btn btn-danger delete" value="Delete"></td>'
+                            '</tr>'
+                            $('#body').append(rows);
+                        })
+                    },
+                    error: function (result) {
+                    }
+                })
+            }
+            $(document).delegate('.edit', '.click', function () {
+                debugger
+                var rowValue = $(this).closest('tr');
+                var ID = rowValue.find("td:eq(0)").text();
+                var EmployeeID = rowValue.find("td:eq(1)").text();
+                var OperatorID = rowValue.find("td:eq(2)").text();
+                var AllowanceName = rowValue.find("td:eq(3)").text();
+                var ReceivedLoan = rowValue.find("td:eq(4)").text();
+                var ReturnedLoan = rowValue.find("td:eq(5)").text();
+                var T_Date = rowValue.find("td:eq(6)").text();
+                var Remarks = rowValue.find("td:eq(7)").text();
+                var SalaryMonthID = rowValue.find("td:eq(8)").text();
+                var ChequeNo = rowValue.find("td:eq(9)").text();
+                var PaymentMethod = rowValue.find("td:eq(10)").text();
+                var Processesd = rowValue.find("td:eq(11)").text();
+
+                $('#ID').val(ID);
+                $('#EmployeeID').val(EmployeeID);
+                $('#OperatorID').val(OperatorID);
+                $('#AllowanceName').val(AllowanceName);
+                $('#ReceivedLoan').val(ReceivedLoan);
+                $('#ReturnedLoan').val(ReturnedLoan);
+                $('#T_Date').val(T_Date);
+                $('#Remarks').val(Remarks);
+                $('#SalaryMonthID').val(SalaryMonthID);
+                $('#ChequeNo').val(ChequeNo);
+                $('#PaymentMethod').val(PaymentMethod);
+                $('#Processesd').val(Processesd);
+            })
+            $('#btn_Add').click(function () {
+                Add(formData);
+            })
+            function Add() {
+                debugger
+                var data = {};
+                data.EmployeeID = $('#EmployeeID').val();
+                data.OperatorID = $('#OperatorID').val();
+                data.AllowanceName = $('#AllowanceName').val();
+                data.ReceivedLoan = $('#ReceivedLoan').val();
+                data.ReturnedLoan = $('#ReturnedLoan').val();
+                data.T_Date = $('#T_Date').val();
+                data.Remarks = $('#Remarks').val();
+                data.SalaryMonthID = $('#SalaryMonthID').val();
+                data.ChequeNo = $('#ChequeNo').val();
+                data.PaymentMethod = $('#PaymentMethod').val();
+                data.Processesd = $('#Processesd').val();
+                $.ajax({
+                    url: "/EmployeeLoans/Insert",
+                    data: JSON.stringify(data),
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function () {
+                        alert(" Success");
+                        GetData();
+                    },
+                    error: function () {
+                        alert("Failed");
+                    }
+                })
+            }
+</script>
+
+
+
+

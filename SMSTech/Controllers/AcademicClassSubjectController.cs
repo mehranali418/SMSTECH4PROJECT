@@ -13,7 +13,7 @@ namespace SMSTech.Controllers
         // GET: AcademicClassSubject
         public ActionResult Index()
         {
-            ViewBag.SectionID = new SelectList(db.Students, "ID", "Name");
+            ViewBag.SectionID = new SelectList(db.Sections, "ID", "Name");
             return View();
         }
         [HttpPost]

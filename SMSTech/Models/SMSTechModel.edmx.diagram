@@ -12,18 +12,10 @@
         <EntityTypeShape EntityType="SMST4MModel.AllowanceAmount" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.AllowanceType" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.AssessmentFindingDetail" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.AssessmentFindingMaster" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.Capability" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.Capabilities_Advance" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.Class" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.ClassLevel" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.Commitment" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.Document_files" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.Document_names" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.Education" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.EmployeeAttendance" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.EmployeeLoan" Width="1.5" PointX="2.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SMST4MModel.EmployeeLoans_History" Width="1.5" PointX="8.75" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.EmployeePayment" Width="1.5" PointX="14.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.EmployeePayments_History" Width="1.5" PointX="14.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SMST4MModel.EmployeePenalty" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
@@ -99,6 +91,14 @@
         <EntityTypeShape EntityType="SMST4MModel.AssessmentCategory" Width="1.5" PointX="27.375" PointY="21.75" />
         <EntityTypeShape EntityType="SMST4MModel.Academic_CourseStudents" Width="1.5" PointX="5.375" PointY="6.75" />
         <EntityTypeShape EntityType="SMST4MModel.Role" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SMST4MModel.AssessmentFindingMaster" Width="1.5" PointX="23.375" PointY="27.75" />
+        <EntityTypeShape EntityType="SMST4MModel.Capability" Width="1.5" PointX="9.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SMST4MModel.Capabilities_Advance" Width="1.5" PointX="27.375" PointY="24.75" />
+        <EntityTypeShape EntityType="SMST4MModel.Commitment" Width="1.5" PointX="11.375" PointY="6.75" />
+        <EntityTypeShape EntityType="SMST4MModel.Document_names" Width="1.5" PointX="11.375" PointY="9.75" />
+        <EntityTypeShape EntityType="SMST4MModel.EmployeeAttendance" Width="1.5" PointX="25.375" PointY="27.75" />
+        <EntityTypeShape EntityType="SMST4MModel.EmployeeLoans_History" Width="1.5" PointX="27.375" PointY="27.75" />
+        <EntityTypeShape EntityType="SMST4MModel.EmployeeLoan" Width="1.5" PointX="0.75" PointY="28.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

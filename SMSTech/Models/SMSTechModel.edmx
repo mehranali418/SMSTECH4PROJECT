@@ -168,7 +168,7 @@
           <Property Name="CreationDate" Type="smalldatetime" />
           <Property Name="LastUpdatedOn" Type="smalldatetime" />
           <Property Name="LastUpdatedBy" Type="int" />
-          <Property Name="Editable" Type="bit" />
+          <Property Name="Editable" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Capabilities">
           <Key>
@@ -177,8 +177,8 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RoleID" Type="int" />
           <Property Name="Name" Type="varchar" MaxLength="100" />
-          <Property Name="Allowed" Type="bit" />
-          <Property Name="isRoot" Type="bit" />
+          <Property Name="isRoot" Type="tinyint" />
+          <Property Name="Allowed" Type="tinyint" />
         </EntityType>
         <EntityType Name="Capabilities_Advance">
           <Key>
@@ -187,7 +187,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AdvanceCapabilityID" Type="int" />
           <Property Name="RoleID" Type="int" />
-          <Property Name="Status" Type="bit" />
+          <Property Name="Status" Type="tinyint" />
         </EntityType>
         <EntityType Name="Classes">
           <Key>
@@ -214,7 +214,7 @@
           <Property Name="StudentID" Type="int" />
           <Property Name="UserID" Type="int" />
           <Property Name="sDate" Type="smalldatetime" />
-          <Property Name="Details" Type="text" />
+          <Property Name="Details" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Document_files">
           <Key>
@@ -232,7 +232,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="200" />
-          <Property Name="DocType" Type="tinyint" />
+          <Property Name="DocType" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Educations">
           <Key>
@@ -248,15 +248,15 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserID" Type="int" />
           <Property Name="sDate" Type="smalldatetime" />
-          <Property Name="Type" Type="tinyint" />
           <Property Name="OperatorID" Type="int" />
           <Property Name="UpdateDate" Type="smalldatetime" />
           <Property Name="Remarks" Type="varchar" MaxLength="500" />
           <Property Name="Status" Type="tinyint" />
-          <Property Name="Present" Type="bit" />
-          <Property Name="Absent" Type="bit" />
-          <Property Name="Leave" Type="bit" />
-          <Property Name="Offday" Type="bit" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Present" Type="tinyint" />
+          <Property Name="Absent" Type="tinyint" />
+          <Property Name="Leave" Type="tinyint" />
+          <Property Name="Offday" Type="tinyint" />
         </EntityType>
         <EntityType Name="EmployeeLoans">
           <Key>
@@ -272,8 +272,8 @@
           <Property Name="Remarks" Type="varchar" MaxLength="1000" />
           <Property Name="SalaryMonthID" Type="int" />
           <Property Name="ChequeNo" Type="varchar" MaxLength="100" />
-          <Property Name="Processesd" Type="bit" />
           <Property Name="PaymentMethod" Type="tinyint" />
+          <Property Name="Processesd" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="EmployeeLoans_History">
           <Key>
@@ -1299,39 +1299,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="AssessmentAreaID" Type="Int32" />
           <Property Name="Finding" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="AssessmentFindingMaster">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StudentID" Type="Int32" />
-          <Property Name="AssessmentCategoryID" Type="Int32" />
-          <Property Name="AssessmentColorID" Type="Int32" />
-          <Property Name="OperatorID" Type="Int32" />
-          <Property Name="CreationDate" Type="DateTime" Precision="0" />
-          <Property Name="LastUpdatedOn" Type="DateTime" Precision="0" />
-          <Property Name="LastUpdatedBy" Type="Int32" />
-          <Property Name="Editable" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="Capability">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RoleID" Type="Int32" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Allowed" Type="Boolean" />
-          <Property Name="isRoot" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="Capabilities_Advance">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AdvanceCapabilityID" Type="Int32" />
-          <Property Name="RoleID" Type="Int32" />
-          <Property Name="Status" Type="Boolean" />
-        </EntityType>
         <EntityType Name="Class">
           <Key>
             <PropertyRef Name="ID" />
@@ -1349,16 +1316,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LevelNumber" Type="Int32" />
         </EntityType>
-        <EntityType Name="Commitment">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StudentID" Type="Int32" />
-          <Property Name="UserID" Type="Int32" />
-          <Property Name="sDate" Type="DateTime" Precision="0" />
-          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="Document_files">
           <Key>
             <PropertyRef Name="ID" />
@@ -1369,77 +1326,12 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="StudentID" Type="Int32" />
           <Property Name="UserID" Type="Int32" />
         </EntityType>
-        <EntityType Name="Document_names">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="DocType" Type="Byte" />
-        </EntityType>
         <EntityType Name="Education">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="EmployeeAttendance">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserID" Type="Int32" />
-          <Property Name="sDate" Type="DateTime" Precision="0" />
-          <Property Name="Type" Type="Byte" />
-          <Property Name="OperatorID" Type="Int32" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
-          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="Status" Type="Byte" />
-          <Property Name="Present" Type="Boolean" />
-          <Property Name="Absent" Type="Boolean" />
-          <Property Name="Leave" Type="Boolean" />
-          <Property Name="Offday" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="EmployeeLoan">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EmployeeID" Type="Int32" />
-          <Property Name="OperatorID" Type="Int32" />
-          <Property Name="AllowanceName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="ReceivedLoan" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="ReturnedLoan" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="T_Date" Type="DateTime" Precision="0" />
-          <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="SalaryMonthID" Type="Int32" />
-          <Property Name="ChequeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Processesd" Type="Boolean" />
-          <Property Name="PaymentMethod" Type="Byte" />
-        </EntityType>
-        <EntityType Name="EmployeeLoans_History">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ActionDate" Type="DateTime" Precision="0" />
-          <Property Name="ActionUserID" Type="Int32" />
-          <Property Name="EmployeeID" Type="Int32" />
-          <Property Name="OperatorID" Type="Int32" />
-          <Property Name="EmployeeLoansID" Type="Int32" />
-          <Property Name="AllowanceName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="ReceivedLoanFrom" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="ReceivedLoanTo" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="ReturnedLoanFrom" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="ReturnedLoanTo" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="T_Date" Type="DateTime" Precision="0" />
-          <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-          <Property Name="SalaryMonthID" Type="Int32" />
-          <Property Name="ChequeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Processesd" Type="Boolean" />
-          <Property Name="PaymentMethod" Type="Byte" />
         </EntityType>
         <EntityType Name="EmployeePayment">
           <Key>
@@ -2218,18 +2110,10 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <EntitySet Name="AllowanceAmounts" EntityType="Self.AllowanceAmount" />
           <EntitySet Name="AllowanceTypes" EntityType="Self.AllowanceType" />
           <EntitySet Name="AssessmentFindingDetails" EntityType="Self.AssessmentFindingDetail" />
-          <EntitySet Name="AssessmentFindingMasters" EntityType="Self.AssessmentFindingMaster" />
-          <EntitySet Name="Capabilities" EntityType="Self.Capability" />
-          <EntitySet Name="Capabilities_Advance" EntityType="Self.Capabilities_Advance" />
           <EntitySet Name="Classes" EntityType="Self.Class" />
           <EntitySet Name="ClassLevels" EntityType="Self.ClassLevel" />
-          <EntitySet Name="Commitments" EntityType="Self.Commitment" />
           <EntitySet Name="Document_files" EntityType="Self.Document_files" />
-          <EntitySet Name="Document_names" EntityType="Self.Document_names" />
           <EntitySet Name="Educations" EntityType="Self.Education" />
-          <EntitySet Name="EmployeeAttendances" EntityType="Self.EmployeeAttendance" />
-          <EntitySet Name="EmployeeLoans" EntityType="Self.EmployeeLoan" />
-          <EntitySet Name="EmployeeLoans_History" EntityType="Self.EmployeeLoans_History" />
           <EntitySet Name="EmployeePayments" EntityType="Self.EmployeePayment" />
           <EntitySet Name="EmployeePayments_History" EntityType="Self.EmployeePayments_History" />
           <EntitySet Name="EmployeePenalties" EntityType="Self.EmployeePenalty" />
@@ -2308,6 +2192,14 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <EntitySet Name="AssessmentCategories" EntityType="SMST4MModel.AssessmentCategory" />
           <EntitySet Name="Academic_CourseStudents" EntityType="SMST4MModel.Academic_CourseStudents" />
           <EntitySet Name="Roles" EntityType="SMST4MModel.Role" />
+          <EntitySet Name="AssessmentFindingMasters" EntityType="SMST4MModel.AssessmentFindingMaster" />
+          <EntitySet Name="Capabilities" EntityType="SMST4MModel.Capability" />
+          <EntitySet Name="Capabilities_Advance" EntityType="SMST4MModel.Capabilities_Advance" />
+          <EntitySet Name="Commitments" EntityType="SMST4MModel.Commitment" />
+          <EntitySet Name="Document_names" EntityType="SMST4MModel.Document_names" />
+          <EntitySet Name="EmployeeAttendances" EntityType="SMST4MModel.EmployeeAttendance" />
+          <EntitySet Name="EmployeeLoans_History" EntityType="SMST4MModel.EmployeeLoans_History" />
+          <EntitySet Name="EmployeeLoans" EntityType="SMST4MModel.EmployeeLoan" />
         </EntityContainer>
         <EntityType Name="TB_RegisterStudent">
           <Key>
@@ -2439,6 +2331,114 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="AssessmentFindingMaster">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int32" />
+          <Property Name="AssessmentCategoryID" Type="Int32" />
+          <Property Name="AssessmentColorID" Type="Int32" />
+          <Property Name="OperatorID" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Precision="0" />
+          <Property Name="LastUpdatedOn" Type="DateTime" Precision="0" />
+          <Property Name="LastUpdatedBy" Type="Int32" />
+          <Property Name="Editable" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Capability">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="isRoot" Type="Byte" />
+          <Property Name="Allowed" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Capabilities_Advance">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdvanceCapabilityID" Type="Int32" />
+          <Property Name="RoleID" Type="Int32" />
+          <Property Name="Status" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Commitment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="sDate" Type="DateTime" Precision="0" />
+          <Property Name="Details" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Document_names">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DocType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EmployeeAttendance">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="sDate" Type="DateTime" Precision="0" />
+          <Property Name="OperatorID" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Byte" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Present" Type="Byte" />
+          <Property Name="Absent" Type="Byte" />
+          <Property Name="Leave" Type="Byte" />
+          <Property Name="Offday" Type="Byte" />
+        </EntityType>
+        <EntityType Name="EmployeeLoans_History">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ActionDate" Type="DateTime" Precision="0" />
+          <Property Name="ActionUserID" Type="Int32" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="OperatorID" Type="Int32" />
+          <Property Name="EmployeeLoansID" Type="Int32" />
+          <Property Name="AllowanceName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ReceivedLoanFrom" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ReceivedLoanTo" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ReturnedLoanFrom" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ReturnedLoanTo" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="T_Date" Type="DateTime" Precision="0" />
+          <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="SalaryMonthID" Type="Int32" />
+          <Property Name="ChequeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Processesd" Type="Boolean" />
+          <Property Name="PaymentMethod" Type="Byte" />
+        </EntityType>
+        <EntityType Name="EmployeeLoan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="OperatorID" Type="Int32" />
+          <Property Name="AllowanceName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ReceivedLoan" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ReturnedLoan" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="T_Date" Type="DateTime" Precision="0" />
+          <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="SalaryMonthID" Type="Int32" />
+          <Property Name="ChequeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentMethod" Type="Byte" />
+          <Property Name="Processesd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2519,42 +2519,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AssessmentFindingMasters">
-            <EntityTypeMapping TypeName="SMST4MModel.AssessmentFindingMaster">
-              <MappingFragment StoreEntitySet="AssessmentFindingMaster">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
-                <ScalarProperty Name="AssessmentCategoryID" ColumnName="AssessmentCategoryID" />
-                <ScalarProperty Name="AssessmentColorID" ColumnName="AssessmentColorID" />
-                <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="LastUpdatedOn" ColumnName="LastUpdatedOn" />
-                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
-                <ScalarProperty Name="Editable" ColumnName="Editable" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Capabilities">
-            <EntityTypeMapping TypeName="SMST4MModel.Capability">
-              <MappingFragment StoreEntitySet="Capabilities">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Allowed" ColumnName="Allowed" />
-                <ScalarProperty Name="isRoot" ColumnName="isRoot" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Capabilities_Advance">
-            <EntityTypeMapping TypeName="SMST4MModel.Capabilities_Advance">
-              <MappingFragment StoreEntitySet="Capabilities_Advance">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="AdvanceCapabilityID" ColumnName="AdvanceCapabilityID" />
-                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Classes">
             <EntityTypeMapping TypeName="SMST4MModel.Class">
               <MappingFragment StoreEntitySet="Classes">
@@ -2574,17 +2538,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Commitments">
-            <EntityTypeMapping TypeName="SMST4MModel.Commitment">
-              <MappingFragment StoreEntitySet="Commitments">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="sDate" ColumnName="sDate" />
-                <ScalarProperty Name="Details" ColumnName="Details" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Document_files">
             <EntityTypeMapping TypeName="SMST4MModel.Document_files">
               <MappingFragment StoreEntitySet="Document_files">
@@ -2596,80 +2549,11 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Document_names">
-            <EntityTypeMapping TypeName="SMST4MModel.Document_names">
-              <MappingFragment StoreEntitySet="Document_names">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="DocType" ColumnName="DocType" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Educations">
             <EntityTypeMapping TypeName="SMST4MModel.Education">
               <MappingFragment StoreEntitySet="Educations">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EmployeeAttendances">
-            <EntityTypeMapping TypeName="SMST4MModel.EmployeeAttendance">
-              <MappingFragment StoreEntitySet="EmployeeAttendance">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="sDate" ColumnName="sDate" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Present" ColumnName="Present" />
-                <ScalarProperty Name="Absent" ColumnName="Absent" />
-                <ScalarProperty Name="Leave" ColumnName="Leave" />
-                <ScalarProperty Name="Offday" ColumnName="Offday" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EmployeeLoans">
-            <EntityTypeMapping TypeName="SMST4MModel.EmployeeLoan">
-              <MappingFragment StoreEntitySet="EmployeeLoans">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-                <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
-                <ScalarProperty Name="AllowanceName" ColumnName="AllowanceName" />
-                <ScalarProperty Name="ReceivedLoan" ColumnName="ReceivedLoan" />
-                <ScalarProperty Name="ReturnedLoan" ColumnName="ReturnedLoan" />
-                <ScalarProperty Name="T_Date" ColumnName="T_Date" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-                <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
-                <ScalarProperty Name="ChequeNo" ColumnName="ChequeNo" />
-                <ScalarProperty Name="Processesd" ColumnName="Processesd" />
-                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EmployeeLoans_History">
-            <EntityTypeMapping TypeName="SMST4MModel.EmployeeLoans_History">
-              <MappingFragment StoreEntitySet="EmployeeLoans_History">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Action" ColumnName="Action" />
-                <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
-                <ScalarProperty Name="ActionUserID" ColumnName="ActionUserID" />
-                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-                <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
-                <ScalarProperty Name="EmployeeLoansID" ColumnName="EmployeeLoansID" />
-                <ScalarProperty Name="AllowanceName" ColumnName="AllowanceName" />
-                <ScalarProperty Name="ReceivedLoanFrom" ColumnName="ReceivedLoanFrom" />
-                <ScalarProperty Name="ReceivedLoanTo" ColumnName="ReceivedLoanTo" />
-                <ScalarProperty Name="ReturnedLoanFrom" ColumnName="ReturnedLoanFrom" />
-                <ScalarProperty Name="ReturnedLoanTo" ColumnName="ReturnedLoanTo" />
-                <ScalarProperty Name="T_Date" ColumnName="T_Date" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-                <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
-                <ScalarProperty Name="ChequeNo" ColumnName="ChequeNo" />
-                <ScalarProperty Name="Processesd" ColumnName="Processesd" />
-                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3627,6 +3511,122 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
               <MappingFragment StoreEntitySet="Roles">
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AssessmentFindingMasters">
+            <EntityTypeMapping TypeName="SMST4MModel.AssessmentFindingMaster">
+              <MappingFragment StoreEntitySet="AssessmentFindingMaster">
+                <ScalarProperty Name="Editable" ColumnName="Editable" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="LastUpdatedOn" ColumnName="LastUpdatedOn" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
+                <ScalarProperty Name="AssessmentColorID" ColumnName="AssessmentColorID" />
+                <ScalarProperty Name="AssessmentCategoryID" ColumnName="AssessmentCategoryID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Capabilities">
+            <EntityTypeMapping TypeName="SMST4MModel.Capability">
+              <MappingFragment StoreEntitySet="Capabilities">
+                <ScalarProperty Name="Allowed" ColumnName="Allowed" />
+                <ScalarProperty Name="isRoot" ColumnName="isRoot" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Capabilities_Advance">
+            <EntityTypeMapping TypeName="SMST4MModel.Capabilities_Advance">
+              <MappingFragment StoreEntitySet="Capabilities_Advance">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="AdvanceCapabilityID" ColumnName="AdvanceCapabilityID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commitments">
+            <EntityTypeMapping TypeName="SMST4MModel.Commitment">
+              <MappingFragment StoreEntitySet="Commitments">
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="sDate" ColumnName="sDate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Document_names">
+            <EntityTypeMapping TypeName="SMST4MModel.Document_names">
+              <MappingFragment StoreEntitySet="Document_names">
+                <ScalarProperty Name="DocType" ColumnName="DocType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeAttendances">
+            <EntityTypeMapping TypeName="SMST4MModel.EmployeeAttendance">
+              <MappingFragment StoreEntitySet="EmployeeAttendance">
+                <ScalarProperty Name="Offday" ColumnName="Offday" />
+                <ScalarProperty Name="Leave" ColumnName="Leave" />
+                <ScalarProperty Name="Absent" ColumnName="Absent" />
+                <ScalarProperty Name="Present" ColumnName="Present" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
+                <ScalarProperty Name="sDate" ColumnName="sDate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeLoans_History">
+            <EntityTypeMapping TypeName="SMST4MModel.EmployeeLoans_History">
+              <MappingFragment StoreEntitySet="EmployeeLoans_History">
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="Processesd" ColumnName="Processesd" />
+                <ScalarProperty Name="ChequeNo" ColumnName="ChequeNo" />
+                <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="T_Date" ColumnName="T_Date" />
+                <ScalarProperty Name="ReturnedLoanTo" ColumnName="ReturnedLoanTo" />
+                <ScalarProperty Name="ReturnedLoanFrom" ColumnName="ReturnedLoanFrom" />
+                <ScalarProperty Name="ReceivedLoanTo" ColumnName="ReceivedLoanTo" />
+                <ScalarProperty Name="ReceivedLoanFrom" ColumnName="ReceivedLoanFrom" />
+                <ScalarProperty Name="AllowanceName" ColumnName="AllowanceName" />
+                <ScalarProperty Name="EmployeeLoansID" ColumnName="EmployeeLoansID" />
+                <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="ActionUserID" ColumnName="ActionUserID" />
+                <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeLoans">
+            <EntityTypeMapping TypeName="SMST4MModel.EmployeeLoan">
+              <MappingFragment StoreEntitySet="EmployeeLoans">
+                <ScalarProperty Name="Processesd" ColumnName="Processesd" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="ChequeNo" ColumnName="ChequeNo" />
+                <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="T_Date" ColumnName="T_Date" />
+                <ScalarProperty Name="ReturnedLoan" ColumnName="ReturnedLoan" />
+                <ScalarProperty Name="ReceivedLoan" ColumnName="ReceivedLoan" />
+                <ScalarProperty Name="AllowanceName" ColumnName="AllowanceName" />
+                <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

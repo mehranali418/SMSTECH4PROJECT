@@ -32,18 +32,10 @@ namespace SMSTech.Models
         public virtual DbSet<AllowanceAmount> AllowanceAmounts { get; set; }
         public virtual DbSet<AllowanceType> AllowanceTypes { get; set; }
         public virtual DbSet<AssessmentFindingDetail> AssessmentFindingDetails { get; set; }
-        public virtual DbSet<AssessmentFindingMaster> AssessmentFindingMasters { get; set; }
-        public virtual DbSet<Capability> Capabilities { get; set; }
-        public virtual DbSet<Capabilities_Advance> Capabilities_Advance { get; set; }
         public virtual DbSet<Class> Classes { get; set; }
         public virtual DbSet<ClassLevel> ClassLevels { get; set; }
-        public virtual DbSet<Commitment> Commitments { get; set; }
         public virtual DbSet<Document_files> Document_files { get; set; }
-        public virtual DbSet<Document_names> Document_names { get; set; }
         public virtual DbSet<Education> Educations { get; set; }
-        public virtual DbSet<EmployeeAttendance> EmployeeAttendances { get; set; }
-        public virtual DbSet<EmployeeLoan> EmployeeLoans { get; set; }
-        public virtual DbSet<EmployeeLoans_History> EmployeeLoans_History { get; set; }
         public virtual DbSet<EmployeePayment> EmployeePayments { get; set; }
         public virtual DbSet<EmployeePayments_History> EmployeePayments_History { get; set; }
         public virtual DbSet<EmployeePenalty> EmployeePenalties { get; set; }
@@ -118,5 +110,13 @@ namespace SMSTech.Models
         public virtual DbSet<AssessmentCategory> AssessmentCategories { get; set; }
         public virtual DbSet<Academic_CourseStudents> Academic_CourseStudents { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<AssessmentFindingMaster> AssessmentFindingMasters { get; set; }
+        public virtual DbSet<Capability> Capabilities { get; set; }
+        public virtual DbSet<Capabilities_Advance> Capabilities_Advance { get; set; }
+        public virtual DbSet<Commitment> Commitments { get; set; }
+        public virtual DbSet<Document_names> Document_names { get; set; }
+        public virtual DbSet<EmployeeAttendance> EmployeeAttendances { get; set; }
+        public virtual DbSet<EmployeeLoans_History> EmployeeLoans_History { get; set; }
+        public virtual DbSet<EmployeeLoan> EmployeeLoans { get; set; }
     }
 }

@@ -163,7 +163,7 @@
     <Property Name="CreationDate" Type="smalldatetime" />
     <Property Name="LastUpdatedOn" Type="smalldatetime" />
     <Property Name="LastUpdatedBy" Type="int" />
-    <Property Name="Editable" Type="bit" />
+    <Property Name="Editable" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Capabilities">
     <Key>
@@ -172,8 +172,8 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RoleID" Type="int" />
     <Property Name="Name" Type="varchar" MaxLength="100" />
-    <Property Name="Allowed" Type="bit" />
-    <Property Name="isRoot" Type="bit" />
+    <Property Name="isRoot" Type="tinyint" />
+    <Property Name="Allowed" Type="tinyint" />
   </EntityType>
   <EntityType Name="Capabilities_Advance">
     <Key>
@@ -182,7 +182,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="AdvanceCapabilityID" Type="int" />
     <Property Name="RoleID" Type="int" />
-    <Property Name="Status" Type="bit" />
+    <Property Name="Status" Type="tinyint" />
   </EntityType>
   <EntityType Name="Classes">
     <Key>
@@ -209,7 +209,7 @@
     <Property Name="StudentID" Type="int" />
     <Property Name="UserID" Type="int" />
     <Property Name="sDate" Type="smalldatetime" />
-    <Property Name="Details" Type="text" />
+    <Property Name="Details" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Document_files">
     <Key>
@@ -227,7 +227,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="200" />
-    <Property Name="DocType" Type="tinyint" />
+    <Property Name="DocType" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Educations">
     <Key>
@@ -243,15 +243,15 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserID" Type="int" />
     <Property Name="sDate" Type="smalldatetime" />
-    <Property Name="Type" Type="tinyint" />
     <Property Name="OperatorID" Type="int" />
     <Property Name="UpdateDate" Type="smalldatetime" />
     <Property Name="Remarks" Type="varchar" MaxLength="500" />
     <Property Name="Status" Type="tinyint" />
-    <Property Name="Present" Type="bit" />
-    <Property Name="Absent" Type="bit" />
-    <Property Name="Leave" Type="bit" />
-    <Property Name="Offday" Type="bit" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Present" Type="tinyint" />
+    <Property Name="Absent" Type="tinyint" />
+    <Property Name="Leave" Type="tinyint" />
+    <Property Name="Offday" Type="tinyint" />
   </EntityType>
   <EntityType Name="EmployeeLoans">
     <Key>
@@ -267,8 +267,8 @@
     <Property Name="Remarks" Type="varchar" MaxLength="1000" />
     <Property Name="SalaryMonthID" Type="int" />
     <Property Name="ChequeNo" Type="varchar" MaxLength="100" />
-    <Property Name="Processesd" Type="bit" />
     <Property Name="PaymentMethod" Type="tinyint" />
+    <Property Name="Processesd" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="EmployeeLoans_History">
     <Key>

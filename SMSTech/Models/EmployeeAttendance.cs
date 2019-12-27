@@ -17,14 +17,14 @@ namespace SMSTech.Models
         public int ID { get; set; }
         public Nullable<int> UserID { get; set; }
         public Nullable<System.DateTime> sDate { get; set; }
-        public Nullable<byte> Type { get; set; }
         public Nullable<int> OperatorID { get; set; }
         public Nullable<System.DateTime> UpdateDate { get; set; }
         public string Remarks { get; set; }
         public Nullable<byte> Status { get; set; }
-        public Nullable<bool> Present { get; set; }
-        public Nullable<bool> Absent { get; set; }
-        public Nullable<bool> Leave { get; set; }
-        public Nullable<bool> Offday { get; set; }
+        public string Type { get; set; }
+        public Nullable<byte> Present { get; set; }
+        public Nullable<byte> Absent { get; set; }
+        public Nullable<byte> Leave { get; set; }
+        public Nullable<byte> Offday { get; set; }
     }
 }

@@ -51,7 +51,7 @@ namespace SMSTech.Controllers
         //Ajax Methods
         public JsonResult GetStudents()
         {
-                var Result = (from stu in db.Students
+                           var Result = (from stu in db.Students
                           join cls in db.Classes on stu.JoiningClassID equals cls.ID
                           join sec in db.Sections on stu.SectionID equals sec.ID
                           join usr in db.Users on stu.UserID equals usr.ID
