@@ -16,7 +16,7 @@ namespace SMSTech.Models
     {
         public int ID { get; set; }
         public Nullable<int> UserID { get; set; }
-        public Nullable<bool> SecurityWithdrawnByUser { get; set; }
+        public Nullable<byte> SecurityWithdrawnByUser { get; set; }
         public Nullable<System.DateTime> CurrentDate { get; set; }
         public Nullable<int> WithDrawOperatorID { get; set; }
         public Nullable<decimal> WithDrawAmount { get; set; }

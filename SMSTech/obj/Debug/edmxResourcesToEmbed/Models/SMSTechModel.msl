@@ -113,106 +113,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="EmployeePayments">
-      <EntityTypeMapping TypeName="SMST4MModel.EmployeePayment">
-        <MappingFragment StoreEntitySet="EmployeePayments">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-          <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
-          <ScalarProperty Name="AllowanceAmountID" ColumnName="AllowanceAmountID" />
-          <ScalarProperty Name="AllowanceName" ColumnName="AllowanceName" />
-          <ScalarProperty Name="Dues" ColumnName="Dues" />
-          <ScalarProperty Name="Received" ColumnName="Received" />
-          <ScalarProperty Name="T_Date" ColumnName="T_Date" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-          <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
-          <ScalarProperty Name="T_Type" ColumnName="T_Type" />
-          <ScalarProperty Name="ChequeNo" ColumnName="ChequeNo" />
-          <ScalarProperty Name="PenalityID" ColumnName="PenalityID" />
-          <ScalarProperty Name="Processesd" ColumnName="Processesd" />
-          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
-          <ScalarProperty Name="EmployeeSecurityInstallmentID" ColumnName="EmployeeSecurityInstallmentID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EmployeePayments_History">
-      <EntityTypeMapping TypeName="SMST4MModel.EmployeePayments_History">
-        <MappingFragment StoreEntitySet="EmployeePayments_History">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Action" ColumnName="Action" />
-          <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
-          <ScalarProperty Name="ActionUserID" ColumnName="ActionUserID" />
-          <ScalarProperty Name="EmployeePaymentsID" ColumnName="EmployeePaymentsID" />
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
-          <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
-          <ScalarProperty Name="AllowanceAmountID" ColumnName="AllowanceAmountID" />
-          <ScalarProperty Name="AllowanceName" ColumnName="AllowanceName" />
-          <ScalarProperty Name="DuesFrom" ColumnName="DuesFrom" />
-          <ScalarProperty Name="DuesTo" ColumnName="DuesTo" />
-          <ScalarProperty Name="ReceivedFrom" ColumnName="ReceivedFrom" />
-          <ScalarProperty Name="ReceivedTo" ColumnName="ReceivedTo" />
-          <ScalarProperty Name="T_Date" ColumnName="T_Date" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-          <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
-          <ScalarProperty Name="T_Type" ColumnName="T_Type" />
-          <ScalarProperty Name="ChequeNo" ColumnName="ChequeNo" />
-          <ScalarProperty Name="PenalityID" ColumnName="PenalityID" />
-          <ScalarProperty Name="Processesd" ColumnName="Processesd" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EmployeePenalties">
-      <EntityTypeMapping TypeName="SMST4MModel.EmployeePenalty">
-        <MappingFragment StoreEntitySet="EmployeePenalties">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Detail" ColumnName="Detail" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EmployeeRefundableTypes">
-      <EntityTypeMapping TypeName="SMST4MModel.EmployeeRefundableType">
-        <MappingFragment StoreEntitySet="EmployeeRefundableTypes">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Detail" ColumnName="Detail" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EmployeeSecurityInstallments">
-      <EntityTypeMapping TypeName="SMST4MModel.EmployeeSecurityInstallment">
-        <MappingFragment StoreEntitySet="EmployeeSecurityInstallments">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="DepositType" ColumnName="DepositType" />
-          <ScalarProperty Name="CurrentDate" ColumnName="CurrentDate" />
-          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-          <ScalarProperty Name="EmployeePaymentID" ColumnName="EmployeePaymentID" />
-          <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
-          <ScalarProperty Name="RefundableTypeID" ColumnName="RefundableTypeID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EmployeeSecurityWithDraws">
-      <EntityTypeMapping TypeName="SMST4MModel.EmployeeSecurityWithDraw">
-        <MappingFragment StoreEntitySet="EmployeeSecurityWithDraws">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="SecurityWithdrawnByUser" ColumnName="SecurityWithdrawnByUser" />
-          <ScalarProperty Name="CurrentDate" ColumnName="CurrentDate" />
-          <ScalarProperty Name="WithDrawOperatorID" ColumnName="WithDrawOperatorID" />
-          <ScalarProperty Name="WithDrawAmount" ColumnName="WithDrawAmount" />
-          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-          <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
-          <ScalarProperty Name="RefundableTypeID" ColumnName="RefundableTypeID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Exams">
       <EntityTypeMapping TypeName="SMST4MModel.Exam">
         <MappingFragment StoreEntitySet="Exams">
@@ -1145,11 +1045,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeLoans">
+      <EntityTypeMapping TypeName="SMST4MModel.EmployeeLoan">
+        <MappingFragment StoreEntitySet="EmployeeLoans">
+          <ScalarProperty Name="Processesd" ColumnName="Processesd" />
+          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+          <ScalarProperty Name="ChequeNo" ColumnName="ChequeNo" />
+          <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="T_Date" ColumnName="T_Date" />
+          <ScalarProperty Name="ReturnedLoan" ColumnName="ReturnedLoan" />
+          <ScalarProperty Name="ReceivedLoan" ColumnName="ReceivedLoan" />
+          <ScalarProperty Name="AllowanceName" ColumnName="AllowanceName" />
+          <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="EmployeeLoans_History">
       <EntityTypeMapping TypeName="SMST4MModel.EmployeeLoans_History">
         <MappingFragment StoreEntitySet="EmployeeLoans_History">
-          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
           <ScalarProperty Name="Processesd" ColumnName="Processesd" />
+          <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
           <ScalarProperty Name="ChequeNo" ColumnName="ChequeNo" />
           <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
           <ScalarProperty Name="Remarks" ColumnName="Remarks" />
@@ -1169,20 +1087,102 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="EmployeeLoans">
-      <EntityTypeMapping TypeName="SMST4MModel.EmployeeLoan">
-        <MappingFragment StoreEntitySet="EmployeeLoans">
+    <EntitySetMapping Name="EmployeePayments">
+      <EntityTypeMapping TypeName="SMST4MModel.EmployeePayment">
+        <MappingFragment StoreEntitySet="EmployeePayments">
           <ScalarProperty Name="Processesd" ColumnName="Processesd" />
+          <ScalarProperty Name="EmployeeSecurityInstallmentID" ColumnName="EmployeeSecurityInstallmentID" />
           <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+          <ScalarProperty Name="PenalityID" ColumnName="PenalityID" />
           <ScalarProperty Name="ChequeNo" ColumnName="ChequeNo" />
+          <ScalarProperty Name="T_Type" ColumnName="T_Type" />
           <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
           <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="T_Date" ColumnName="T_Date" />
-          <ScalarProperty Name="ReturnedLoan" ColumnName="ReturnedLoan" />
-          <ScalarProperty Name="ReceivedLoan" ColumnName="ReceivedLoan" />
+          <ScalarProperty Name="Received" ColumnName="Received" />
+          <ScalarProperty Name="Dues" ColumnName="Dues" />
           <ScalarProperty Name="AllowanceName" ColumnName="AllowanceName" />
+          <ScalarProperty Name="AllowanceAmountID" ColumnName="AllowanceAmountID" />
           <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeePayments_History">
+      <EntityTypeMapping TypeName="SMST4MModel.EmployeePayments_History">
+        <MappingFragment StoreEntitySet="EmployeePayments_History">
+          <ScalarProperty Name="Processesd" ColumnName="Processesd" />
+          <ScalarProperty Name="PenalityID" ColumnName="PenalityID" />
+          <ScalarProperty Name="ChequeNo" ColumnName="ChequeNo" />
+          <ScalarProperty Name="T_Type" ColumnName="T_Type" />
+          <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="T_Date" ColumnName="T_Date" />
+          <ScalarProperty Name="ReceivedTo" ColumnName="ReceivedTo" />
+          <ScalarProperty Name="ReceivedFrom" ColumnName="ReceivedFrom" />
+          <ScalarProperty Name="DuesTo" ColumnName="DuesTo" />
+          <ScalarProperty Name="DuesFrom" ColumnName="DuesFrom" />
+          <ScalarProperty Name="AllowanceName" ColumnName="AllowanceName" />
+          <ScalarProperty Name="AllowanceAmountID" ColumnName="AllowanceAmountID" />
+          <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EmployeePaymentsID" ColumnName="EmployeePaymentsID" />
+          <ScalarProperty Name="ActionUserID" ColumnName="ActionUserID" />
+          <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeePenalties">
+      <EntityTypeMapping TypeName="SMST4MModel.EmployeePenalty">
+        <MappingFragment StoreEntitySet="EmployeePenalties">
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeRefundableTypes">
+      <EntityTypeMapping TypeName="SMST4MModel.EmployeeRefundableType">
+        <MappingFragment StoreEntitySet="EmployeeRefundableTypes">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeSecurityInstallments">
+      <EntityTypeMapping TypeName="SMST4MModel.EmployeeSecurityInstallment">
+        <MappingFragment StoreEntitySet="EmployeeSecurityInstallments">
+          <ScalarProperty Name="RefundableTypeID" ColumnName="RefundableTypeID" />
+          <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
+          <ScalarProperty Name="EmployeePaymentID" ColumnName="EmployeePaymentID" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CurrentDate" ColumnName="CurrentDate" />
+          <ScalarProperty Name="DepositType" ColumnName="DepositType" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeSecurityWithDraws">
+      <EntityTypeMapping TypeName="SMST4MModel.EmployeeSecurityWithDraw">
+        <MappingFragment StoreEntitySet="EmployeeSecurityWithDraws">
+          <ScalarProperty Name="RefundableTypeID" ColumnName="RefundableTypeID" />
+          <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="WithDrawAmount" ColumnName="WithDrawAmount" />
+          <ScalarProperty Name="WithDrawOperatorID" ColumnName="WithDrawOperatorID" />
+          <ScalarProperty Name="CurrentDate" ColumnName="CurrentDate" />
+          <ScalarProperty Name="SecurityWithdrawnByUser" ColumnName="SecurityWithdrawnByUser" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -6732,6 +6732,13 @@
     <Compile Include="Controllers\EducationsController.cs" />
     <Compile Include="Controllers\EmployeeAttendanceController.cs" />
     <Compile Include="Controllers\EmployeeLoansController.cs" />
+    <Compile Include="Controllers\EmployeeLoansHistoryController.cs" />
+    <Compile Include="Controllers\EmployeePaymentsController.cs" />
+    <Compile Include="Controllers\EmployeePaymentsHistoryController.cs" />
+    <Compile Include="Controllers\EmployeePenaltiesController.cs" />
+    <Compile Include="Controllers\EmployeeRefundableTypesController.cs" />
+    <Compile Include="Controllers\EmployeeSecurityInstallmentsController.cs" />
+    <Compile Include="Controllers\EmployeeSecurityWithDrawsController.cs" />
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\ExamGradeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -9873,6 +9880,13 @@
     <Content Include="Views\Documentnames\Create.cshtml" />
     <Content Include="Views\EmployeeAttendance\Create.cshtml" />
     <Content Include="Views\EmployeeLoans\Create.cshtml" />
+    <Content Include="Views\EmployeeLoansHistory\Create.cshtml" />
+    <Content Include="Views\EmployeePayments\Create.cshtml" />
+    <Content Include="Views\EmployeePaymentsHistory\Create.cshtml" />
+    <Content Include="Views\EmployeePenalties\Create.cshtml" />
+    <Content Include="Views\EmployeeRefundableTypes\Create.cshtml" />
+    <Content Include="Views\EmployeeSecurityInstallments\Create.cshtml" />
+    <Content Include="Views\EmployeeSecurityWithDraws\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

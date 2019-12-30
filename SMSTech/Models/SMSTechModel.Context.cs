@@ -36,12 +36,6 @@ namespace SMSTech.Models
         public virtual DbSet<ClassLevel> ClassLevels { get; set; }
         public virtual DbSet<Document_files> Document_files { get; set; }
         public virtual DbSet<Education> Educations { get; set; }
-        public virtual DbSet<EmployeePayment> EmployeePayments { get; set; }
-        public virtual DbSet<EmployeePayments_History> EmployeePayments_History { get; set; }
-        public virtual DbSet<EmployeePenalty> EmployeePenalties { get; set; }
-        public virtual DbSet<EmployeeRefundableType> EmployeeRefundableTypes { get; set; }
-        public virtual DbSet<EmployeeSecurityInstallment> EmployeeSecurityInstallments { get; set; }
-        public virtual DbSet<EmployeeSecurityWithDraw> EmployeeSecurityWithDraws { get; set; }
         public virtual DbSet<Exam> Exams { get; set; }
         public virtual DbSet<Exams_ClassSubjects> Exams_ClassSubjects { get; set; }
         public virtual DbSet<Exams_DateSheet> Exams_DateSheet { get; set; }
@@ -116,7 +110,13 @@ namespace SMSTech.Models
         public virtual DbSet<Commitment> Commitments { get; set; }
         public virtual DbSet<Document_names> Document_names { get; set; }
         public virtual DbSet<EmployeeAttendance> EmployeeAttendances { get; set; }
-        public virtual DbSet<EmployeeLoans_History> EmployeeLoans_History { get; set; }
         public virtual DbSet<EmployeeLoan> EmployeeLoans { get; set; }
+        public virtual DbSet<EmployeeLoans_History> EmployeeLoans_History { get; set; }
+        public virtual DbSet<EmployeePayment> EmployeePayments { get; set; }
+        public virtual DbSet<EmployeePayments_History> EmployeePayments_History { get; set; }
+        public virtual DbSet<EmployeePenalty> EmployeePenalties { get; set; }
+        public virtual DbSet<EmployeeRefundableType> EmployeeRefundableTypes { get; set; }
+        public virtual DbSet<EmployeeSecurityInstallment> EmployeeSecurityInstallments { get; set; }
+        public virtual DbSet<EmployeeSecurityWithDraw> EmployeeSecurityWithDraws { get; set; }
     }
 }

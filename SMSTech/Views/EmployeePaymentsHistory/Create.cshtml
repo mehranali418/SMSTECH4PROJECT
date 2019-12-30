@@ -1,0 +1,271 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<br />
+<div class="container">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="row">
+                <input type="text" id="ID" style="display:none" />
+                <label class="control-label col-lg-2">Action</label>
+                <input type="text" id="Action" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">ActionDate</label>
+                <input type="date" id="ActionDate" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                
+                <label class="control-label col-lg-2">ActionUserID</label>
+                <input type="text" id="ActionUserID" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">EmployeePaymentsID</label>
+                <input type="text" id="EmployeePaymentsID" class="form-control col-lg-2" />
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">EmployeeID</label>
+                <input type="text" id="EmployeeID" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">OperatorID</label>
+                <input type="text" id="OperatorID" class="form-control col-lg-2" />
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">AllowanceAmountID</label>
+                <input type="text" id="AllowanceAmountID" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">AllowanceName</label>
+                <input type="text" id="AllowanceName" class="form-control col-lg-2" />
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">DuesFrom</label>
+                <input type="text" id="DuesFrom" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">DuesTo</label>
+                <input type="text" id="DuesTo" class="form-control col-lg-2" />
+                
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">ReceivedFrom</label>
+                <input type="text" id="ReceivedFrom" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">ReceivedTo</label>
+                <input type="text" id="ReceivedTo" class="form-control col-lg-2" />
+                
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">T_Date</label>
+                <input type="date" id="T_Date" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">Status</label>
+                <input type="text"Status" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                
+                <label class="control-label col-lg-2">Remarks</label>
+                <input type="text" id="Remarks" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">SalaryMonthID</label>
+                <input type="text" id="SalaryMonthID" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">              
+                <label class="control-label col-lg-2">T_Type</label>
+                <input type="text" id="T_Type" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">ChequeNo</label>
+                <input type="text" id="ChequeNo" class="form-control col-lg-2" />
+                
+               
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">               
+                <label class="control-label col-lg-2">PenalityID</label>
+                <input type="text" id="PenalityID" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">Processesd</label>
+                <input type="text" id="Processesd" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <input type="button" value="Add" id="btn_Add" class="btn btn-primary" />
+                <input type="button" value="Update" id="btn_Update" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Action</th>
+        <th>ActionDate</th>
+        <th>ActionUserID</th>
+        <th>EmployeePaymentsID</th>
+        <th>EmployeeID</th>
+        <th>OperatorID</th>
+        <th>AllowanceAmountID</th>
+        <th>AllowanceName</th>
+        <th>DuesFrom</th>
+        <th>DuesTo</th>
+        <th>ReceivedFrom</th>
+        <th>ReceivedTo</th>       
+        <th>Date</th>
+        <th>Status</th>
+        <th>Remarks</th>
+        <th>SalaryMonthID</th>
+        <th>Type</th>
+        <th>ChequeNo</th>
+        <th>PenalityID</th>
+        <th>Processesd</th>       
+        <th>Actions</th>
+    </tr>
+    <tbody id="body"></tbody>
+</table>
+
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+
+<script>
+            var formData;
+            function GetData() {
+                $('#body').empty();
+                $.ajax({
+                    url: '/EmployeePaymentsHistory/GetData',
+                    type: 'GET',
+                    dataType: 'json',
+                    contentType: 'application/json;charset=utf-8',
+                    success: function (result) {
+                        var rows = '';
+                        $.each(result, function (key, value) {
+                            rows = '<tr>'
+                                + '<td>' + value.ID + '</td>'
+                                + '<td>' + value.Action + '</td>'
+                                + '<td>' + value.ActionDate + '</td>'
+                                + '<td>' + value.ActionUserID + '</td>'
+                                + '<td>' + value.EmployeePaymentsID + '</td>'
+                                + '<td>' + value.EmployeeID + '</td>'
+                                + '<td>' + value.OperatorID + '</td>'
+                                + '<td>' + value.AllowanceAmountID + '</td>'
+                                + '<td>' + value.AllowanceName + '</td>'
+                                + '<td>' + value.DuesFrom + '</td>'
+                                + '<td>' + value.DuesTo + '</td>'
+                                + '<td>' + value.ReceivedFrom + '</td>'
+                                + '<td>' + value.ReceivedTo + '</td>'                                                            
+                                + '<td>' + value.T_Date + '</td>'
+                                 + '<td>' + value.Status + '</td>'
+                                + '<td>' + value.Remarks + '</td>'
+                                + '<td>' + value.SalaryMonthID + '</td>'
+                                + '<td>' + value.T_Type + '</td>'
+                                + '<td>' + value.ChequeNo + '</td>'
+                                + '<td>' + value.PenalityID + '</td>'                              
+                                + '<td>' + value.Processesd + '</td>'
+                                + '<td><input type="button" class="btn btn-primary edit" value="Edit"> <input type="button" class="btn btn-danger delete" value="Delete"></td>'
+                            '</tr>'
+                            $('#body').append(rows);
+                        })
+                    },
+                    error: function (result) {
+                    }
+                })
+            }
+            $(document).delegate('.edit', '.click', function () {
+                debugger
+                var rowValue = $(this).closest('tr');
+                var ID = rowValue.find("td:eq(0)").text();
+                var Action = rowValue.find("td:eq(1)").text();
+                var ActionDate = rowValue.find("td:eq(2)").text();
+                var ActionUserID = rowValue.find("td:eq(3)").text();
+                var EmployeePaymentsID = rowValue.find("td:eq(4)").text();
+                var EmployeeID = rowValue.find("td:eq(5)").text();
+                var OperatorID = rowValue.find("td:eq(6)").text();
+                var AllowanceAmountID = rowValue.find("td:eq(7)").text();
+                var AllowanceName = rowValue.find("td:eq(8)").text();
+                var DuesFrom = rowValue.find("td:eq(9)").text();
+                var DuesTo = rowValue.find("td:eq(10)").text();
+                var ReceivedFrom = rowValue.find("td:eq(11)").text();
+                var ReceivedTo = rowValue.find("td:eq(12)").text();                           
+                var T_Date = rowValue.find("td:eq(13)").text();
+                var Status = rowValue.find("td:eq(14)").text();
+                var Remarks = rowValue.find("td:eq(15)").text();
+                var SalaryMonthID = rowValue.find("td:eq(16)").text();
+                var T_Type = rowValue.find("td:eq(17)").text();
+                var ChequeNo = rowValue.find("td:eq(18)").text();
+                var PenalityID = rowValue.find("td:eq(19)").text();
+                var Processesd = rowValue.find("td:eq(20)").text();
+                
+                $('#ID').val(ID);
+                $('#Action').val(Action);
+                $('#ActionDate').val(ActionDate);
+                $('#ActionUserID').val(ActionUserID);
+                $('#EmployeePaymentsID').val(EmployeePaymentsID);
+                $('#EmployeeID').val(EmployeeID);
+                $('#OperatorID').val(OperatorID);
+                $('#AllowanceAmountID').val(AllowanceAmountID);
+                $('#AllowanceName').val(AllowanceName);
+                $('#DuesFrom').val(DuesFrom);
+                $('#DuesTo').val(DuesTo);
+                $('#ReceivedFrom').val(ReceivedFrom);
+                $('#ReceivedTo').val(ReceivedTo);                            
+                $('#T_Date').val(T_Date);
+                $('#Status').val(Status);
+                $('#Remarks').val(Remarks);
+                $('#SalaryMonthID').val(SalaryMonthID);
+                $('#T_Type').val(T_Type);
+                $('#ChequeNo').val(ChequeNo);
+                $('#PenalityID').val(PenalityID);
+                $('#Processesd').val(Processesd);
+            })
+            $('#btn_Add').click(function () {
+                Add(formData);
+            })
+            function Add() {
+                debugger
+                var data = {};
+                data.Action = $('#Action').val();
+                data.ActionDate = $('#ActionDate').val();
+                data.ActionUserID = $('#ActionUserID').val();
+                data.EmployeePaymentsID = $('#EmployeePaymentsID').val();
+                data.EmployeeID = $('#EmployeeID').val();
+                data.OperatorID = $('#OperatorID').val();
+                data.AllowanceAmountID = $('#AllowanceAmountID').val();
+                data.AllowanceName = $('#AllowanceName').val();
+                data.DuesFrom = $('#DuesFrom').val();
+                data.DuesTo = $('#DuesTo').val();
+                data.ReceivedFrom = $('#ReceivedFrom').val();
+                data.ReceivedTo = $('#ReceivedTo').val();              
+                data.T_Date = $('#T_Date').val();
+                data.Status = $('#Status').val();
+                data.Remarks = $('#Remarks').val();
+                data.SalaryMonthID = $('#SalaryMonthID').val();
+                data.T_Type = $('#T_Type').val();
+                data.ChequeNo = $('#ChequeNo').val();
+                data.PenalityID = $('#PenalityID').val();
+                data.Processesd = $('#Processesd').val();
+                $.ajax({
+                    url: "/EmployeePaymentsHistory/Insert",
+                    data: JSON.stringify(data),
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function () {
+                        alert(" Success");
+                        GetData();
+                    },
+                    error: function () {
+                        alert("Failed");
+                    }
+                })
+            }
+</script>

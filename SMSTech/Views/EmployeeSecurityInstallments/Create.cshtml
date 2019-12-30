@@ -1,0 +1,171 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<br />
+<div class="container">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="row">
+                <input type="text" id="ID" style="display:none" />
+                <label class="control-label col-lg-2">UserID</label>
+                @Html.DropDownList("UserID", (IEnumerable<SelectListItem>)ViewBag.UserID, "Select UserID ", new { @class = "form-control col-lg-2" })
+                <label class="control-label col-lg-2">OperatorID</label>
+                <input type="text" id="OperatorID" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">Amount</label>
+                <input type="text" id="Amount" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">DepositType</label>
+                <input type="text" id="DepositType" class="form-control col-lg-2" />
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">CurrentDate</label>
+                <input type="date" id="CurrentDate" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">Remarks</label>
+                <input type="text" id="Remarks" class="form-control col-lg-2" />
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">EmployeePaymentID</label>
+                <input type="text" id="EmployeePaymentID" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">SalaryMonthID</label>
+                <input type="text" id="SalaryMonthID" class="form-control col-lg-2" />
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">RefundableTypeID</label>
+                <input type="text" id="RefundableTypeID" class="form-control col-lg-2" />               
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="row">
+                <input type="button" value="Add" id="btn_Add" class="btn btn-primary" />
+                <input type="button" value="Update" id="btn_Update" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>UserID</th>
+        <th>OperatorID</th>
+        <th>Amount</th>
+        <th>DepositType</th>
+        <th>CurrentDate</th>
+        <th>Remarks</th>
+        <th>EmployeePaymentID</th>
+        <th>SalaryMonthID</th>       
+        <th>RefundableTypeID</th>        
+        <th>Actions</th>
+    </tr>
+    <tbody id="body"></tbody>
+</table>
+
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+
+<script>
+            var formData;
+            function GetData() {
+                $('#body').empty();
+                $.ajax({
+                    url: '/EmployeeSecurityInstallments/GetData',
+                    type: 'GET',
+                    dataType: 'json',
+                    contentType: 'application/json;charset=utf-8',
+                    success: function (result) {
+                        var rows = '';
+                        $.each(result, function (key, value) {
+                            rows = '<tr>'
+                                + '<td>' + value.ID + '</td>'
+                                + '<td>' + value.UserID + '</td>'
+                                + '<td>' + value.OperatorID + '</td>'
+                                + '<td>' + value.Amount + '</td>'
+                                + '<td>' + value.DepositType + '</td>'
+                                + '<td>' + value.CurrentDate + '</td>'                                
+                                + '<td>' + value.Remarks + '</td>'
+                                + '<td>' + value.EmployeePaymentID + '</td>'
+                                + '<td>' + value.SalaryMonthID + '</td>'                               
+                                + '<td>' + value.RefundableTypeID + '</td>'
+                                + '<td><input type="button" class="btn btn-primary edit" value="Edit"> <input type="button" class="btn btn-danger delete" value="Delete"></td>'
+                            '</tr>'
+                            $('#body').append(rows);
+                        })
+                    },
+                    error: function (result) {
+                    }
+                })
+            }
+            $(document).delegate('.edit', '.click', function () {
+                debugger
+                var rowValue = $(this).closest('tr');
+                var ID = rowValue.find("td:eq(0)").text();
+                var UserID = rowValue.find("td:eq(1)").text();
+                var OperatorID = rowValue.find("td:eq(2)").text();
+                var Amount = rowValue.find("td:eq(3)").text();
+                var DepositType = rowValue.find("td:eq(4)").text();
+                var CurrentDate = rowValue.find("td:eq(5)").text();
+                var Remarks = rowValue.find("td:eq(6)").text();
+                var EmployeePaymentID = rowValue.find("td:eq(7)").text();
+                var SalaryMonthID = rowValue.find("td:eq(8)").text();
+                var RefundableTypeID = rowValue.find("td:eq(9)").text();
+                
+                $('#ID').val(ID);
+                $('#UserID').val(UserID);
+                $('#OperatorID').val(OperatorID);
+                $('#Amount').val(Amount);
+                $('#DepositType').val(DepositType);
+                $('#CurrentDate').val(CurrentDate);               
+                $('#Remarks').val(Remarks);
+                $('#EmployeePaymentID').val(EmployeePaymentID);
+                $('#SalaryMonthID').val(SalaryMonthID);
+                $('#RefundableTypeID').val(RefundableTypeID);               
+                
+            })
+            $('#btn_Add').click(function () {
+                Add(formData);
+            })
+            function Add() {
+                debugger
+                var data = {};
+                data.UserID = $('#UserID').val();
+                data.OperatorID = $('#OperatorID').val();
+                data.Amount = $('#Amount').val();
+                data.DepositType = $('#DepositType').val();
+                data.CurrentDate = $('#CurrentDate').val();               
+                data.Remarks = $('#Remarks').val();
+                data.EmployeePaymentID = $('#EmployeePaymentID').val();
+                data.SalaryMonthID = $('#SalaryMonthID').val();
+                data.RefundableTypeID = $('#RefundableTypeID').val();
+              
+                $.ajax({
+                    url: "/EmployeeSecurityInstallments/Insert",
+                    data: JSON.stringify(data),
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function () {
+                        alert(" Success");
+                        GetData();
+                    },
+                    error: function () {
+                        alert("Failed");
+                    }
+                })
+            }
+</script>
+

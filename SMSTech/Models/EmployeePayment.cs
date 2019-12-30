@@ -28,8 +28,8 @@ namespace SMSTech.Models
         public Nullable<int> T_Type { get; set; }
         public string ChequeNo { get; set; }
         public Nullable<int> PenalityID { get; set; }
-        public Nullable<bool> Processesd { get; set; }
         public Nullable<byte> PaymentMethod { get; set; }
         public Nullable<int> EmployeeSecurityInstallmentID { get; set; }
+        public Nullable<byte> Processesd { get; set; }
     }
 }

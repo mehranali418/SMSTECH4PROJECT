@@ -101,100 +101,6 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="EmployeePayment">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="EmployeeID" Type="Int32" />
-    <Property Name="OperatorID" Type="Int32" />
-    <Property Name="AllowanceAmountID" Type="Int32" />
-    <Property Name="AllowanceName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="Dues" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="Received" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="T_Date" Type="DateTime" Precision="0" />
-    <Property Name="Status" Type="Byte" />
-    <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-    <Property Name="SalaryMonthID" Type="Int32" />
-    <Property Name="T_Type" Type="Int32" />
-    <Property Name="ChequeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="PenalityID" Type="Int32" />
-    <Property Name="Processesd" Type="Boolean" />
-    <Property Name="PaymentMethod" Type="Byte" />
-    <Property Name="EmployeeSecurityInstallmentID" Type="Int32" />
-  </EntityType>
-  <EntityType Name="EmployeePayments_History">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ActionDate" Type="DateTime" Precision="0" />
-    <Property Name="ActionUserID" Type="Int32" />
-    <Property Name="EmployeePaymentsID" Type="Int32" />
-    <Property Name="EmployeeID" Type="Int32" />
-    <Property Name="OperatorID" Type="Int32" />
-    <Property Name="AllowanceAmountID" Type="Int32" />
-    <Property Name="AllowanceName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="DuesFrom" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="DuesTo" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="ReceivedFrom" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="ReceivedTo" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="T_Date" Type="DateTime" Precision="0" />
-    <Property Name="Status" Type="Byte" />
-    <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
-    <Property Name="SalaryMonthID" Type="Int32" />
-    <Property Name="T_Type" Type="Int32" />
-    <Property Name="ChequeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="PenalityID" Type="Int32" />
-    <Property Name="Processesd" Type="Boolean" />
-  </EntityType>
-  <EntityType Name="EmployeePenalty">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="EmployeeRefundableType">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="Status" Type="Boolean" />
-  </EntityType>
-  <EntityType Name="EmployeeSecurityInstallment">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserID" Type="Int32" />
-    <Property Name="OperatorID" Type="Int32" />
-    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="DepositType" Type="Int32" />
-    <Property Name="CurrentDate" Type="DateTime" Precision="0" />
-    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="EmployeePaymentID" Type="Int32" />
-    <Property Name="SalaryMonthID" Type="Int32" />
-    <Property Name="RefundableTypeID" Type="Int32" />
-  </EntityType>
-  <EntityType Name="EmployeeSecurityWithDraw">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserID" Type="Int32" />
-    <Property Name="SecurityWithdrawnByUser" Type="Boolean" />
-    <Property Name="CurrentDate" Type="DateTime" Precision="0" />
-    <Property Name="WithDrawOperatorID" Type="Int32" />
-    <Property Name="WithDrawAmount" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="SalaryMonthID" Type="Int32" />
-    <Property Name="RefundableTypeID" Type="Int32" />
-  </EntityType>
   <EntityType Name="Exam">
     <Key>
       <PropertyRef Name="ID" />
@@ -882,12 +788,6 @@
     <EntitySet Name="ClassLevels" EntityType="Self.ClassLevel" />
     <EntitySet Name="Document_files" EntityType="Self.Document_files" />
     <EntitySet Name="Educations" EntityType="Self.Education" />
-    <EntitySet Name="EmployeePayments" EntityType="Self.EmployeePayment" />
-    <EntitySet Name="EmployeePayments_History" EntityType="Self.EmployeePayments_History" />
-    <EntitySet Name="EmployeePenalties" EntityType="Self.EmployeePenalty" />
-    <EntitySet Name="EmployeeRefundableTypes" EntityType="Self.EmployeeRefundableType" />
-    <EntitySet Name="EmployeeSecurityInstallments" EntityType="Self.EmployeeSecurityInstallment" />
-    <EntitySet Name="EmployeeSecurityWithDraws" EntityType="Self.EmployeeSecurityWithDraw" />
     <EntitySet Name="Exams" EntityType="Self.Exam" />
     <EntitySet Name="Exams_ClassSubjects" EntityType="Self.Exams_ClassSubjects" />
     <EntitySet Name="Exams_DateSheet" EntityType="Self.Exams_DateSheet" />
@@ -966,8 +866,14 @@
     <EntitySet Name="Commitments" EntityType="SMST4MModel.Commitment" />
     <EntitySet Name="Document_names" EntityType="SMST4MModel.Document_names" />
     <EntitySet Name="EmployeeAttendances" EntityType="SMST4MModel.EmployeeAttendance" />
-    <EntitySet Name="EmployeeLoans_History" EntityType="SMST4MModel.EmployeeLoans_History" />
     <EntitySet Name="EmployeeLoans" EntityType="SMST4MModel.EmployeeLoan" />
+    <EntitySet Name="EmployeeLoans_History" EntityType="SMST4MModel.EmployeeLoans_History" />
+    <EntitySet Name="EmployeePayments" EntityType="SMST4MModel.EmployeePayment" />
+    <EntitySet Name="EmployeePayments_History" EntityType="SMST4MModel.EmployeePayments_History" />
+    <EntitySet Name="EmployeePenalties" EntityType="SMST4MModel.EmployeePenalty" />
+    <EntitySet Name="EmployeeRefundableTypes" EntityType="SMST4MModel.EmployeeRefundableType" />
+    <EntitySet Name="EmployeeSecurityInstallments" EntityType="SMST4MModel.EmployeeSecurityInstallment" />
+    <EntitySet Name="EmployeeSecurityWithDraws" EntityType="SMST4MModel.EmployeeSecurityWithDraw" />
   </EntityContainer>
   <EntityType Name="TB_RegisterStudent">
     <Key>
@@ -1167,6 +1073,23 @@
     <Property Name="Leave" Type="Byte" />
     <Property Name="Offday" Type="Byte" />
   </EntityType>
+  <EntityType Name="EmployeeLoan">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="OperatorID" Type="Int32" />
+    <Property Name="AllowanceName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReceivedLoan" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ReturnedLoan" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="T_Date" Type="DateTime" Precision="0" />
+    <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="SalaryMonthID" Type="Int32" />
+    <Property Name="ChequeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentMethod" Type="Byte" />
+    <Property Name="Processesd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="EmployeeLoans_History">
     <Key>
       <PropertyRef Name="ID" />
@@ -1187,24 +1110,101 @@
     <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
     <Property Name="SalaryMonthID" Type="Int32" />
     <Property Name="ChequeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="Processesd" Type="Boolean" />
     <Property Name="PaymentMethod" Type="Byte" />
+    <Property Name="Processesd" Type="Byte" />
   </EntityType>
-  <EntityType Name="EmployeeLoan">
+  <EntityType Name="EmployeePayment">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="EmployeeID" Type="Int32" />
     <Property Name="OperatorID" Type="Int32" />
+    <Property Name="AllowanceAmountID" Type="Int32" />
     <Property Name="AllowanceName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="ReceivedLoan" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="ReturnedLoan" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Dues" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Received" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="T_Date" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Byte" />
     <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
     <Property Name="SalaryMonthID" Type="Int32" />
+    <Property Name="T_Type" Type="Int32" />
     <Property Name="ChequeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PenalityID" Type="Int32" />
     <Property Name="PaymentMethod" Type="Byte" />
-    <Property Name="Processesd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeSecurityInstallmentID" Type="Int32" />
+    <Property Name="Processesd" Type="Byte" />
+  </EntityType>
+  <EntityType Name="EmployeePayments_History">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ActionDate" Type="DateTime" Precision="0" />
+    <Property Name="ActionUserID" Type="Int32" />
+    <Property Name="EmployeePaymentsID" Type="Int32" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="OperatorID" Type="Int32" />
+    <Property Name="AllowanceAmountID" Type="Int32" />
+    <Property Name="AllowanceName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DuesFrom" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DuesTo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ReceivedFrom" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ReceivedTo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="T_Date" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="Remarks" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="SalaryMonthID" Type="Int32" />
+    <Property Name="T_Type" Type="Int32" />
+    <Property Name="ChequeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PenalityID" Type="Int32" />
+    <Property Name="Processesd" Type="Byte" />
+  </EntityType>
+  <EntityType Name="EmployeePenalty">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Detail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="EmployeeRefundableType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Detail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+  </EntityType>
+  <EntityType Name="EmployeeSecurityInstallment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="OperatorID" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="DepositType" Type="Int32" />
+    <Property Name="CurrentDate" Type="DateTime" Precision="0" />
+    <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeePaymentID" Type="Int32" />
+    <Property Name="SalaryMonthID" Type="Int32" />
+    <Property Name="RefundableTypeID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EmployeeSecurityWithDraw">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="SecurityWithdrawnByUser" Type="Byte" />
+    <Property Name="CurrentDate" Type="DateTime" Precision="0" />
+    <Property Name="WithDrawOperatorID" Type="Int32" />
+    <Property Name="WithDrawAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SalaryMonthID" Type="Int32" />
+    <Property Name="RefundableTypeID" Type="Int32" />
   </EntityType>
 </Schema>
