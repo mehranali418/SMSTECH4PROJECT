@@ -22,7 +22,7 @@ namespace SMSTech.Models
         public Nullable<decimal> ObtainMarksB { get; set; }
         public Nullable<decimal> ObtainMarksPractical { get; set; }
         public string Remarks { get; set; }
-        public Nullable<bool> PassFail { get; set; }
-        public Nullable<bool> ExcludeSubject { get; set; }
+        public Nullable<byte> PassFail { get; set; }
+        public Nullable<byte> ExcludeSubject { get; set; }
     }
 }

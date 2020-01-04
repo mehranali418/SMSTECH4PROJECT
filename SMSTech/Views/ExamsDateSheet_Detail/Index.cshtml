@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<br />
+<div class="container">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="row">
+                <input type="text" id="ID" style="display:none" />
+                <label class="control-label col-lg-2">DateSheet_id</label>
+                <input type="text" id="DateSheet_id" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">ExamClassSubject_id</label>
+                <input type="text" id="ExamClassSubject_id" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">Paper_date</label>
+                <input type="date" id="Paper_date" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <br />
+                <input type="button" value="Add" id="btn_Add" class="btn btn-primary" />
+                <input type="button" value="Update" id="btn_Update" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+        </div>
+
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>DateSheet_id</th>
+                <th>ExamClassSubject_id</th>
+                <th>Paper_date</th>
+                <th>Actions</th>
+            </tr>
+            <tbody id="body"></tbody>
+        </table>
+
+        <script src="~/scripts/jquery-1.10.2.min.js"></script>
+
+        <script>
+            var formData;
+            function GetData() {
+                $('#body').empty();
+                $.ajax({
+                    url: '/ExamsDateSheet_Detail/GetData',
+                    type: 'GET',
+                    dataType: 'json',
+                    contentType: 'application/json;charset=utf-8',
+                    success: function (result) {
+                        var rows = '';
+                        $.each(result, function (key, value) {
+                            rows = '<tr>'
+                                  + '<td>' + value.ID + '</td>'
+                                  + '<td>' + value.DateSheet_id + '</td>'
+                                  + '<td>' + value.ExamClassSubject_id + '</td>'
+                                  + '<td>' + value.Paper_date + '</td>'
+                                + '<td><input type="button" class="btn btn-primary edit" value="Edit"> <input type="button" class="btn btn-danger delete" value="Delete"></td>'
+                            '</tr>'
+                            $('#body').append(rows);
+                        })
+                    },
+                    error: function (result) {
+                    }
+                })
+            }
+            $(document).delegate('.edit', '.click', function () {
+                debugger
+                var rowValue = $(this).closest('tr');
+                var ID = rowValue.find("td:eq(0)").text();
+                var DateSheet_id = rowValue.find("td:eq(1)").text();
+                var ExamClassSubject_id = rowValue.find("td:eq(2)").text();
+                var Paper_date = rowValue.find("td:eq(3)").text();
+
+                $('#ID').val(ID);
+                $('#DateSheet_id').val(DateSheet_id);
+                $('#ExamClassSubject_id').val(ExamClassSubject_id);
+                $('#Paper_date').val(Paper_date);
+            })
+            $('#btn_Add').click(function () {
+                Add(formData);
+            })
+            function Add() {
+                debugger
+                var data = {};
+                data.DateSheet_id = $('#DateSheet_id').val();
+                data.ExamClassSubject_id = $('#ExamClassSubject_id').val();
+                data.Paper_date = $('#Paper_date').val();
+                $.ajax({
+                    url: "/ExamsDateSheet_Detail/Insert",
+                    data: JSON.stringify(data),
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function () {
+                        alert(" Success");
+                        GetData();
+                    },
+                    error: function () {
+                        alert("Failed");
+                    }
+                })
+            }
+        </script>
+

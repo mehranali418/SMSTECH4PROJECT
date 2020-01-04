@@ -1,0 +1,149 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<br />
+<div class="container">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="row">
+                <input type="text" id="ID" style="display:none" />
+                <label class="control-label col-lg-2">ExpenseHeadID</label>
+                <input type="text" id="ExpenseHeadID" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">UserID</label>
+                @Html.DropDownList("UserID", (IEnumerable<SelectListItem>)ViewBag.UserID, "Select UserID ", new { @class = "form-control col-lg-2" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">T_Date</label>
+                <input type="date" id="T_Date" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">Amount</label>
+                <input type="text" id="Amount" class="form-control col-lg-2" />
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">SalaryMonthID</label>
+                <input type="text" id="SalaryMonthID" class="form-control col-lg-2" />
+                <label class="control-label col-lg-2">Remarks</label>
+                <input type="text" id="Remarks" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label class="control-label col-lg-2">ExpenseTitle</label>
+                <input type="text" id="ExpenseTitle" class="form-control col-lg-2" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <input type="button" value="Add" id="btn_Add" class="btn btn-primary" />
+                <input type="button" value="Update" id="btn_Update" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>                
+        <th>ExpenseHeadID</th>
+        <th>UserID</th>
+        <th>T_Date</th>
+        <th>AmountTo</th>
+        <th>SalaryMonthID</th>
+        <th>Remarks</th>
+        <th>ExpenseTitle</th>
+        <th>Actions</th>
+    </tr>
+    <tbody id="body"></tbody>
+</table>
+
+<script src="~/scripts/jquery-1.10.2.min.js"></script>
+
+<script>
+            var formData;
+            function GetData() {
+                $('#body').empty();
+                $.ajax({
+                    url: '/ExpenseAmounts/GetData',
+                    type: 'GET',
+                    dataType: 'json',
+                    contentType: 'application/json;charset=utf-8',
+                    success: function (result) {
+                        var rows = '';
+                        $.each(result, function (key, value) {
+                            rows = '<tr>'
+                                + '<td>' + value.ID + '</td>'                                                                                                
+                                + '<td>' + value.ExpenseHeadID + '</td>'
+                                + '<td>' + value.UserID + '</td>'
+                                + '<td>' + value.T_Date + '</td>'
+                                + '<td>' + value.Amount + '</td>'
+                                + '<td>' + value.SalaryMonthID + '</td>'
+                                + '<td>' + value.Remarks + '</td>'
+                                + '<td>' + value.ExpenseTitle + '</td>'
+                                + '<td><input type="button" class="btn btn-primary edit" value="Edit"> <input type="button" class="btn btn-danger delete" value="Delete"></td>'
+                            '</tr>'
+                            $('#body').append(rows);
+                        })
+                    },
+                    error: function (result) {
+                    }
+                })
+            }
+            $(document).delegate('.edit', '.click', function () {
+                debugger
+                var rowValue = $(this).closest('tr');
+                var ID = rowValue.find("td:eq(0)").text();                               
+                var ExpenseHeadID = rowValue.find("td:eq(1)").text();
+                var UserID = rowValue.find("td:eq(2)").text();
+                var T_Date = rowValue.find("td:eq(3)").text();
+                var Amount = rowValue.find("td:eq(4)").text();
+                var SalaryMonthID = rowValue.find("td:eq(5)").text();
+                var Remarks = rowValue.find("td:eq(6)").text();
+                var ExpenseTitle = rowValue.find("td:eq(7)").text();
+
+                $('#ID').val(ID);                              
+                $('#ExpenseHeadID').val(ExpenseHeadID);
+                $('#UserID').val(UserID);
+                $('#T_Date').val(T_Date);
+                $('#Amount').val(Amount);
+                $('#SalaryMonthID').val(SalaryMonthID);
+                $('#Remarks').val(Remarks);
+                $('#ExpenseTitle').val(ExpenseTitle);
+            })
+            $('#btn_Add').click(function () {
+                Add(formData);
+            })
+            function Add() {
+                debugger
+                var data = {};                               
+                data.ExpenseHeadID = $('#ExpenseHeadID').val();
+                data.UserID = $('#UserID').val();
+                data.T_Date = $('#T_Date').val();
+                data.Amount = $('#Amount').val();
+                data.SalaryMonthID = $('#SalaryMonthID').val();
+                data.Remarks = $('#Remarks').val();
+                data.ExpenseTitle = $('#ExpenseTitle').val();
+                $.ajax({
+                    url: "/ExpenseAmounts/Insert",
+                    data: JSON.stringify(data),
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function () {
+                        alert(" Success");
+                        GetData();
+                    },
+                    error: function () {
+                        alert("Failed");
+                    }
+                })
+            }
+</script>
+
+

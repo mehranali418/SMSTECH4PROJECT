@@ -199,70 +199,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Exams_Groups">
-      <EntityTypeMapping TypeName="SMST4MModel.Exams_Groups">
-        <MappingFragment StoreEntitySet="Exams_Groups">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Exams_Marks">
-      <EntityTypeMapping TypeName="SMST4MModel.Exams_Marks">
-        <MappingFragment StoreEntitySet="Exams_Marks">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="ExamID" ColumnName="ExamID" />
-          <ScalarProperty Name="ExamClassSubject_id" ColumnName="ExamClassSubject_id" />
-          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
-          <ScalarProperty Name="ObtainMarksA" ColumnName="ObtainMarksA" />
-          <ScalarProperty Name="ObtainMarksB" ColumnName="ObtainMarksB" />
-          <ScalarProperty Name="ObtainMarksPractical" ColumnName="ObtainMarksPractical" />
-          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-          <ScalarProperty Name="PassFail" ColumnName="PassFail" />
-          <ScalarProperty Name="ExcludeSubject" ColumnName="ExcludeSubject" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Exams_Tests">
       <EntityTypeMapping TypeName="SMST4MModel.Exams_Tests">
         <MappingFragment StoreEntitySet="Exams_Tests">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Detail" ColumnName="Detail" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ExpenseAmount_History">
-      <EntityTypeMapping TypeName="SMST4MModel.ExpenseAmount_History">
-        <MappingFragment StoreEntitySet="ExpenseAmount_History">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="Action" ColumnName="Action" />
-          <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
-          <ScalarProperty Name="ActionUserID" ColumnName="ActionUserID" />
-          <ScalarProperty Name="ExpenseAmountID" ColumnName="ExpenseAmountID" />
-          <ScalarProperty Name="AmountFrom" ColumnName="AmountFrom" />
-          <ScalarProperty Name="AmountTo" ColumnName="AmountTo" />
-          <ScalarProperty Name="ExpenseHeadID" ColumnName="ExpenseHeadID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="T_Date" ColumnName="T_Date" />
-          <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
-          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-          <ScalarProperty Name="ExpenseTitle" ColumnName="ExpenseTitle" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ExpenseAmounts">
-      <EntityTypeMapping TypeName="SMST4MModel.ExpenseAmount">
-        <MappingFragment StoreEntitySet="ExpenseAmounts">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="ExpenseHeadID" ColumnName="ExpenseHeadID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="T_Date" ColumnName="T_Date" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
-          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-          <ScalarProperty Name="ExpenseTitle" ColumnName="ExpenseTitle" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1183,6 +1125,64 @@
           <ScalarProperty Name="CurrentDate" ColumnName="CurrentDate" />
           <ScalarProperty Name="SecurityWithdrawnByUser" ColumnName="SecurityWithdrawnByUser" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exams_Groups">
+      <EntityTypeMapping TypeName="SMST4MModel.Exams_Groups">
+        <MappingFragment StoreEntitySet="Exams_Groups">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exams_Marks">
+      <EntityTypeMapping TypeName="SMST4MModel.Exams_Marks">
+        <MappingFragment StoreEntitySet="Exams_Marks">
+          <ScalarProperty Name="ExcludeSubject" ColumnName="ExcludeSubject" />
+          <ScalarProperty Name="PassFail" ColumnName="PassFail" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="ObtainMarksPractical" ColumnName="ObtainMarksPractical" />
+          <ScalarProperty Name="ObtainMarksB" ColumnName="ObtainMarksB" />
+          <ScalarProperty Name="ObtainMarksA" ColumnName="ObtainMarksA" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="ExamClassSubject_id" ColumnName="ExamClassSubject_id" />
+          <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExpenseAmount_History">
+      <EntityTypeMapping TypeName="SMST4MModel.ExpenseAmount_History">
+        <MappingFragment StoreEntitySet="ExpenseAmount_History">
+          <ScalarProperty Name="ExpenseTitle" ColumnName="ExpenseTitle" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
+          <ScalarProperty Name="T_Date" ColumnName="T_Date" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ExpenseHeadID" ColumnName="ExpenseHeadID" />
+          <ScalarProperty Name="AmountTo" ColumnName="AmountTo" />
+          <ScalarProperty Name="AmountFrom" ColumnName="AmountFrom" />
+          <ScalarProperty Name="ExpenseAmountID" ColumnName="ExpenseAmountID" />
+          <ScalarProperty Name="ActionUserID" ColumnName="ActionUserID" />
+          <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExpenseAmounts">
+      <EntityTypeMapping TypeName="SMST4MModel.ExpenseAmount">
+        <MappingFragment StoreEntitySet="ExpenseAmounts">
+          <ScalarProperty Name="ExpenseTitle" ColumnName="ExpenseTitle" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="T_Date" ColumnName="T_Date" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ExpenseHeadID" ColumnName="ExpenseHeadID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -179,29 +179,6 @@
     <Property Name="Percentage" Type="Decimal" Precision="18" Scale="1" />
     <Property Name="SequenceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="Exams_Groups">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="IsActive" Type="Boolean" />
-  </EntityType>
-  <EntityType Name="Exams_Marks">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ExamID" Type="Int32" />
-    <Property Name="ExamClassSubject_id" Type="Int32" />
-    <Property Name="StudentID" Type="Int32" />
-    <Property Name="ObtainMarksA" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="ObtainMarksB" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="ObtainMarksPractical" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="PassFail" Type="Boolean" />
-    <Property Name="ExcludeSubject" Type="Boolean" />
-  </EntityType>
   <EntityType Name="Exams_Tests">
     <Key>
       <PropertyRef Name="ID" />
@@ -209,38 +186,6 @@
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="Detail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="ExpenseAmount_History">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ActionDate" Type="DateTime" Precision="0" />
-    <Property Name="ActionUserID" Type="Int32" />
-    <Property Name="ExpenseAmountID" Type="Int32" />
-    <Property Name="AmountFrom" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="AmountTo" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="ExpenseHeadID" Type="Int32" />
-    <Property Name="UserID" Type="Int32" />
-    <Property Name="T_Date" Type="DateTime" Precision="0" />
-    <Property Name="SalaryMonthID" Type="Int32" />
-    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="ExpenseTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <EntityType Name="ExpenseAmount">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ExpenseHeadID" Type="Int32" />
-    <Property Name="UserID" Type="Int32" />
-    <Property Name="T_Date" Type="DateTime" Precision="0" />
-    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="SalaryMonthID" Type="Int32" />
-    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="ExpenseTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="User" Relationship="Self.FK_ExpenseAmounts_ExpenseNames_userid" FromRole="ExpenseAmounts" ToRole="Users" />
   </EntityType>
   <EntityType Name="ExpenseCategory">
     <Key>
@@ -743,7 +688,7 @@
     <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="ExpenseAmounts" Relationship="Self.FK_ExpenseAmounts_ExpenseNames_userid" FromRole="Users" ToRole="ExpenseAmounts" />
+    <NavigationProperty Name="ExpenseAmounts" Relationship="SMST4MModel.FK_ExpenseAmounts_ExpenseNames_userid" FromRole="User" ToRole="ExpenseAmount" />
   </EntityType>
   <EntityType Name="Students_temp">
     <Key>
@@ -764,18 +709,6 @@
     <Property Name="Status" Type="Byte" />
     <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <Association Name="FK_ExpenseAmounts_ExpenseNames_userid">
-    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
-    <End Role="ExpenseAmounts" Type="Self.ExpenseAmount" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="ExpenseAmounts">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="SMST4MEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Academic_ClassRoutine_Days" EntityType="Self.Academic_ClassRoutine_Days" />
     <EntitySet Name="Academic_ClassSubjects" EntityType="Self.Academic_ClassSubjects" />
@@ -796,11 +729,7 @@
     <EntitySet Name="Exams_GeneralRemarks" EntityType="Self.Exams_GeneralRemarks" />
     <EntitySet Name="Exams_Grade" EntityType="Self.Exams_Grade" />
     <EntitySet Name="Exams_GroupCollections" EntityType="Self.Exams_GroupCollections" />
-    <EntitySet Name="Exams_Groups" EntityType="Self.Exams_Groups" />
-    <EntitySet Name="Exams_Marks" EntityType="Self.Exams_Marks" />
     <EntitySet Name="Exams_Tests" EntityType="Self.Exams_Tests" />
-    <EntitySet Name="ExpenseAmount_History" EntityType="Self.ExpenseAmount_History" />
-    <EntitySet Name="ExpenseAmounts" EntityType="Self.ExpenseAmount" />
     <EntitySet Name="ExpenseCategories" EntityType="Self.ExpenseCategory" />
     <EntitySet Name="ExpenseHeads" EntityType="Self.ExpenseHead" />
     <EntitySet Name="Experiences" EntityType="Self.Experience" />
@@ -845,10 +774,6 @@
     <EntitySet Name="StudentsMetas" EntityType="Self.StudentsMeta" />
     <EntitySet Name="Users" EntityType="Self.User" />
     <EntitySet Name="Students_temp" EntityType="Self.Students_temp" />
-    <AssociationSet Name="FK_ExpenseAmounts_ExpenseNames_userid" Association="Self.FK_ExpenseAmounts_ExpenseNames_userid">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="ExpenseAmounts" EntitySet="ExpenseAmounts" />
-    </AssociationSet>
     <EntitySet Name="TB_RegisterStudent" EntityType="SMST4MModel.TB_RegisterStudent" />
     <EntitySet Name="Academic_ClassRoutine" EntityType="SMST4MModel.Academic_ClassRoutine" />
     <EntitySet Name="Academic_Courses" EntityType="SMST4MModel.Academic_Courses" />
@@ -874,6 +799,14 @@
     <EntitySet Name="EmployeeRefundableTypes" EntityType="SMST4MModel.EmployeeRefundableType" />
     <EntitySet Name="EmployeeSecurityInstallments" EntityType="SMST4MModel.EmployeeSecurityInstallment" />
     <EntitySet Name="EmployeeSecurityWithDraws" EntityType="SMST4MModel.EmployeeSecurityWithDraw" />
+    <EntitySet Name="Exams_Groups" EntityType="SMST4MModel.Exams_Groups" />
+    <EntitySet Name="Exams_Marks" EntityType="SMST4MModel.Exams_Marks" />
+    <EntitySet Name="ExpenseAmount_History" EntityType="SMST4MModel.ExpenseAmount_History" />
+    <EntitySet Name="ExpenseAmounts" EntityType="SMST4MModel.ExpenseAmount" />
+    <AssociationSet Name="FK_ExpenseAmounts_ExpenseNames_userid" Association="SMST4MModel.FK_ExpenseAmounts_ExpenseNames_userid">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ExpenseAmount" EntitySet="ExpenseAmounts" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="TB_RegisterStudent">
     <Key>
@@ -1207,4 +1140,71 @@
     <Property Name="SalaryMonthID" Type="Int32" />
     <Property Name="RefundableTypeID" Type="Int32" />
   </EntityType>
+  <EntityType Name="Exams_Groups">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Exams_Marks">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExamID" Type="Int32" />
+    <Property Name="ExamClassSubject_id" Type="Int32" />
+    <Property Name="StudentID" Type="Int32" />
+    <Property Name="ObtainMarksA" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ObtainMarksB" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ObtainMarksPractical" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="PassFail" Type="Byte" />
+    <Property Name="ExcludeSubject" Type="Byte" />
+  </EntityType>
+  <EntityType Name="ExpenseAmount_History">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ActionDate" Type="DateTime" Precision="0" />
+    <Property Name="ActionUserID" Type="Int32" />
+    <Property Name="ExpenseAmountID" Type="Int32" />
+    <Property Name="AmountFrom" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AmountTo" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ExpenseHeadID" Type="Int32" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="T_Date" Type="DateTime" Precision="0" />
+    <Property Name="SalaryMonthID" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpenseTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ExpenseAmount">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExpenseHeadID" Type="Int32" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="T_Date" Type="DateTime" Precision="0" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="SalaryMonthID" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpenseTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="User" Relationship="SMST4MModel.FK_ExpenseAmounts_ExpenseNames_userid" FromRole="ExpenseAmount" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_ExpenseAmounts_ExpenseNames_userid">
+    <End Type="SMST4MModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="SMST4MModel.ExpenseAmount" Role="ExpenseAmount" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ExpenseAmount">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

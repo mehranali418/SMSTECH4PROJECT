@@ -476,7 +476,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
-          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsActive" Type="tinyint" />
         </EntityType>
         <EntityType Name="Exams_Marks">
           <Key>
@@ -490,8 +490,8 @@
           <Property Name="ObtainMarksB" Type="decimal" Precision="18" Scale="2" />
           <Property Name="ObtainMarksPractical" Type="decimal" Precision="18" Scale="2" />
           <Property Name="Remarks" Type="varchar" MaxLength="200" />
-          <Property Name="PassFail" Type="bit" />
-          <Property Name="ExcludeSubject" Type="bit" />
+          <Property Name="PassFail" Type="tinyint" />
+          <Property Name="ExcludeSubject" Type="tinyint" />
         </EntityType>
         <EntityType Name="Exams_Tests">
           <Key>
@@ -516,7 +516,7 @@
           <Property Name="UserID" Type="int" />
           <Property Name="T_Date" Type="smalldatetime" />
           <Property Name="SalaryMonthID" Type="int" />
-          <Property Name="Remarks" Type="text" />
+          <Property Name="Remarks" Type="varchar" MaxLength="50" />
           <Property Name="ExpenseTitle" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="ExpenseAmounts">
@@ -529,7 +529,7 @@
           <Property Name="T_Date" Type="smalldatetime" />
           <Property Name="Amount" Type="decimal" Precision="18" Scale="2" />
           <Property Name="SalaryMonthID" Type="int" />
-          <Property Name="Remarks" Type="text" />
+          <Property Name="Remarks" Type="varchar" MaxLength="50" />
           <Property Name="ExpenseTitle" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="ExpenseCategories">
@@ -1411,29 +1411,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="Percentage" Type="Decimal" Precision="18" Scale="1" />
           <Property Name="SequenceNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Exams_Groups">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="IsActive" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="Exams_Marks">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ExamID" Type="Int32" />
-          <Property Name="ExamClassSubject_id" Type="Int32" />
-          <Property Name="StudentID" Type="Int32" />
-          <Property Name="ObtainMarksA" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="ObtainMarksB" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="ObtainMarksPractical" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="PassFail" Type="Boolean" />
-          <Property Name="ExcludeSubject" Type="Boolean" />
-        </EntityType>
         <EntityType Name="Exams_Tests">
           <Key>
             <PropertyRef Name="ID" />
@@ -1441,38 +1418,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Detail" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="ExpenseAmount_History">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ActionDate" Type="DateTime" Precision="0" />
-          <Property Name="ActionUserID" Type="Int32" />
-          <Property Name="ExpenseAmountID" Type="Int32" />
-          <Property Name="AmountFrom" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="AmountTo" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="ExpenseHeadID" Type="Int32" />
-          <Property Name="UserID" Type="Int32" />
-          <Property Name="T_Date" Type="DateTime" Precision="0" />
-          <Property Name="SalaryMonthID" Type="Int32" />
-          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="ExpenseTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="ExpenseAmount">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ExpenseHeadID" Type="Int32" />
-          <Property Name="UserID" Type="Int32" />
-          <Property Name="T_Date" Type="DateTime" Precision="0" />
-          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="SalaryMonthID" Type="Int32" />
-          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="ExpenseTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK_ExpenseAmounts_ExpenseNames_userid" FromRole="ExpenseAmounts" ToRole="Users" />
         </EntityType>
         <EntityType Name="ExpenseCategory">
           <Key>
@@ -1975,7 +1920,7 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ExpenseAmounts" Relationship="Self.FK_ExpenseAmounts_ExpenseNames_userid" FromRole="Users" ToRole="ExpenseAmounts" />
+          <NavigationProperty Name="ExpenseAmounts" Relationship="SMST4MModel.FK_ExpenseAmounts_ExpenseNames_userid" FromRole="User" ToRole="ExpenseAmount" />
         </EntityType>
         <EntityType Name="Students_temp">
           <Key>
@@ -1996,18 +1941,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="Status" Type="Byte" />
           <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <Association Name="FK_ExpenseAmounts_ExpenseNames_userid">
-          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
-          <End Role="ExpenseAmounts" Type="Self.ExpenseAmount" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ExpenseAmounts">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="SMST4MEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Academic_ClassRoutine_Days" EntityType="Self.Academic_ClassRoutine_Days" />
           <EntitySet Name="Academic_ClassSubjects" EntityType="Self.Academic_ClassSubjects" />
@@ -2028,11 +1961,7 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <EntitySet Name="Exams_GeneralRemarks" EntityType="Self.Exams_GeneralRemarks" />
           <EntitySet Name="Exams_Grade" EntityType="Self.Exams_Grade" />
           <EntitySet Name="Exams_GroupCollections" EntityType="Self.Exams_GroupCollections" />
-          <EntitySet Name="Exams_Groups" EntityType="Self.Exams_Groups" />
-          <EntitySet Name="Exams_Marks" EntityType="Self.Exams_Marks" />
           <EntitySet Name="Exams_Tests" EntityType="Self.Exams_Tests" />
-          <EntitySet Name="ExpenseAmount_History" EntityType="Self.ExpenseAmount_History" />
-          <EntitySet Name="ExpenseAmounts" EntityType="Self.ExpenseAmount" />
           <EntitySet Name="ExpenseCategories" EntityType="Self.ExpenseCategory" />
           <EntitySet Name="ExpenseHeads" EntityType="Self.ExpenseHead" />
           <EntitySet Name="Experiences" EntityType="Self.Experience" />
@@ -2077,10 +2006,6 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <EntitySet Name="StudentsMetas" EntityType="Self.StudentsMeta" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="Students_temp" EntityType="Self.Students_temp" />
-          <AssociationSet Name="FK_ExpenseAmounts_ExpenseNames_userid" Association="Self.FK_ExpenseAmounts_ExpenseNames_userid">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="ExpenseAmounts" EntitySet="ExpenseAmounts" />
-          </AssociationSet>
           <EntitySet Name="TB_RegisterStudent" EntityType="SMST4MModel.TB_RegisterStudent" />
           <EntitySet Name="Academic_ClassRoutine" EntityType="SMST4MModel.Academic_ClassRoutine" />
           <EntitySet Name="Academic_Courses" EntityType="SMST4MModel.Academic_Courses" />
@@ -2106,6 +2031,14 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <EntitySet Name="EmployeeRefundableTypes" EntityType="SMST4MModel.EmployeeRefundableType" />
           <EntitySet Name="EmployeeSecurityInstallments" EntityType="SMST4MModel.EmployeeSecurityInstallment" />
           <EntitySet Name="EmployeeSecurityWithDraws" EntityType="SMST4MModel.EmployeeSecurityWithDraw" />
+          <EntitySet Name="Exams_Groups" EntityType="SMST4MModel.Exams_Groups" />
+          <EntitySet Name="Exams_Marks" EntityType="SMST4MModel.Exams_Marks" />
+          <EntitySet Name="ExpenseAmount_History" EntityType="SMST4MModel.ExpenseAmount_History" />
+          <EntitySet Name="ExpenseAmounts" EntityType="SMST4MModel.ExpenseAmount" />
+          <AssociationSet Name="FK_ExpenseAmounts_ExpenseNames_userid" Association="SMST4MModel.FK_ExpenseAmounts_ExpenseNames_userid">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ExpenseAmount" EntitySet="ExpenseAmounts" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="TB_RegisterStudent">
           <Key>
@@ -2439,6 +2372,73 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
           <Property Name="SalaryMonthID" Type="Int32" />
           <Property Name="RefundableTypeID" Type="Int32" />
         </EntityType>
+        <EntityType Name="Exams_Groups">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Exams_Marks">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExamID" Type="Int32" />
+          <Property Name="ExamClassSubject_id" Type="Int32" />
+          <Property Name="StudentID" Type="Int32" />
+          <Property Name="ObtainMarksA" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ObtainMarksB" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ObtainMarksPractical" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PassFail" Type="Byte" />
+          <Property Name="ExcludeSubject" Type="Byte" />
+        </EntityType>
+        <EntityType Name="ExpenseAmount_History">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ActionDate" Type="DateTime" Precision="0" />
+          <Property Name="ActionUserID" Type="Int32" />
+          <Property Name="ExpenseAmountID" Type="Int32" />
+          <Property Name="AmountFrom" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AmountTo" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ExpenseHeadID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="T_Date" Type="DateTime" Precision="0" />
+          <Property Name="SalaryMonthID" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExpenseTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ExpenseAmount">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExpenseHeadID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="T_Date" Type="DateTime" Precision="0" />
+          <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SalaryMonthID" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ExpenseTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="SMST4MModel.FK_ExpenseAmounts_ExpenseNames_userid" FromRole="ExpenseAmount" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_ExpenseAmounts_ExpenseNames_userid">
+          <End Type="SMST4MModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="SMST4MModel.ExpenseAmount" Role="ExpenseAmount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ExpenseAmount">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2643,70 +2643,12 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Exams_Groups">
-            <EntityTypeMapping TypeName="SMST4MModel.Exams_Groups">
-              <MappingFragment StoreEntitySet="Exams_Groups">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Exams_Marks">
-            <EntityTypeMapping TypeName="SMST4MModel.Exams_Marks">
-              <MappingFragment StoreEntitySet="Exams_Marks">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ExamID" ColumnName="ExamID" />
-                <ScalarProperty Name="ExamClassSubject_id" ColumnName="ExamClassSubject_id" />
-                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
-                <ScalarProperty Name="ObtainMarksA" ColumnName="ObtainMarksA" />
-                <ScalarProperty Name="ObtainMarksB" ColumnName="ObtainMarksB" />
-                <ScalarProperty Name="ObtainMarksPractical" ColumnName="ObtainMarksPractical" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-                <ScalarProperty Name="PassFail" ColumnName="PassFail" />
-                <ScalarProperty Name="ExcludeSubject" ColumnName="ExcludeSubject" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Exams_Tests">
             <EntityTypeMapping TypeName="SMST4MModel.Exams_Tests">
               <MappingFragment StoreEntitySet="Exams_Tests">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Detail" ColumnName="Detail" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ExpenseAmount_History">
-            <EntityTypeMapping TypeName="SMST4MModel.ExpenseAmount_History">
-              <MappingFragment StoreEntitySet="ExpenseAmount_History">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Action" ColumnName="Action" />
-                <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
-                <ScalarProperty Name="ActionUserID" ColumnName="ActionUserID" />
-                <ScalarProperty Name="ExpenseAmountID" ColumnName="ExpenseAmountID" />
-                <ScalarProperty Name="AmountFrom" ColumnName="AmountFrom" />
-                <ScalarProperty Name="AmountTo" ColumnName="AmountTo" />
-                <ScalarProperty Name="ExpenseHeadID" ColumnName="ExpenseHeadID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="T_Date" ColumnName="T_Date" />
-                <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-                <ScalarProperty Name="ExpenseTitle" ColumnName="ExpenseTitle" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ExpenseAmounts">
-            <EntityTypeMapping TypeName="SMST4MModel.ExpenseAmount">
-              <MappingFragment StoreEntitySet="ExpenseAmounts">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ExpenseHeadID" ColumnName="ExpenseHeadID" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="T_Date" ColumnName="T_Date" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-                <ScalarProperty Name="ExpenseTitle" ColumnName="ExpenseTitle" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3627,6 +3569,64 @@ warning 6002: The table/view 'SMST4M.dbo.Students_temp' does not have a primary 
                 <ScalarProperty Name="CurrentDate" ColumnName="CurrentDate" />
                 <ScalarProperty Name="SecurityWithdrawnByUser" ColumnName="SecurityWithdrawnByUser" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exams_Groups">
+            <EntityTypeMapping TypeName="SMST4MModel.Exams_Groups">
+              <MappingFragment StoreEntitySet="Exams_Groups">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exams_Marks">
+            <EntityTypeMapping TypeName="SMST4MModel.Exams_Marks">
+              <MappingFragment StoreEntitySet="Exams_Marks">
+                <ScalarProperty Name="ExcludeSubject" ColumnName="ExcludeSubject" />
+                <ScalarProperty Name="PassFail" ColumnName="PassFail" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="ObtainMarksPractical" ColumnName="ObtainMarksPractical" />
+                <ScalarProperty Name="ObtainMarksB" ColumnName="ObtainMarksB" />
+                <ScalarProperty Name="ObtainMarksA" ColumnName="ObtainMarksA" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="ExamClassSubject_id" ColumnName="ExamClassSubject_id" />
+                <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExpenseAmount_History">
+            <EntityTypeMapping TypeName="SMST4MModel.ExpenseAmount_History">
+              <MappingFragment StoreEntitySet="ExpenseAmount_History">
+                <ScalarProperty Name="ExpenseTitle" ColumnName="ExpenseTitle" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
+                <ScalarProperty Name="T_Date" ColumnName="T_Date" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ExpenseHeadID" ColumnName="ExpenseHeadID" />
+                <ScalarProperty Name="AmountTo" ColumnName="AmountTo" />
+                <ScalarProperty Name="AmountFrom" ColumnName="AmountFrom" />
+                <ScalarProperty Name="ExpenseAmountID" ColumnName="ExpenseAmountID" />
+                <ScalarProperty Name="ActionUserID" ColumnName="ActionUserID" />
+                <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExpenseAmounts">
+            <EntityTypeMapping TypeName="SMST4MModel.ExpenseAmount">
+              <MappingFragment StoreEntitySet="ExpenseAmounts">
+                <ScalarProperty Name="ExpenseTitle" ColumnName="ExpenseTitle" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="SalaryMonthID" ColumnName="SalaryMonthID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="T_Date" ColumnName="T_Date" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ExpenseHeadID" ColumnName="ExpenseHeadID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

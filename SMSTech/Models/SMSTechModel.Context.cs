@@ -44,11 +44,7 @@ namespace SMSTech.Models
         public virtual DbSet<Exams_GeneralRemarks> Exams_GeneralRemarks { get; set; }
         public virtual DbSet<Exams_Grade> Exams_Grade { get; set; }
         public virtual DbSet<Exams_GroupCollections> Exams_GroupCollections { get; set; }
-        public virtual DbSet<Exams_Groups> Exams_Groups { get; set; }
-        public virtual DbSet<Exams_Marks> Exams_Marks { get; set; }
         public virtual DbSet<Exams_Tests> Exams_Tests { get; set; }
-        public virtual DbSet<ExpenseAmount_History> ExpenseAmount_History { get; set; }
-        public virtual DbSet<ExpenseAmount> ExpenseAmounts { get; set; }
         public virtual DbSet<ExpenseCategory> ExpenseCategories { get; set; }
         public virtual DbSet<ExpenseHead> ExpenseHeads { get; set; }
         public virtual DbSet<Experience> Experiences { get; set; }
@@ -118,5 +114,9 @@ namespace SMSTech.Models
         public virtual DbSet<EmployeeRefundableType> EmployeeRefundableTypes { get; set; }
         public virtual DbSet<EmployeeSecurityInstallment> EmployeeSecurityInstallments { get; set; }
         public virtual DbSet<EmployeeSecurityWithDraw> EmployeeSecurityWithDraws { get; set; }
+        public virtual DbSet<Exams_Groups> Exams_Groups { get; set; }
+        public virtual DbSet<Exams_Marks> Exams_Marks { get; set; }
+        public virtual DbSet<ExpenseAmount_History> ExpenseAmount_History { get; set; }
+        public virtual DbSet<ExpenseAmount> ExpenseAmounts { get; set; }
     }
 }

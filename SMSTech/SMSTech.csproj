@@ -6741,6 +6741,21 @@
     <Compile Include="Controllers\EmployeeSecurityWithDrawsController.cs" />
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\ExamGradeController.cs" />
+    <Compile Include="Controllers\ExamsClassSubjectsController.cs" />
+    <Compile Include="Controllers\ExamsDateSheetController.cs" />
+    <Compile Include="Controllers\ExamsDateSheetNamesController.cs" />
+    <Compile Include="Controllers\ExamsDateSheet_DetailController.cs" />
+    <Compile Include="Controllers\ExamsGeneralRemarksController.cs" />
+    <Compile Include="Controllers\ExamsGradeController.cs" />
+    <Compile Include="Controllers\ExamsGroupCollectionsController.cs" />
+    <Compile Include="Controllers\ExamsGroupsController.cs" />
+    <Compile Include="Controllers\ExamsMarksController.cs" />
+    <Compile Include="Controllers\ExamsTestsController.cs" />
+    <Compile Include="Controllers\ExpenseAmountHistoryController.cs" />
+    <Compile Include="Controllers\ExpenseAmountsController.cs" />
+    <Compile Include="Controllers\ExpenseCategoriesController.cs" />
+    <Compile Include="Controllers\ExpenseHeadsController.cs" />
+    <Compile Include="Controllers\ExperiencesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RankController.cs" />
     <Compile Include="Controllers\ReligionController.cs" />
@@ -9887,6 +9902,21 @@
     <Content Include="Views\EmployeeRefundableTypes\Create.cshtml" />
     <Content Include="Views\EmployeeSecurityInstallments\Create.cshtml" />
     <Content Include="Views\EmployeeSecurityWithDraws\Create.cshtml" />
+    <Content Include="Views\ExamsClassSubjects\Index.cshtml" />
+    <Content Include="Views\ExamsDateSheet\Index.cshtml" />
+    <Content Include="Views\ExamsDateSheet_Detail\Index.cshtml" />
+    <Content Include="Views\ExamsDateSheetNames\Index.cshtml" />
+    <Content Include="Views\ExamsGeneralRemarks\Index.cshtml" />
+    <Content Include="Views\ExamsGrade\Index.cshtml" />
+    <Content Include="Views\ExamsGroupCollections\Index.cshtml" />
+    <Content Include="Views\ExamsGroups\Index.cshtml" />
+    <Content Include="Views\ExamsMarks\Index.cshtml" />
+    <Content Include="Views\ExamsTests\Index.cshtml" />
+    <Content Include="Views\ExpenseAmountHistory\Index.cshtml" />
+    <Content Include="Views\ExpenseAmounts\Index.cshtml" />
+    <Content Include="Views\ExpenseCategories\Index.cshtml" />
+    <Content Include="Views\ExpenseHeads\Index.cshtml" />
+    <Content Include="Views\Experiences\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
