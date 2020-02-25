@@ -276,8 +276,7 @@ namespace SMSTech.Controllers
             tmpStream.Read(imgBytes, 0, 800000);
             st.image = imgBytes;
             db.Students.Add(st);
-            db.SaveChanges();
-            db.Entry(st).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();           
             return Json("Saved Successfully");
 
         }

@@ -29,7 +29,6 @@ namespace SMSTech.Controllers
             ExamsClassSubjects.PassingMarks = data.PassingMarks;        
             db.Exams_ClassSubjects.Add(ExamsClassSubjects);
             db.SaveChanges();
-            db.Entry(ExamsClassSubjects).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
         }
     }

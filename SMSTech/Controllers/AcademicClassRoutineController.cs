@@ -30,7 +30,6 @@ namespace SMSTech.Controllers
             AcademiclassRoutine.Status = data.Status;
             db.Academic_ClassRoutine.Add(AcademiclassRoutine);
             db.SaveChanges();
-            db.Entry(AcademiclassRoutine).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
 
         }

@@ -26,7 +26,7 @@ namespace SMSTech.Controllers
             AcademicCourse.Is_deleted = data.Is_deleted;
             db.Academic_Courses.Add(AcademicCourse);
             db.SaveChanges();
-            db.Entry(AcademicCourse).State = System.Data.Entity.EntityState.Modified;
+            
             return Json("Saved Successfully");
 
         }

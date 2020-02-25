@@ -24,7 +24,7 @@ namespace SMSTech.Controllers
             Assessmentfindingdetail.Finding = data.Finding;
             db.AssessmentFindingDetails.Add(Assessmentfindingdetail);
             db.SaveChanges();
-            db.Entry(Assessmentfindingdetail).State = System.Data.Entity.EntityState.Modified;
+           
             return Json("Saved Successfully");
         }
     }

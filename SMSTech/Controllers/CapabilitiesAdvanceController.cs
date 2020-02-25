@@ -26,7 +26,7 @@ namespace SMSTech.Controllers
             CapabilitiesAdvance.Status = data.Status;          
             db.Capabilities_Advance.Add(CapabilitiesAdvance);
             db.SaveChanges();
-            db.Entry(CapabilitiesAdvance).State = System.Data.Entity.EntityState.Modified;
+            
             return Json("Saved Successfully");
 
         }

@@ -23,7 +23,6 @@ namespace SMSTech.Controllers
             ExamsTests.Detail = data.Detail;
             db.Exams_Tests.Add(ExamsTests);
             db.SaveChanges();
-            db.Entry(ExamsTests).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
         }
     }

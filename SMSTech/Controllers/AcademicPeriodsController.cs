@@ -25,7 +25,7 @@ namespace SMSTech.Controllers
             Academicperiod.PeriodNumber = data.PeriodNumber;
             db.Academic_Periods.Add(Academicperiod);
             db.SaveChanges();
-            db.Entry(Academicperiod).State = System.Data.Entity.EntityState.Modified;
+           
             return Json("Saved Successfully");
         }
     }

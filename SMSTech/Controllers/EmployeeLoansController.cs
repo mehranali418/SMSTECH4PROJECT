@@ -32,7 +32,7 @@ namespace SMSTech.Controllers
             Employeeloan.Processesd = data.Processesd;
             db.EmployeeLoans.Add(Employeeloan);
             db.SaveChanges();
-            db.Entry(Employeeloan).State = System.Data.Entity.EntityState.Modified;
+            
             return Json("Saved Successfully");
         }
     }

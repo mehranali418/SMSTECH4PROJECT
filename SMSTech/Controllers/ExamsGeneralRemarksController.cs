@@ -27,7 +27,6 @@ namespace SMSTech.Controllers
             ExamsGeneralRemarks.PositionInClass = data.PositionInClass;
             db.Exams_GeneralRemarks.Add(ExamsGeneralRemarks);
             db.SaveChanges();
-            db.Entry(ExamsGeneralRemarks).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
 
         }

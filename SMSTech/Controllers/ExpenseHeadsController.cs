@@ -23,7 +23,6 @@ namespace SMSTech.Controllers
             Expensehead.ExpenseCategoryID = data.ExpenseCategoryID;
             db.ExpenseHeads.Add(Expensehead);
             db.SaveChanges();
-            db.Entry(Expensehead).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
         }
     }

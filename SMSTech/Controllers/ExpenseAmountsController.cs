@@ -29,7 +29,6 @@ namespace SMSTech.Controllers
             Expenseamount.ExpenseTitle = data.ExpenseTitle;
             db.ExpenseAmounts.Add(Expenseamount);
             db.SaveChanges();
-            db.Entry(Expenseamount).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
         }
     }

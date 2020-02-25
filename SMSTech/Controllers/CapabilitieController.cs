@@ -26,7 +26,7 @@ namespace SMSTech.Controllers
             capability.Allowed = data.Allowed;
             db.Capabilities.Add(capability);
             db.SaveChanges();
-            db.Entry(capability).State = System.Data.Entity.EntityState.Modified;
+            
             return Json("Saved Successfully");
 
         }

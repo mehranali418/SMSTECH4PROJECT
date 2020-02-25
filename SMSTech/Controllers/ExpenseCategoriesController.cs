@@ -22,7 +22,6 @@ namespace SMSTech.Controllers
             ExamsGroups.Name = data.Name;
             db.ExpenseCategories.Add(ExamsGroups);
             db.SaveChanges();
-            db.Entry(ExamsGroups).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
         }
     }

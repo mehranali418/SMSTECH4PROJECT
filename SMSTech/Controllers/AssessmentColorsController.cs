@@ -25,7 +25,7 @@ namespace SMSTech.Controllers
             Assessmentcolor.Is_Active = data.Is_Active;
             db.AssessmentColors.Add(Assessmentcolor);
             db.SaveChanges();
-            db.Entry(Assessmentcolor).State = System.Data.Entity.EntityState.Modified;
+           
             return Json("Saved Successfully");
         }
     }

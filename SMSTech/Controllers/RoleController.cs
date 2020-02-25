@@ -40,7 +40,6 @@ namespace SMSTech.Controllers
             role.Type = data.Type;
             db.Roles.Add(role);
             db.SaveChanges();
-            db.Entry(role).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
         }
 

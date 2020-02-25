@@ -23,7 +23,6 @@ namespace SMSTech.Controllers
             ExamsGroups.IsActive = data.IsActive;
             db.Exams_Groups.Add(ExamsGroups);
             db.SaveChanges();
-            db.Entry(ExamsGroups).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
         }
     }

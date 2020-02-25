@@ -29,7 +29,7 @@ namespace SMSTech.Controllers
             Assessmentareas.Level = data.Level;
             db.AssessmentAreas.Add(Assessmentareas);
             db.SaveChanges();
-            db.Entry(Assessmentareas).State = System.Data.Entity.EntityState.Modified;
+          
             return Json("Saved Successfully");
         }
     }

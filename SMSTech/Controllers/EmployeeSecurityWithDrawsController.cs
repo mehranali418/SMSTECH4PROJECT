@@ -30,7 +30,6 @@ namespace SMSTech.Controllers
             EmployeeSecurityWithDraw.RefundableTypeID = data.RefundableTypeID;
             db.EmployeeSecurityWithDraws.Add(EmployeeSecurityWithDraw);
             db.SaveChanges();
-            db.Entry(EmployeeSecurityWithDraw).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
         }
     }

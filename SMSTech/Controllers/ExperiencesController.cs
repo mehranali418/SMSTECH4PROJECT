@@ -22,7 +22,6 @@ namespace SMSTech.Controllers
             experience.Name = data.Name;
             db.Experiences.Add(experience);
             db.SaveChanges();
-            db.Entry(experience).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
         }
     }

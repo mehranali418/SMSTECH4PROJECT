@@ -28,7 +28,7 @@ namespace SMSTech.Controllers
             Documentfiles.UserID = data.UserID;          
             db.Document_files.Add(Documentfiles);
             db.SaveChanges();
-            db.Entry(Documentfiles).State = System.Data.Entity.EntityState.Modified;
+            
             return Json("Saved Successfully");
 
         }

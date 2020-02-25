@@ -28,7 +28,7 @@ namespace SMSTech.Controllers
             commitment.Details = data.Details;
             db.Commitments.Add(commitment);
             db.SaveChanges();
-            db.Entry(commitment).State = System.Data.Entity.EntityState.Modified;
+           
             return Json("Saved Successfully");
 
         }

@@ -38,7 +38,6 @@ namespace SMSTech.Controllers
             Employeepayment.Processesd = data.Processesd;
             db.EmployeePayments.Add(Employeepayment);
             db.SaveChanges();
-            db.Entry(Employeepayment).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
         }
     }

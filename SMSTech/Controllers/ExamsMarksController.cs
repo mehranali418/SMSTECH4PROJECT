@@ -31,7 +31,6 @@ namespace SMSTech.Controllers
             ExamsMarks.ExcludeSubject = data.ExcludeSubject;
             db.Exams_Marks.Add(ExamsMarks);
             db.SaveChanges();
-            db.Entry(ExamsMarks).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
         }
     }

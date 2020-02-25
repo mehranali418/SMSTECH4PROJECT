@@ -23,7 +23,6 @@ namespace SMSTech.Controllers
             ExamsDateSheet.Section_id = data.Section_id;
             db.Exams_DateSheet.Add(ExamsDateSheet);
             db.SaveChanges();
-            db.Entry(ExamsDateSheet).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
         }
     }

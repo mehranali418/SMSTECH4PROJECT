@@ -24,7 +24,7 @@ namespace SMSTech.Controllers
             Assessmentcategory.Status = data.Status;
             db.AssessmentCategories.Add(Assessmentcategory);
             db.SaveChanges();
-            db.Entry(Assessmentcategory).State = System.Data.Entity.EntityState.Modified;
+            
             return Json("Saved Successfully");
         }
     }

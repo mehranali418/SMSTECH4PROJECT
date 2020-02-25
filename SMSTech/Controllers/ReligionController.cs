@@ -36,7 +36,6 @@ namespace SMSTech.Controllers
             religion.Name = data.Name;     
             db.Religions.Add(religion);
             db.SaveChanges();
-            db.Entry(religion).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
 
         }

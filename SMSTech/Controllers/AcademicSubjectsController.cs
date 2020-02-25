@@ -24,7 +24,7 @@ namespace SMSTech.Controllers
             AcademicSubjects.Status = data.Status;
             db.Academic_Subjects.Add(AcademicSubjects);
             db.SaveChanges();
-            db.Entry(AcademicSubjects).State = System.Data.Entity.EntityState.Modified;
+            
             return Json("Saved Successfully");
         }
     }

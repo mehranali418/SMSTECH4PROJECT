@@ -23,7 +23,7 @@ namespace SMSTech.Controllers
             AcademicHolydays.S_Date = data.S_Date;
             db.Academic_Holydays.Add(AcademicHolydays);
             db.SaveChanges();
-            db.Entry(AcademicHolydays).State = System.Data.Entity.EntityState.Modified;
+            
             return Json("Saved Successfully");
         }
     }

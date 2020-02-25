@@ -32,7 +32,6 @@ namespace SMSTech.Controllers
             EmployeeSecurityInstallment.RefundableTypeID = data.RefundableTypeID;          
             db.EmployeeSecurityInstallments.Add(EmployeeSecurityInstallment);
             db.SaveChanges();
-            db.Entry(EmployeeSecurityInstallment).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
         }
     }

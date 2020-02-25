@@ -24,7 +24,7 @@ namespace SMSTech.Controllers
             AcademicDays.DayNumber = data.DayNumber;         
             db.Academic_Days.Add(AcademicDays);
             db.SaveChanges();
-            db.Entry(AcademicDays).State = System.Data.Entity.EntityState.Modified;
+            
             return Json("Saved Successfully");
         }
     }

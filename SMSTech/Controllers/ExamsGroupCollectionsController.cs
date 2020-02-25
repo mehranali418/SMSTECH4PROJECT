@@ -25,7 +25,6 @@ namespace SMSTech.Controllers
             ExamsGroupCollections.SequenceNumber = data.SequenceNumber;
             db.Exams_GroupCollections.Add(ExamsGroupCollections);
             db.SaveChanges();
-            db.Entry(ExamsGroupCollections).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
 
         }

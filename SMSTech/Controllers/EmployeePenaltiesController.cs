@@ -24,7 +24,6 @@ namespace SMSTech.Controllers
             EmployeePenalty.Detail = data.Detail;          
             db.EmployeePenalties.Add(EmployeePenalty);
             db.SaveChanges();
-            db.Entry(EmployeePenalty).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
 
         }

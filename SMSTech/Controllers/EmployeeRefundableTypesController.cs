@@ -25,7 +25,6 @@ namespace SMSTech.Controllers
             EmployeeRefundabletype.Status = data.Status;
             db.EmployeeRefundableTypes.Add(EmployeeRefundabletype);
             db.SaveChanges();
-            db.Entry(EmployeeRefundabletype).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
         }
     }

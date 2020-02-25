@@ -26,7 +26,7 @@ namespace SMSTech.Controllers
             AcademicCourseStudents.Duration = data.Duration;
             db.Academic_CourseStudents.Add(AcademicCourseStudents);
             db.SaveChanges();
-            db.Entry(AcademicCourseStudents).State = System.Data.Entity.EntityState.Modified;
+            
             return Json("Saved Successfully");
         }
     }

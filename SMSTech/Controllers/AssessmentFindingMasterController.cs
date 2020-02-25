@@ -36,7 +36,7 @@ namespace SMSTech.Controllers
             Assessmentfindingmaster.Editable = data.Editable;
             db.AssessmentFindingMasters.Add(Assessmentfindingmaster);
             db.SaveChanges();
-            db.Entry(Assessmentfindingmaster).State = System.Data.Entity.EntityState.Modified;
+            
             return Json("Saved Successfully");
 
         }

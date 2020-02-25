@@ -24,7 +24,6 @@ namespace SMSTech.Controllers
             ExamsDateSheetDetail.Paper_date = data.Paper_date;
             db.Exams_DateSheet_Detail.Add(ExamsDateSheetDetail);
             db.SaveChanges();
-            db.Entry(ExamsDateSheetDetail).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
         }
     }

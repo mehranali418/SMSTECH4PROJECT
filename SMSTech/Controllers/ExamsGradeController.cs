@@ -25,7 +25,6 @@ namespace SMSTech.Controllers
             ExamsGrade.Level_id = data.Level_id;
             db.Exams_Grade.Add(ExamsGrade);
             db.SaveChanges();
-            db.Entry(ExamsGrade).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
 
         }

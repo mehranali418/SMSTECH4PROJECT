@@ -114,7 +114,7 @@
         data.PeriodID = $('#PeriodID').val();
         data.Status = $('#Status').val();
         $.ajax({
-            url: "/AcademicClassRoutine/Insert",
+            url:"/AcademicClassRoutine/Insert",
             data: JSON.stringify(data),
             type: "POST",
             contentType: "application/json;charset=utf-8",

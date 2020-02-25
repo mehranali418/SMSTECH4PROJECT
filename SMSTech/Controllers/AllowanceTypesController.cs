@@ -27,7 +27,7 @@ namespace SMSTech.Controllers
             Allowancetypess.SequenceNumber = data.SequenceNumber;          
             db.AllowanceTypes.Add(Allowancetypess);
             db.SaveChanges();
-            db.Entry(Allowancetypess).State = System.Data.Entity.EntityState.Modified;
+            
             return Json("Saved Successfully");
         }
     }

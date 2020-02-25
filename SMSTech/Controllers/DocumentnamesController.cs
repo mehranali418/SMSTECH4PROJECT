@@ -24,7 +24,7 @@ namespace SMSTech.Controllers
             Documentnames.DocType = data.DocType;            
             db.Document_names.Add(Documentnames);
             db.SaveChanges();
-            db.Entry(Documentnames).State = System.Data.Entity.EntityState.Modified;
+            
             return Json("Saved Successfully");
 
         }

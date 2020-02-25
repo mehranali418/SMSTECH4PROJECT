@@ -36,7 +36,6 @@ namespace SMSTech.Controllers
             rank.Name = data.Name;
             db.Ranks.Add(rank);
             db.SaveChanges();
-            db.Entry(rank).State = System.Data.Entity.EntityState.Modified;
             return Json("Saved Successfully");
         }
     }

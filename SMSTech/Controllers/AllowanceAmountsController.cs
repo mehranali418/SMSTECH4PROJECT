@@ -27,7 +27,7 @@ namespace SMSTech.Controllers
             Allowanceamount.AllowanceAmountID = data.AllowanceAmountID;
             db.AllowanceAmounts.Add(Allowanceamount);
             db.SaveChanges();
-            db.Entry(Allowanceamount).State = System.Data.Entity.EntityState.Modified;
+            
             return Json("Saved Successfully");
         }
     }
